@@ -69,6 +69,9 @@ function check_cookie(game) {
             timer: '3000'
         }).then((result) => {
 
+            $this = $(".playButton");
+            $this.prop("disabled", true);
+
             // kirim ke API 
             $.ajax({
                 url: url_website + 'player',
@@ -91,6 +94,11 @@ function check_cookie(game) {
                         text: 'Something Wrong Happen, please try again!',
                         showConfirmButton: false,
                         timer: '3000'
+                    }).then(() => {
+                        
+                        $this = $(".playButton");
+                        $this.prop("disabled", false);
+
                     });
                 }
             });
@@ -134,6 +142,9 @@ function check_cookie(game) {
                     timer: '1700',
                 }).then((result) => {
 
+                    $this = $(".playButton");
+                    $this.prop("disabled", true);
+
                     // kirim ke API 
                     $.ajax({
                         url: url_website + 'player',
@@ -161,6 +172,11 @@ function check_cookie(game) {
                                 text: 'Something Wrong Happen, please try again!',
                                 showConfirmButton: false,
                                 timer: '3000'
+                            }).then(() => {
+                                
+                                $this = $(".playButton");
+                                $this.prop("disabled", false);
+
                             });
                         }
                     });
@@ -376,6 +392,9 @@ $(function () {
 
         var url = 'http://localhost/rest-api/public/';
 
+        $this = $(".saranButton");
+        $this.prop("disabled", true);
+
         $.ajax({
             url: url + 'saran',
             type: 'POST',
@@ -390,18 +409,28 @@ $(function () {
                     icon: 'success',
                     title: 'Success!',
                     text: 'Your Message Have been sent!...',
+                    showConfirmButton: false,
+                    timer: '3200'
+                }).then(() => {
+                    
+                    // clear all fields
+                    $('.sendMessage').trigger('reset');
                 });
-
-                // clear all fields
-                $('.sendMessage').trigger('reset');
+                    
             },
             error: function () {
                 // Fail message with sweetalert2
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops..',
-                    text: 'Can\'t Send your message!...' + firstName,
-                    footer: 'please check your connection , and try again later!'
+                    text: 'please check your connection , and try again later!',
+                    showConfirmButton: false,
+                    timer: '3200'
+                }).then(() => {
+                    
+                    $this = $(".saranButton");
+                    $this.prop("disabled", false);
+                    
                 });
             }
         });

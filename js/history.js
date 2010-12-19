@@ -48,10 +48,11 @@ $(function () {
                 $('.class-title').html(`
                     <i class="fa fa-user-circle fa-fw" aria-hidden="true"></i> Top Player
                 `);
-                $('.breadcrumb-item.active').html('Top Player 1-10');
+                $('.breadcrumb-item.active').html('Top Player 1-100');
                 $('.alert-tip').hide();
 
                 $('.log-player').hide();
+                $('.my_rank').show();
                 $('.top-player').show();
                 break;
 
@@ -63,7 +64,7 @@ $(function () {
                 $('.alert-tip').show();
 
                 $('.log-player').show();
-                $('.top-player').hide();
+                $('.my_rank').hide();
                 break;
 
             default:
@@ -294,7 +295,7 @@ $(function () {
 
     });
 
-    // top-player
+    // top-player : all
     $.ajax({
         url: 'http://localhost/rest-api/public/player/view_points',
         method: 'POST',
@@ -321,11 +322,11 @@ $(function () {
 
                     $('.top-player').append(`
                
-                <div class="shadow card p-2 mb-3 border-bottom-primary">
+                <div class="shadow card p-2 mb-3 border-bottom-success bg-dark" id="#my_rank">
                 <div class="d-flex align-items-center">
                     <div class="mx-2">
-                        <p class="text-dark mb-0"> ` + firstName + ` </p>
-                        <div class="small text-info">` + data.rank + ` . <i class="fa fa-star fa-fw" aria-hidden="true"></i> ` + data.points + `
+                        <p class="text-white mb-0"> <i class="fas fa-user-circle fa-fw"></i> ` + firstName + ` </p>
+                        <div class="small text-warning">` + data.rank + ` . <i class="fa fa-star fa-fw" aria-hidden="true"></i> ` + data.points + `
                         </div>
                     </div>
                 </div>
@@ -334,7 +335,7 @@ $(function () {
                 } else {
                     $('.top-player').append(`
                
-                <div class="shadow card p-2 mb-3">
+                <div class="shadow card p-2 mb-3 border-bottom-primary">
                 <div class="d-flex align-items-center">
                     <div class="mx-2">
                         <p class="text-dark mb-0"> ` + firstName + ` </p>
@@ -347,6 +348,55 @@ $(function () {
                 }
             });
         }
+    });
+
+    $('.hide').hide();
+
+    // my rank 
+    $('.view_my_rank').on('click', function (e) {
+        e.preventDefault();
+
+        const player = get_cookie('player_key');
+
+        $(this).hide();
+
+        // ajax 
+        $.ajax({
+            url: 'http://localhost/rest-api/public/player/view_my_point',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                name: player
+            },
+            cache: false,
+            success: function (data) {
+                $('.view_rank').html(`
+                
+                <div class="shadow card p-2 mb-3 border-bottom-success bg-dark">
+                <div class="d-flex align-items-center">
+                    <div class="mx-2">
+                        <p class="text-white mb-0"> <i class="fas fa-user-circle fa-fw"></i> ` + data.player + ` </p>
+                        <div class="small text-warning">` + data.rank + ` . <i class="fa fa-star fa-fw" aria-hidden="true"></i> ` + data.points + `
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+                `);
+
+                $('.hide').show();
+            }
+        });
+
+        $('.hide').on('click', function (e) {
+            e.preventDefault();
+
+            $('.view_rank').html('');
+
+            $(this).hide();
+            $('.view_my_rank').show();
+        })
+        
     });
 
 });

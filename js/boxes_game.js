@@ -321,13 +321,14 @@ $(function () {
     // Quit Game 
     $('.quit').on('click', function (e) {
         e.preventDefault();
-
+        $(this).prop('disabled', true);
 
         Swal.fire({
             icon: 'question',
-            title: 'Anda Yakin??',
+            title: 'Quit Game??',
             showCancelButton: true,
-            confirmButtonText: 'Ya , keluar',
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
         }).then((result) => {
@@ -340,6 +341,9 @@ $(function () {
                 }).then(() => {
                     document.location.href = '../';
                 });
+            } else {
+                
+                $(this).prop('disabled', false);
             }
         });
     });

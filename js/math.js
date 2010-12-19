@@ -528,13 +528,10 @@ $(function () {
                     Swal.fire({
                         icon: 'success',
                         title: 'Claimed!',
-                        text: 'Kamu Mendapatkan 10 Star !',
+                        text: 'Kamu Mendapatkan '+ points +' Star !',
                         showConfirmButton: false,
                         timer: '2400'
                     });
-                    // then((result) => {
-                    //     document.location.href = ''; 
-                    // });
                 },
                 error: function () {
                     Swal.fire({
@@ -559,6 +556,8 @@ $(function () {
     $('.quit').on('click', function (e) {
         e.preventDefault();
 
+        $(this).prop("disabled", true);
+
         Swal.fire({
             icon: 'question',
             title: 'Quit Game ??',
@@ -581,6 +580,8 @@ $(function () {
                     title: 'Wise Choise',
                     showConfirmButton: false,
                     timer: '1700'
+                }).then(() => {
+                    $(this).prop("disabled", false);
                 });
             }
         })

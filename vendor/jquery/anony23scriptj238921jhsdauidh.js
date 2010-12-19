@@ -73,6 +73,9 @@ $('.keyAccess').on('click', function (e) {
                 // inputan passkey user
                 openKeyPass = result.value[0];
 
+                $this = $(".keyAccess");
+                $this.prop("disabled", true);
+
                 $.ajax({
                     url: hostURL,
                     type: 'post',
@@ -91,7 +94,7 @@ $('.keyAccess').on('click', function (e) {
                             showConfirmButton: false,
                             timer: '2000'
                         }).then((result) => {
-
+                            // arahkan ke halaman log
                             document.location.href = 'log/';
                         });
                     },
@@ -103,6 +106,9 @@ $('.keyAccess').on('click', function (e) {
                             text: 'Pass Key Anda Salah !',
                             showConfirmButton: false,
                             timer: '2000'
+                        }).then(() => {
+                            $this = $(".keyAccess");
+                            $this.prop("disabled", false);
                         });
                     }
                 });
@@ -110,15 +116,7 @@ $('.keyAccess').on('click', function (e) {
         });
 
     } else {
-
-        Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            showConfirmButton: false,
-            timer: '1700'
-        }).then((result) => {
-            
-            document.location.href = 'log/';
-        })
+        // arahkan langsung ke halaman log
+        document.location.href = 'log/';
     }
 });
