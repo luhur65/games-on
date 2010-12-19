@@ -236,7 +236,7 @@ $(function () {
     $('.clear-history').on('click', function (e) {
         e.preventDefault();
 
-        const player = get_cookie('player');
+        const player = get_cookie('player_key');
 
         Swal.fire({
             icon: 'question',
