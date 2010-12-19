@@ -69,18 +69,12 @@ function winner(comp, player) {
             $('.tombolSuit').removeClass('btn-group');
             $('.til').hide();
             $('.tombolSuit').hide();
-
-            $('.player').addClass('winner');
-            $('.comp').addClass('loser');
+            $('.reward3').show();
             $('.playagain').show();
-            $('.player').html(`
-            Winner, <i class="fas fa-medal fa-fw"></i>
-            `);
+            $('.player').html(``);
             $('.player-score').html(player.length);
             $('.comp-score').html(comp.length);
-            $('.comp').html(`
-            Comp Lose , <i class="fas fa-sad-cry fa-fw"></i>
-            `);
+            $('.comp').html(``);
 
         } else {
 
@@ -366,12 +360,77 @@ $(function () {
     // suit comp
     $('.suitcomp').on('click', function (e) {
         e.preventDefault();
-        // show alert forebidden
-        // Swal.fire({
-        //     icon: 'error',
-        //     title: 'Forbidden!',
-        //     text: '!'
-        // });
+    });
+
+
+    // reward 5 Star
+    $('.reward3').on('click', function () {
+        // ucapan Congratulations!
+
+        var points = Math.ceil(Math.random() * 100);
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Congratulations!',
+            text: 'Anda Mendapatkan ' + points + ' Star!',
+            showConfirmButton: false,
+            timer: '3000'
+        }).then((_result) => {
+
+            $this = $(".reward3");
+            $this.prop("disabled", true);
+
+            const player = get_cookie('player');
+
+            $.ajax({
+                url: 'http://localhost/rest-api/public/player/points',
+                type: 'post',
+                data: {
+                    player: player,
+                    points: points
+                },
+                cache: false,
+                success: function () {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Claimed!',
+                        showConfirmButton: false,
+                        timer: '2400'
+                    }).then((result) => {
+                        Swal.fire({
+                            icon: 'question',
+                            title: 'main lagi??',
+                            showCancelButton: true,
+                            confirmButtonText: 'Yes',
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                        }).then((result) => {
+                            if (result.value) {
+                                // main lagi
+                                document.location.href = '';
+                            } else {
+                                // keluar
+                                document.location.href = '../';
+                            }
+                        });
+                    });
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Failed !',
+                        text: 'Please Try Again!',
+                        showConfirmButton: false,
+                        timer: '1700'
+                    }).then((result) => {
+                        setTimeout(function() {
+                            $this.prop("disabled", false);
+                            // Re-enable submit button when AJAX call is complete
+                          }, 1000);
+                    });
+                }
+            });
+        });
     });
 
 

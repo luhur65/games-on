@@ -48,7 +48,7 @@ $(function () {
                 $('.class-title').html(`
                     <i class="fa fa-user-circle fa-fw" aria-hidden="true"></i> Top Player
                 `);
-                $('.breadcrumb-item.active').html('Top Player');
+                $('.breadcrumb-item.active').html('Top Player 1-10');
                 $('.alert-tip').hide();
 
                 $('.log-player').hide();
@@ -292,6 +292,61 @@ $(function () {
 
         page_viewing(page);
 
+    });
+
+    // top-player
+    $.ajax({
+        url: 'http://localhost/rest-api/public/player/view_points',
+        method: 'POST',
+        dataType: 'json',
+        data: {},
+        cache: false,
+        success: function (data) {
+
+            const player = data;
+            const key = get_cookie('player_key');
+
+            $.each(player, function (i, data) {
+
+                var firstName = data.player;
+
+                // Check for white space in name for Success/Fail message
+                if (firstName.indexOf(' ') >= 0) {
+                    firstName = data.player.split(' ').slice(0, -1).join(' ');
+                }
+
+
+                // top-player
+                if (key == firstName) {
+
+                    $('.top-player').append(`
+               
+                <div class="shadow card p-2 mb-3 border-bottom-primary">
+                <div class="d-flex align-items-center">
+                    <div class="mx-2">
+                        <p class="text-dark mb-0"> ` + firstName + ` </p>
+                        <div class="small text-info">` + data.rank + ` . <i class="fa fa-star fa-fw" aria-hidden="true"></i> ` + data.points + `
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `)
+                } else {
+                    $('.top-player').append(`
+               
+                <div class="shadow card p-2 mb-3">
+                <div class="d-flex align-items-center">
+                    <div class="mx-2">
+                        <p class="text-dark mb-0"> ` + firstName + ` </p>
+                        <div class="small text-info">` + data.rank + ` . <i class="fa fa-star fa-fw" aria-hidden="true"></i> ` + data.points + `
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `)
+                }
+            });
+        }
     });
 
 });

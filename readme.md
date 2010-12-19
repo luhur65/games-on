@@ -20,6 +20,9 @@ Alertnya menggunakan `sweetalert` tidak menggunakan alert bawaan dari browser.
 <p>Backsound / Music Latar Yang Relax</p>
 <p>Fitur Dark Mode / Light Mode. </p>
 <p>Fitur Progress Bar game.</p>
+<p>Reward Game : Star Points</p>
+<p>Top Player</p>
+<p>Sistem Rank Player</p>
 
 **Note:**
 semua game akan di kembangkan dan dibuat semenarik mungkin.

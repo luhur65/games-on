@@ -55,19 +55,19 @@ svg {
 }
 
 .winner {
-    background-color: #1cc88a;
+    background-color: #5af7bd;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
-    color: white;
+    color: rgb(17, 17, 17);
 }
 
 .loser {
-    background-color: #e74a3b;
+    background-color: #fa8176;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
-    color: white;
+    color: rgb(27, 27, 27);
 }
 
 
@@ -163,6 +163,13 @@ svg {
 
 hr {
     width: 20rem;
+}
+
+.kerjakanSoal .reward,
+.card-body .reward2,
+.card-body .reward3,
+.card-body .reward4 {
+    display: none;
 }
 
 

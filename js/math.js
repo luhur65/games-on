@@ -78,47 +78,18 @@ $(function () {
 
                                 // cek jika sudah 100%
                                 if (bar >= 100) {
-                                    // ucapan Congratulations!
+                                    
                                     Swal.fire({
                                         icon: 'success',
-                                        title: 'Congratulations!',
-                                        text: 'Anda Mendapatkan 10 Points!',
-                                    }).then((_result) => {
+                                        title: 'Acomplished!',
+                                        text: 'Proggress Anda Telah 100%',
+                                        showConfirmButton: false,
+                                        timer: '3000'
+                                    }).then((result) => {
 
-                                        const player = get_cookie('player');
-                                        const points = 10;
+                                        $(this).hide();
+                                        $('.kerjakanSoal .reward').show(); 
 
-                                        $.ajax({
-                                            url: 'http://localhost/rest-api/public/player/points',
-                                            type: 'post',
-                                            data: {
-                                                player: player,
-                                                points: points
-                                            },
-                                            cache: false,
-                                            success: function () {
-                                                
-                                                Swal.fire({
-                                                    icon: 'question',
-                                                    title: 'Lagi ??',
-                                                    text: 'Anda Ingin Bermain Lagi ??',
-                                                    showCancelButton: true,
-                                                    confirmButtonColor: '#3085d6',
-                                                    cancelButtonColor: '#d33',
-                                                }).then((result) => {
-                                                    if (result.value) {
-
-                                                        gameTypeMudah(mode, skor);
-
-                                                    } else {
-
-                                                        // ke halaman pemilihan mode
-                                                        document.location.href = '';
-                                                    }
-                                                });
-                                            }
-                                        });
-                                        
                                     });
 
                                     // mainkan lagi game , jika belum 100%
@@ -217,11 +188,15 @@ $(function () {
                                     // ucapan Congratulations!
                                     Swal.fire({
                                         icon: 'success',
-                                        title: 'Congratulations!',
-                                        text: 'Anda Telah Menyelesaikan Progress Anda!',
-                                    }).then((_result) => {
-                                        // redirect halaman
-                                        document.location.href = '';
+                                        title: 'Acomplished!',
+                                        text: 'Proggress Anda Telah 100%',
+                                        showConfirmButton: false,
+                                        timer: '3000'
+                                    }).then((result) => {
+
+                                        $(this).hide();
+                                        $('.kerjakanSoal .reward').show(); 
+
                                     });
 
                                     // mainkan lagi game , jika belum 100%
@@ -320,11 +295,15 @@ $(function () {
                                     // ucapan Congratulations!
                                     Swal.fire({
                                         icon: 'success',
-                                        title: 'Congratulations!',
-                                        text: 'Anda Telah Menyelesaikan Progress Anda!',
-                                    }).then((_result) => {
-                                        // redirect halaman
-                                        document.location.href = '';
+                                        title: 'Acomplished!',
+                                        text: 'Proggress Anda Telah 100%',
+                                        showConfirmButton: false,
+                                        timer: '3000'
+                                    }).then((result) => {
+
+                                        $(this).hide();
+                                        $('.kerjakanSoal .reward').show(); 
+
                                     });
 
                                     // mainkan lagi game , jika belum 100%
@@ -516,6 +495,63 @@ $(function () {
         // function playing()
         playing(mode);
 
+    });
+
+    // reward 10 Star
+    $('.kerjakanSoal .reward').on('click', function () {
+        // ucapan Congratulations!
+
+        var points = Math.ceil(Math.random() * 100);
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Congratulations!',
+            text: 'Anda Mendapatkan ' + points + ' Star!',
+            showConfirmButton: false,
+            timer: '3000'
+        }).then((_result) => {
+
+            $this = $(".kerjakanSoal .reward");
+            $this.prop("disabled", true);
+
+            const player = get_cookie('player');
+
+            $.ajax({
+                url: 'http://localhost/rest-api/public/player/points',
+                type: 'post',
+                data: {
+                    player: player,
+                    points: points
+                },
+                cache: false,
+                success: function () {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Claimed!',
+                        text: 'Kamu Mendapatkan 10 Star !',
+                        showConfirmButton: false,
+                        timer: '2400'
+                    });
+                    // then((result) => {
+                    //     document.location.href = ''; 
+                    // });
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Failed !',
+                        text: 'Please Try Again!',
+                        showConfirmButton: false,
+                        timer: '1700'
+                    }).then((result) => {
+                        setTimeout(function() {
+                            $this.prop("disabled", false);
+                            // Re-enable submit button when AJAX call is complete
+                          }, 1000);
+                    });
+                }
+            });
+        });
     });
 
 
