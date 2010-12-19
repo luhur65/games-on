@@ -146,6 +146,10 @@
 
                             <!-- table top-player -->
                             <div class="my_rank">
+                                <p class="small">
+                                    <a href="#" class="info_rank" data-toggle="modal" data-target="#info_rank"> <i
+                                            class="fa fa-question-circle fa-fw" aria-hidden="true"></i> Info Ranking</a>
+                                </p>
                                 <div class="card p-2 d-flex">
                                     <p class="mb-0 small">Lihat Ranking Anda!
                                         <a href="#my_rank" class="view_my_rank">Tampilkan Rank</a>
@@ -156,7 +160,7 @@
                                 <hr class="bg-dark">
                                 <div class="top-player"></div>
                             </div>
-                                    <!-- list of top player -->
+                            <!-- list of top player -->
                             <!-- end of table top-player -->
 
                             <div class="card mb-5 border-0">
@@ -168,7 +172,7 @@
                                 </p>
                                 <p class="text-primary mb-0">
                                     <a href="#my_history" class="other_page" data-page="history">
-                                       <i class="fas fa-history fa-fw"></i> History Saya
+                                        <i class="fas fa-history fa-fw"></i> History Saya
                                     </a>
                                 </p>
                             </div>
@@ -208,6 +212,82 @@
                 </div>
             </div>
 
+        </div>
+
+        <!-- modal info rank -->
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="info_rank" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary">Info Ranking</h5>
+                        <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-info" role="alert">
+                            <p class="mb-0">
+                                <span class="font-weight-bold">Note:</span>
+                                Perangkingan Star Akan Direset Ulang , Setiap 2 Bulan Sekali.
+                            </p>
+                        </div>
+                        <p class="text-dark">Tingkatan Ranking:</p>
+                        <div class="card text-primary">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="fa fa-star fa-fw" aria-hidden="true"></i> &LessSlantEqual; 100 
+                                    <span class="float-right ml-1"> Young </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-star fa-fw" aria-hidden="true"></i> 
+                                    101 - 200
+                                    <span class="float-right ml-1"> Junior </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-star fa-fw" aria-hidden="true"></i> 
+                                    201 - 400
+                                    <span class="float-right ml-1"> Middle </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-star fa-fw" aria-hidden="true"></i> 
+                                    500 - 1600
+                                    <span class="float-right ml-1"> Senior </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-star fa-fw" aria-hidden="true"></i> 
+                                    1601 - 1700
+                                    <span class="float-right ml-1"> Grandmaster </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-star fa-fw" aria-hidden="true"></i> 
+                                    1701 - 2500
+                                    <span class="float-right ml-1"> Conqueror </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-star fa-fw" aria-hidden="true"></i> 
+                                    &GreaterSlantEqual; 2501
+                                    <span class="float-right ml-1"> Master Of Players </span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="alert alert-info mt-2" role="alert">
+                          <p class="mb-0">
+                              <span class="font-weight-bold">Tips:</span>
+                              Kumpulkan  <i class="fas fa-star fa-fw"></i> Star dari setiap kali anda berhasil menyelesaikan permainan yang ada di web <span class="text-danger">GameON</span> . <i class="fas fa-star fa-fw"></i> Star yg anda peroleh beragam dari <i class="fas fa-star fa-fw"></i> 1 Star hingga  <i class="fas fa-star fa-fw"></i> 100 Star.
+                          </p>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
