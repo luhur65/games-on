@@ -1,3 +1,13 @@
+/*
+ *  Author : Dharma Bakti Situmorang.
+ *  Name File : math.js
+ *  Github : https://github.com/luhur65.
+ *  Facebook : https://facebook.com/Adiknya.situmorang.
+ *  Instagram : https://instagram.com/dharma_situmorang.
+ *  Repo Project : https://github.com/luhur65/math-js .
+ * Thank You For Supporting Me!.
+*/
+
 // function mode game mudah
 function gameTypeMudah(mode, skor) {
 

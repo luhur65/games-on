@@ -1,3 +1,13 @@
+/*
+ *  Author : Dharma Bakti Situmorang.
+ *  Name File : batu_gunting_kertas.js
+ *  Github : https://github.com/luhur65.
+ *  Facebook : https://facebook.com/Adiknya.situmorang.
+ *  Instagram : https://instagram.com/dharma_situmorang.
+ *  Repo Project : https://github.com/luhur65/math-js .
+ * Thank You For Supporting Me!.
+*/
+
 // set cookie
 function set_cookie(name, value, expired) {
 
@@ -40,40 +50,88 @@ function get_cookie(name) {
 }
 
 // function winner
-function winner() {
+function winner(comp, player) {
 
-    $('.tombolSuit').removeClass('btn-group');
-    $('.til').hide();
-    $('.tombolSuit').hide();
+    Swal.fire({
+        icon: 'success',
+        title: 'You Win',
+        text: 'Kamu Mengalahkan Comp , Hebat!',
+        showConfirmButton: false,
+        timer: '2600'
+    }).then((result) => {
 
-    $('.player').addClass('winner');
-    $('.comp').addClass('loser');
-    $('.playagain').show();
-    $('.player').html(`
-        You Win , <i class="fas fa-smile fa-fw"></i>
-    `);
-    $('.comp').html(`
-        Comp Lose , <i class="fas fa-sad-cry fa-fw"></i>
-    `);
+        // masukkan nilai 1
+        player.push(1);
+
+        if (player.length == 3) {
+
+            $('.tombolSuit').removeClass('btn-group');
+            $('.til').hide();
+            $('.tombolSuit').hide();
+
+            $('.player').addClass('winner');
+            $('.comp').addClass('loser');
+            $('.playagain').show();
+            $('.player').html(`
+            Winner, <i class="fas fa-medal fa-fw"></i>
+            `);
+            $('.player-score').html(player.length);
+            $('.comp-score').html(comp.length);
+            $('.comp').html(`
+            Comp Lose , <i class="fas fa-sad-cry fa-fw"></i>
+            `);
+
+        } else {
+
+            $('.player-score').html(player.length);
+            $('.comp-score').html(comp.length);
+
+        }
+
+    });
 
 }
 
 // function loser() 
-function loser() {
+function loser(comp, player) {
 
-    $('.tombolSuit').removeClass('btn-group');
-    $('.til').hide();
-    $('.tombolSuit').hide();
+    Swal.fire({
+        icon: 'error',
+        title: 'You Lose',
+        text: 'Anda Dikalahkan Comp!',
+        showConfirmButton: false,
+        timer: '2600'
+    }).then((result) => {
 
-    $('.player').addClass('loser');
-    $('.comp').addClass('winner');
-    $('.playagain').show();
-    $('.player').html(`
-        You Lose , <i class="fas fa-sad-cry fa-fw"></i>
-    `);
-    $('.comp').html(`
-        Comp Win , <i class="fas fa-smile fa-fw"></i>
-    `);
+        // masukkan nilai 1 ke comp
+        comp.push(1);
+
+        if (comp.length == 3) {
+
+            $('.tombolSuit').removeClass('btn-group');
+            $('.til').hide();
+            $('.tombolSuit').hide();
+
+            $('.player').addClass('loser');
+            $('.comp').addClass('winner');
+            $('.playagain').show();
+            $('.player').html(`
+            You Lose , <i class="fas fa-sad-cry fa-fw"></i>
+            `);
+            $('.comp').html(`
+            Winner , <i class="fas fa-medal fa-fw"></i>
+            `);
+
+            $('.player-score').html(player.length);
+            $('.comp-score').html(comp.length);
+
+        } else {
+
+            $('.player-score').html(player.length);
+            $('.comp-score').html(comp.length);
+
+        }
+    });
 }
 
 // function theme
@@ -85,19 +143,29 @@ function make_theme(data) {
             $('body').addClass('bg-dark');
             $('.card').addClass('bg-dark');
             $('.title').addClass('text-white');
+            $('.btn1').addClass('btn-primary');
+            $('.btn2').addClass('btn-success');
             $('p').addClass('text-white');
             $('hr').addClass('bg-white');
             $('.btn-quit').addClass('text-danger');
+
+            $('.btn1').removeClass('btn-outline-primary');
+            $('.btn2').removeClass('btn-outline-success');
             break;
-        
+
         case '2':
-            // theme dark
+            // theme light
             $('body').removeClass('bg-dark');
             $('.card').removeClass('bg-dark');
             $('.title').removeClass('text-white');
             $('p').removeClass('text-white');
             $('hr').removeClass('bg-white');
             $('.btn-quit').removeClass('text-danger');
+            $('.btn1').removeClass('btn-primary');
+            $('.btn2').removeClass('btn-success');
+
+            $('.btn1').addClass('btn-outline-primary');
+            $('.btn2').addClass('btn-outline-success');
             break;
     }
 
@@ -115,7 +183,7 @@ if (playAgain == '1') {
 
     $('.breadcrumb-item.active span').html('1 Player');
 
-} else if(playAgain == '2'){
+} else if (playAgain == '2') {
 
     $('.breadcrumb-item.active span').html('2 Player');
 }
@@ -178,8 +246,12 @@ if (theme != "") {
 $(function () {
 
     // pemilihan mode game 
-    let mode, comp, player;
+    let mode, comp, player, skorplayer, skorcomp;
 
+    // data skor player & data skor comp
+    skorplayer = [];
+    skorcomp = [];
+    
     // pilih mode
     $('.ModeSuit').on('click', function (e) {
 
@@ -194,7 +266,27 @@ $(function () {
             $('.gameplay').show();
 
             set_cookie('mode_suit', mode, 30);
+        } else if (mode == '2') {
+            
+            Swal.fire({
+                icon: 'info',
+                title: 'Crash!',
+                text: 'Mohon Maaf, Game Sedang Di Perbaiki!',
+                showConfirmButton: false,
+                timer: '2500',
+            });
         }
+
+    });
+
+    // ganti mode suit
+    $('.change-suit-mode').on('click', function (e) {
+        e.preventDefault();
+
+        $('.pemilihanModeSuit').show();
+        $('.gameplay').hide();
+
+        set_cookie('mode_suit', 0, 30);
 
     });
 
@@ -207,6 +299,7 @@ $(function () {
 
         // data suit comp , angka random
         comp = Math.ceil(Math.random() * 3);
+
 
         // membuat pilihan untuk comp
         switch (comp) {
@@ -227,6 +320,8 @@ $(function () {
         // log
         console.log('Anda Memilih : ' + player);
         console.log('Comp Memilih : ' + comp);
+        console.log(skorplayer);
+        console.log(skorcomp);
 
         // logika permainan
         if (player == comp) {
@@ -242,11 +337,11 @@ $(function () {
         } else if (player == 'batu') {
             // comp memilih gunting
             if (comp == 'gunting') {
-                winner();
+                winner(skorcomp, skorplayer);
 
                 // sebaliknya 
             } else {
-                loser();
+                loser(skorcomp, skorplayer);
 
             }
 
@@ -254,11 +349,11 @@ $(function () {
         } else if (player == 'gunting') {
             // comp memilih kertas
             if (comp == 'kertas') {
-                winner();
+                winner(skorcomp, skorplayer);
 
                 // sebaliknya
             } else {
-                loser();
+                loser(skorcomp, skorplayer);
 
             }
 
@@ -266,11 +361,11 @@ $(function () {
         } else if (player == 'kertas') {
             // comp memilih batu
             if (comp == 'batu') {
-                winner();
+                winner(skorcomp, skorplayer);
 
                 // sebaliknya
             } else {
-                loser();
+                loser(skorcomp, skorplayer);
 
             }
 
@@ -292,11 +387,11 @@ $(function () {
     $('.suitcomp').on('click', function (e) {
         e.preventDefault();
         // show alert forebidden
-        Swal.fire({
-            icon: 'error',
-            title: 'Forbidden!',
-            text: 'Suit Ini Untuk Comp!'
-        });
+        // Swal.fire({
+        //     icon: 'error',
+        //     title: 'Forbidden!',
+        //     text: '!'
+        // });
     });
 
 
