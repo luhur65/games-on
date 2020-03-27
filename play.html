@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Matematika - Vanila Js & Jquery</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/blog-home.css">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+</head>
+
+<body class="bg-primary">
+
+    <div class="row">
+        <div class="col-lg-7 p-4 mx-auto py-5">
+            <div class="card mx-auto shadow rounded">
+                <div class="card-body isi">
+                    <p class="card-text">Tentukan Hasil Dari Soal Dibawah ini :</p>
+                    <div class="notify"></div>
+                    <div class="card mt-3 mb-3">
+                        <div class="card-soal p-2">
+                            <!-- soal -->
+                            <div class="mx-auto">
+                                <h5 class="soal mb-0 font-weight-bold display-5 p-3"></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="sectionAnswer" method="post">
+                        <div class="form-group">
+                            <label for="answer">Jawaban Anda</label>
+                            <input type="text" name="answer" id="answer" class="form-control"
+                                placeholder="tulis jawaban disini" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-block tombol-jwbn">
+                                Check My Answer!
+                            </button>
+                        </div>
+                    </form>
+
+                    <a href="" class="text-center quit">Quit Game ??</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- javascript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="vendor/sweetalert2/sweetalert2.all.min.js"></script>
+</body>
+
+</html>
