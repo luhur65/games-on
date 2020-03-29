@@ -1,6 +1,26 @@
-/*!
- * Start Bootstrap - Blog Home (https://startbootstrap.com/template-overviews/blog-home)
- * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-home/blob/master/LICENSE)
- */
+/* Gambar Suit */
+.tombol-suit img{
+    width: 6rem;
+    height: 6rem;
+    margin: 0.3rem;
+    padding: 0.25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
+}
 
+.tombol-suit a{
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 120px;
+    margin: 0.3rem;
+}
+
+.tombol-suit img:hover {
+    background-color: aqua;
+    border-radius: 0.25rem;
+    transform: scale(1.1);
+}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Matematika - Vanila Js & Jquery</title>
+    <title>Welcome Page</title>
 
     <!-- css -->
     <link rel="stylesheet" href="css/blog-home.css">
@@ -18,11 +18,18 @@
             <div class="card mx-auto shadow rounded">
                 <div class="card-body text-center">
                     <h3 class="card-text mb-5"> 
-                        Welcome To Our Game!
+                        Welcome To Our Games!
                     </h3>
-                    <a href="play.html" class="btn btn-primary" id="playButton">
-                        Play Game Now!
-                    </a>
+                    <div class="mb-3">
+                        <a href="about:blank" class="btn btn-primary playButton" data-game="math_game">
+                            Game Quis Math
+                        </a>
+                    </div>
+                    <div class="mb-3">
+                        <a href="about:blank" class="btn btn-success playButton"   data-game="batu_gunting_kertas">
+                            Game Batu Gunting Kertas
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -32,7 +39,7 @@
     <!-- javascript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/index.js"></script>
     <script src="vendor/sweetalert2/sweetalert2.all.min.js"></script>
 </body>
 
