@@ -84,4 +84,29 @@ $(function () {
             }
         }
     });
+
+
+    // Quit Game 
+    $('.quit').on('click', function (e) {
+        e.preventDefault();
+
+        const href = $(this).attr('href');
+
+        Swal.fire({
+            icon: 'question',
+            title: 'Anda Yakin??',
+            showCancelButton: true,
+            confirmButtonText: 'Ya , keluar',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire({
+                    title: 'Thanks For playing!'
+                }).then((result) => {
+                    document.location.href = href;
+                });
+            }
+        });
+    });
 });
