@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Game Math - javascript</title>
+
+        <!-- css -->
+        <link rel="stylesheet" href="../css/blog-home.css">
+        <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
+    </head>
+
+    <body class="bg-primary">
+
+        <div class="row">
+            <div class="col-lg-4 col-sm-7 col-md-7 p-4 mx-auto py-5">
+                <div class="card shadow rounded p-2 bg-light">
+                    <div class="card-body">
+                        <h3 class="text-center card-header border-0 bg-primary text-white rounded">Selamat Bermain</h3>
+                        <hr class="bg-dark">
+                        <p class="card-text font-weight-bold text-center text-dark">
+                            Silakan Pilih Suit Anda!
+                        </p>
+                        <div class="tombol-suit card p-3">
+                            <a href="#batu" class="mx-auto player" data-suit="batu">
+                                <img src="../img/game1/batu.png" class="" alt="suit_batu">
+                            </a>
+                            <a href="#gunting" class="mx-auto player" data-suit="gunting">
+                                <img src="../img/game1/gunting.png" class="" alt="suit_gunting">
+                            </a>
+                            <a href="#kertas" class="mx-auto player" data-suit="kertas">
+                                <img src="../img/game1/kertas.png" class="" alt="suit_kertas">
+                            </a>
+                        </div>
+
+                        <div class="mt-3 mx-auto">
+                            <h5 class="font-weight-bold text-center result"></h5>
+                            <div class="ket">
+                                <!-- Hasil Keterangan -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="small text-center mb-0 mt-3">
+                        Made With Love By <a href="https://luhur65.github.io">@dharma_situmorang</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- javascript -->
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../js/batu_gunting_kertas.js"></script>
+        <script src="../vendor/sweetalert2/sweetalert2.all.min.js"></script>
+    </body>
+
+</html>

@@ -83,7 +83,7 @@ $(function () {
                             title: 'Thanks For Playing!',
                             confirmButtonColor: '#3085d6',
                         }).then((result) => {
-                            document.location.href = 'index.html'
+                            document.location.href = '../index.html'
                         })
                     }
                 });
@@ -112,7 +112,7 @@ $(function () {
                     title: 'Thanks For Playing!',
                     confirmButtonColor: '#3085d6',
                 }).then((result) => {
-                    document.location.href = 'index.html'
+                    document.location.href = '../index.html'
                 })
             } else {
                 Swal.fire({
@@ -124,25 +124,4 @@ $(function () {
             }
         })
     })
-});
-
-
-// index.html
-$('#playButton').on('click', function (e) {
-    e.preventDefault();
-    Swal.fire({
-        icon: 'question',
-        title: 'Are You Ready ??',
-        text: 'We are preparing game now!',
-        confirmButtonText: 'Yes , I Already',
-        confirmButtonColor: '#3085d6',
-    }).then((result) => {
-        Swal.fire({
-            icon: 'success',
-            title: 'Let\'s Go! ',
-            confirmButtonColor: '#3085d6',
-        }).then((result) => {
-            document.location.href = 'play.html';
-        });
-    });
 });
