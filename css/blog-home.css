@@ -1,3 +1,8 @@
+svg {
+    width: auto;
+    background-size: cover;
+}
+
 /* Gambar Suit */
 .tombol-suit img{
     width: 6rem;

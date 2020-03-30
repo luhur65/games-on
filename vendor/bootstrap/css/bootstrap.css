@@ -481,6 +481,11 @@ mark,
   height: auto;
 }
 
+.icon {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;

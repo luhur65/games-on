@@ -1,25 +1,55 @@
 // index.html
 $(function () {
+
     $('.playButton').on('click', function (e) {
         e.preventDefault();
     
         // data game apa yg dimainkan 
         const game = $(this).data('game');
-    
-        Swal.fire({
-            icon: 'question',
-            title: 'Are You Ready ??',
-            text: 'We are preparing game now!',
-            confirmButtonText: 'Yes , I Already',
+
+        // data nama pemain yg bermain 
+        Swal.mixin({
+            input: 'text',
+            inputAttributes: {
+                required: 'required'
+            },
+            validationMessage: 'Nama Tidak Boleh Kosong!',
+            confirmButtonText: 'Submit',
             confirmButtonColor: '#3085d6',
-        }).then((result) => {
-            Swal.fire({
-                icon: 'success',
-                title: 'Let\'s Go! ',
-                confirmButtonColor: '#3085d6',
-            }).then((result) => {
-                document.location.href = 'games/' + game + '.html';
-            });
+            cancelButtonColor: '#d33',
+            showCancelButton: true,
+        }).queue([
+            {
+                title: 'Siapa Nama mu ??'
+            }
+        ]).then((result) => {
+            if (result.value) {
+                const name = result.value;
+
+                Swal.fire({
+                    icon: 'question',
+                    title: 'Sudah Siap ??',
+                    text: 'Game Sudah Siap! '+ name +'',
+                    confirmButtonText: 'Yes , I\'m Ready',
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    showCancelButton: true
+                }).then((result) => {
+                    if (result.value) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Let\'s Go! ',
+                            showConfirmButton: false,
+                            timer: '1600',
+                            height: '50px',
+                        }).then((result) => {
+                            document.location.href = 'games/' + game + '.html';
+                        });
+                    }
+                });
+                
+            }
         });
+    
     });
-})
+});
