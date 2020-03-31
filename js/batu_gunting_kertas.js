@@ -102,7 +102,10 @@ $(function () {
         }).then((result) => {
             if (result.value) {
                 Swal.fire({
-                    title: 'Thanks For playing!'
+                    icon: 'success',
+                    title: 'Thanks For Playing!',
+                    showConfirmButton: false,
+                    timer: '1500'
                 }).then((result) => {
                     document.location.href = href;
                 });

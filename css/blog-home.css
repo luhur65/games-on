@@ -30,6 +30,8 @@ svg {
     transform: scale(1.1);
 }
 
+
+/* tebak angka */
 .tombol-angka {
     display: flex;
     flex-wrap: wrap;
@@ -43,3 +45,14 @@ svg {
 }
 
 
+/* quiz math */
+.kategori button{
+    width: 7rem;
+    border-radius: 2rem;
+}
+
+.kategori button:hover {
+    color: rgb(0, 0, 0);
+    transform: scale(1.2);
+    opacity: 0.8;
+}

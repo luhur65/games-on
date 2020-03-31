@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=7">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Permainan sederhana yg mengasyikkan">
-    <meta name="keywords" content="games , javascript, batu_gunting_kertas, Tebak angka , quis math, game seru">
-    <title>Game Math - javascript</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=7">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Permainan sederhana yg mengasyikkan">
+        <meta name="keywords" content="games , javascript, batu_gunting_kertas, Tebak angka , quis math, game seru">
+        <title>Game Math - javascript</title>
 
-    <!-- css -->
-    <link rel="stylesheet" href="../css/blog-home.css">
-    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
-</head>
+        <link rel="shortcut icon" href="../img/icon/gambar_kuis_math.jpeg" type="image/x-icon">
+        <!-- css -->
+        <link rel="stylesheet" href="../css/blog-home.css">
+        <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
+    </head>
 
-<body class="bg-dark">
+    <body class="bg-dark">
 
-    <div class="row">
-        <div class="col-lg-7 p-4 mx-auto py-5">
-            <div class="card mx-auto shadow rounded">
-                <div class="card-body isi">
-                    <p class="card-text">Tentukan Hasil Dari Soal Dibawah ini :</p>
-                    <div class="notify"></div>
-                    <div class="card mt-3 mb-3">
-                        <div class="card-soal p-2">
-                            <!-- soal -->
-                            <div class="mx-auto">
-                                <h5 class="soal mb-0 font-weight-bold display-5 p-3"></h5>
+        <div class="row">
+            <div class="col-md-5 col-sm-8 col-lg-4 p-4 mx-auto py-5">
+                <div class="card mx-auto shadow rounded text-center">
+                    <div class="card-body">
+                        <div class="kerjakan-soal">
+                            <!-- Tentukan tingkat kesulitan bermain! -->
+                            <p class="lead card p-2">
+                                Pilih tingkat kesulitan Quiz!
+                            </p>
+
+                            <div class="d-block p-3 mb-3 kategori card">
+                                <button type="button" class="btn btn-success d-block mx-auto mb-3 mt-3 typegame"
+                                    data-mode="mudah">Mudah</button>
+                                <button type="button" class="btn btn-info d-block mx-auto mb-3 typegame"
+                                    data-mode="sedang">Sedang</button>
+                                <button type="button" class="btn btn-danger d-block mx-auto mb-3 typegame"
+                                    data-mode="sulit">Sulit</button>
                             </div>
                         </div>
+                        <!-- keluar game -->
+                        <a href="" class="mt-5 quit">Quit Game ??</a>
                     </div>
-                    <form id="sectionAnswer" method="post">
-                        <div class="form-group">
-                            <label for="answer">Jawaban Anda</label>
-                            <input type="text" name="answer" id="answer" class="form-control"
-                                placeholder="tulis jawaban disini" autofocus>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-block tombol-jwbn">
-                                Check My Answer!
-                            </button>
-                        </div>
-                    </form>
 
-                    <a href="" class="text-center quit">Quit Game ??</a>
+                    <div class="mb-0 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="svg">
+                            <path fill="#0099ff" fill-opacity="1"
+                                d="M0,224L17.1,234.7C34.3,245,69,267,103,245.3C137.1,224,171,160,206,117.3C240,75,274,53,309,90.7C342.9,128,377,224,411,245.3C445.7,267,480,213,514,202.7C548.6,192,583,224,617,229.3C651.4,235,686,213,720,181.3C754.3,149,789,107,823,80C857.1,53,891,43,926,32C960,21,994,11,1029,16C1062.9,21,1097,43,1131,64C1165.7,85,1200,107,1234,101.3C1268.6,96,1303,64,1337,53.3C1371.4,43,1406,53,1423,58.7L1440,64L1440,320L1422.9,320C1405.7,320,1371,320,1337,320C1302.9,320,1269,320,1234,320C1200,320,1166,320,1131,320C1097.1,320,1063,320,1029,320C994.3,320,960,320,926,320C891.4,320,857,320,823,320C788.6,320,754,320,720,320C685.7,320,651,320,617,320C582.9,320,549,320,514,320C480,320,446,320,411,320C377.1,320,343,320,309,320C274.3,320,240,320,206,320C171.4,320,137,320,103,320C68.6,320,34,320,17,320L0,320Z">
+                            </path>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    
-    <!-- javascript -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../vendor/sweetalert2/sweetalert2.all.min.js"></script>
-    <script src="../js/math.js"></script>
-</body>
+
+        <!-- javascript -->
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../vendor/sweetalert2/sweetalert2.all.min.js"></script>
+        <script src="../js/math.js"></script>
+    </body>
 
 </html>

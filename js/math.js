@@ -1,97 +1,388 @@
-// play.html
-// buat variabel angka random
-var number1 = Math.ceil(Math.random() * 100);
-var number2 = Math.ceil(Math.random() * 10);
-var number3 = Math.ceil(Math.random() * 20);
-var number4 = Math.ceil(Math.random() * 25);
+// function mode game mudah
+function gameTypeMudah(mode, skor) {
 
-// soal random
-var random = Math.ceil(Math.random() * 3);
-console.log(random);
+    let number1, number2, soal;
 
-// ambil data yg diinput user
-$(function () {
+    // buat variabel angka random
+    number1 = Math.ceil(Math.random() * 10);
+    number2 = Math.ceil(Math.random() * 10);
 
-    if (random == 1) {
+    soal = tambah(number1, number2);
+
+    // ganti halaman pemilihan type game dengan soal
+    $(function () {
+        $('.kerjakan-soal').html(`
+        <p class="lead card p-2">Selamat Mengerjakan!</p>
+
+
+        <div class="d-block p-3 mb-3 card">
+            <h3 class="display-5 h1 font-weight-bold">` + number1 + ` + ` + number2 + ` = ??</h3>
+        </div>
+
+        <div class="p-1 mb-3 card">
+            <p class="lead font-weight-bold mb-0">
+                <span class="text-primary">` + skor + ` points </span>
+            </p>
+        </div>
         
-        var soal = (number1 + number2) * number3 - number4;
-        console.log(soal);
-    
-        $('.card-soal .soal').append('( ', number1, ' + ', number2, ' ) * ', number3, ' - ', number4);
-        
-    } else if (random == 2) {
+        <button type="button" class="btn btn-success mb-3 btn-block jawab">
+            Jawaban Saya!
+        </button>
 
-        var soal = number1 + ( number2 * number3 ) - number4;
-        console.log(soal);
-    
-        $('.card-soal .soal').append(number1, ' + ( ', number2, ' * ', number3, ' ) - ', number4);
-
-    } else {
-
-        var soal = ( number4 + number1 * number3 ) - number2 ;
-        console.log(soal);
-    
-        $('.card-soal .soal').append('( ', number4, ' + ', number1, ' * ', number3, ' ) - ', number2);
-    }
+        `);
 
 
-    $('.tombol-jwbn').on('click', function (e) {
-        e.preventDefault();
+        // tombol jawab diklik
+        $('.jawab').on('click', function () {
+            // buat swal untuk menjawab
+            Swal.mixin({
+                input: 'text',
+                inputAttributes: {
+                    required: 'required'
+                },
+                validationMessage: 'Jawaban Anda Tidak Ada!',
+                confirmButtonText: 'Submit',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                showCancelButton: true,
+            }).queue([{
+                text: 'Tulis jawaban Mu disini!'
+            }]).then((result) => {
+                if (result.value) {
+                    const jawab = parseInt(result.value);
 
-        // get value from input
-        var answer = $('input#answer').val();
-        console.log(answer);
-
-        // ubah angka yg diinput oleh user menjadi int
-        var answer = parseInt(answer);
-
-        // logic 
-        if (answer !== soal) {
-            // buat sweetalert salah
-            $(function () {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Wrong Answer!',
-                    text: 'Jawaban Anda Salah, Try Again!',
-                    confirmButtonColor: '#3085d6',
-                });
-
-                // clear all fields
-                $('#sectionAnswer').trigger('reset');
-            });
-        } else {
-            // buat sweetalert benar
-            $(function () {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Correct!',
-                    text: 'Jawaban Anda Benar!',
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Main Lagi??',
-                    showCancelButton: true
-                }).then((result) => {
-                    if (result.value == true) {
+                    // cek jika jawaban benar / salah
+                    if (jawab == soal) {
                         Swal.fire({
                             icon: 'success',
-                            title: 'Selamat Bermain Kembali!',
+                            title: 'Perfect!',
+                            text: 'Jawaban Anda Benar!',
+                            showConfirmButton: false,
+                            timer: '1700'
                         }).then((result) => {
-                            window.location.href = '';
-                        })
-                    } else {
+                            // result skor pemain
+                            skor += 10;
+                            console.log(skor);
+
+                            Swal.fire({
+                                icon: 'question',
+                                title: 'Lagi ??',
+                                text: 'Anda Ingin Bermain Lagi ?? Skor Anda : ' + skor + ' ',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                            }).then((result) => {
+                                if (result.value) {
+                                    // mainkan kembali langsung type game mudah
+                                    gameTypeMudah(mode, skor);
+
+                                } else {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Thanks For Playing!',
+                                        showConfirmButton: false,
+                                        timer: '1500'
+                                    }).then((result) => {
+                                        document.location.href = '';
+                                    });
+                                }
+                            });
+                        });
+
+                        // jawaban nya salah
+                    } else if (jawab != soal) {
                         Swal.fire({
-                            title: 'Thanks For Playing!',
+                            icon: 'error',
+                            title: 'Invalid!',
+                            text: 'Jawaban Anda Salah!',
+                            confirmButtonText: 'Coba Lagi!',
+                            showCancelButton: true,
                             confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
                         }).then((result) => {
-                            document.location.href = '../index.html'
-                        })
+
+                            // jika user memilih tombol cancel , arahkan kembali ke 
+                            // halaman pemilihan game 
+                            if (result.dismiss) {
+                                document.location.href = '';
+                            }
+                        });
                     }
-                });
-                
-                // clear all fields
-                $('#sectionAnswer').trigger('reset');
+                }
             });
+        });
+    });
+
+}
+
+// function game mode type sedang
+function gameTypeSedang(mode, skor) {
+
+    let number1, number2, soal;
+
+    // buat variabel angka random
+    number1 = Math.ceil(Math.random() * 20);
+    number2 = Math.ceil(Math.random() * 20);
+
+    soal = min(number1, number2);
+
+    // ganti halaman pemilihan type game dengan soal
+    $(function () {
+        $('.kerjakan-soal').html(`
+        <p class="lead card p-2">Selamat Mengerjakan!</p>
+
+
+        <div class="d-block p-3 mb-3 card">
+            <h3 class="display-5 h1 font-weight-bold">` + number1 + ` - ` + number2 + ` = ??</h3>
+        </div>
+
+        <div class="p-1 mb-3 card">
+            <p class="lead font-weight-bold mb-0">
+                <span class="text-primary">` + skor + ` points </span>
+            </p>
+        </div>
+        
+        <button type="button" class="btn btn-success mb-3 btn-block jawab">
+            Jawaban Saya!
+        </button>
+
+        `);
+
+
+        // tombol jawab diklik
+        $('.jawab').on('click', function () {
+            // buat swal untuk menjawab
+            Swal.mixin({
+                input: 'text',
+                inputAttributes: {
+                    required: 'required'
+                },
+                validationMessage: 'Jawaban Anda Tidak Ada!',
+                confirmButtonText: 'Submit',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                showCancelButton: true,
+            }).queue([{
+                text: 'Tulis jawaban Mu disini!'
+            }]).then((result) => {
+                if (result.value) {
+                    const jawab = parseInt(result.value);
+
+                    // cek jika jawaban benar / salah
+                    if (jawab == soal) {
+                        // skor pemain
+                        skor += 10;
+                        console.log(skor);
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Perfect!',
+                            text: 'Jawaban Anda Benar!',
+                            showConfirmButton: false,
+                            timer: '1700'
+                        }).then((result) => {
+                            Swal.fire({
+                                icon: 'question',
+                                title: 'Lagi ??',
+                                text: 'Anda Ingin Bermain Lagi ?? Skor Anda : ' + skor + ' ',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                            }).then((result) => {
+                                if (result.value) {
+                                    // mainkan kembali langsung type game mudah
+                                    gameTypeSedang(mode, skor);
+
+                                } else {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Thanks For Playing!',
+                                        showConfirmButton: false,
+                                        timer: '1500'
+                                    }).then((result) => {
+                                        document.location.href = '';
+                                    });
+                                }
+                            });
+                        });
+
+                        // jawaban nya salah
+                    } else if (jawab != soal) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Invalid!',
+                            text: 'Jawaban Anda Salah!',
+                            confirmButtonText: 'Coba Lagi!',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                        }).then((result) => {
+
+                            // jika user memilih tombol cancel , arahkan kembali ke 
+                            // halaman pemilihan game 
+                            if (result.dismiss) {
+                                document.location.href = '';
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    });
+
+}
+
+function gameTypeSulit(mode, skor) {
+
+    let number1, number2, soal;
+
+    // buat variabel angka random
+    number1 = Math.ceil(Math.random() * 120);
+    number2 = Math.ceil(Math.random() * 150);
+
+    soal = kali(number1, number2);
+
+    // ganti halaman pemilihan type game dengan soal
+    $(function () {
+        $('.kerjakan-soal').html(`
+        <p class="lead card p-2">Selamat Mengerjakan!</p>
+
+
+        <div class="d-block p-3 mb-3 card">
+            <h3 class="h2 font-weight-bold">` + number1 + ` * ` + number2 + ` = ??</h3>
+        </div>
+
+        <div class="p-1 mb-3 card">
+            <p class="lead font-weight-bold mb-0">
+                <span class="text-primary">` + skor + ` points </span>
+            </p>
+        </div>
+        
+        <button type="button" class="btn btn-success mb-3 btn-block jawab">
+            Jawaban Saya!
+        </button>
+
+        `);
+
+
+        // tombol jawab diklik
+        $('.jawab').on('click', function () {
+            // buat swal untuk menjawab
+            Swal.mixin({
+                input: 'text',
+                inputAttributes: {
+                    required: 'required'
+                },
+                validationMessage: 'Jawaban Anda Tidak Ada!',
+                confirmButtonText: 'Submit',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                showCancelButton: true,
+            }).queue([{
+                text: 'Tulis jawaban Mu disini!'
+            }]).then((result) => {
+                if (result.value) {
+                    const jawab = parseInt(result.value);
+
+                    // cek jika jawaban benar / salah
+                    if (jawab == soal) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Perfect!',
+                            text: 'Jawaban Anda Benar!',
+                            showConfirmButton: false,
+                            timer: '1700'
+                        }).then((result) => {
+                            // result skor pemain
+                            skor += 10;
+                            console.log(skor);
+
+                            Swal.fire({
+                                icon: 'question',
+                                title: 'Lagi ??',
+                                text: 'Anda Ingin Bermain Lagi ?? Skor Anda : ' + skor + ' ',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                            }).then((result) => {
+                                if (result.value) {
+                                    // mainkan kembali langsung type game mudah
+                                    gameTypeSulit(mode, skor);
+
+                                } else {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Thanks For Playing!',
+                                        showConfirmButton: false,
+                                        timer: '1500'
+                                    }).then((result) => {
+                                        document.location.href = '';
+                                    });
+                                }
+                            });
+                        });
+
+                        // jawaban nya salah
+                    } else if (jawab != soal) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Invalid!',
+                            text: 'Jawaban Anda Salah!',
+                            confirmButtonText: 'Coba Lagi!',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                        }).then((result) => {
+
+                            // jika user memilih tombol cancel , arahkan kembali ke 
+                            // halaman pemilihan game 
+                            if (result.dismiss) {
+                                document.location.href = '';
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    });
+
+}
+
+// funtion math operation
+function tambah(a, b) {
+    return a + b;
+}
+
+function min(a, b) {
+    return a - b;
+}
+
+function kali(a, b) {
+    return a * b;
+}
+
+// play game dimulai dari sini!
+$(function () {
+
+    // play game quiz
+    $('.typegame').on('click', function () {
+
+
+        const mode = $(this).data('mode');
+
+        // jika game type mudah dipilih
+        if (mode == 'mudah') {
+            gameTypeMudah(mode, 0);
+
+            // jika game type sedang dipilih
+        } else if (mode == 'sedang') {
+            gameTypeSedang(mode, 0);
+
+            // jika game type sulit dipilih
+        } else if (mode == 'sulit') {
+            gameTypeSulit(mode, 0);         
         }
+
 
     });
 
@@ -109,8 +400,10 @@ $(function () {
         }).then((result) => {
             if (result.value == true) {
                 Swal.fire({
+                    icon: 'success',
                     title: 'Thanks For Playing!',
-                    confirmButtonColor: '#3085d6',
+                    showConfirmButton: false,
+                    timer: '1500'
                 }).then((result) => {
                     document.location.href = '../index.html'
                 })
