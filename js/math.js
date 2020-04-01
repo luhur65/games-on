@@ -96,16 +96,8 @@ function gameTypeMudah(mode, skor) {
                             title: 'Invalid!',
                             text: 'Jawaban Anda Salah!',
                             confirmButtonText: 'Coba Lagi!',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                        }).then((result) => {
-
-                            // jika user memilih tombol cancel , arahkan kembali ke 
-                            // halaman pemilihan game 
-                            if (result.dismiss) {
-                                document.location.href = '';
-                            }
+                            showConfirmButton: false,
+                            timer: '1500'
                         });
                     }
                 }
@@ -213,16 +205,8 @@ function gameTypeSedang(mode, skor) {
                             title: 'Invalid!',
                             text: 'Jawaban Anda Salah!',
                             confirmButtonText: 'Coba Lagi!',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                        }).then((result) => {
-
-                            // jika user memilih tombol cancel , arahkan kembali ke 
-                            // halaman pemilihan game 
-                            if (result.dismiss) {
-                                document.location.href = '';
-                            }
+                            showConfirmButton: false,
+                            timer: '1500'
                         });
                     }
                 }
@@ -329,16 +313,8 @@ function gameTypeSulit(mode, skor) {
                             title: 'Invalid!',
                             text: 'Jawaban Anda Salah!',
                             confirmButtonText: 'Coba Lagi!',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                        }).then((result) => {
-
-                            // jika user memilih tombol cancel , arahkan kembali ke 
-                            // halaman pemilihan game 
-                            if (result.dismiss) {
-                                document.location.href = '';
-                            }
+                            showConfirmButton: false,
+                            timer: '1500'
                         });
                     }
                 }
