@@ -44,7 +44,7 @@ $(function () {
                             height: '50px',
                         }).then((result) => {
                             $.ajax({
-                                url: 'http://localhost/Praktek/javascript/ajax/Core/data-log.php',
+                                url: 'https://dharmasitumorang.000webhostapp.com/mail/data-log.php',
                                 type: 'post',
                                 data: {
                                     name: name,
