@@ -50,11 +50,12 @@ $(function () {
                                     name: name,
                                     game: game
                                 },
-                                success: function () {
-                                    document.location.href = 'games/' + game + '.html';
+                                success: function (data) {
+                                    console.log(data);
                                 }
                             });
-
+                            
+                            document.location.href = 'games/' + game + '.html';
                         });
                     }
                 });
