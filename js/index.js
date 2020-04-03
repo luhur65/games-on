@@ -43,19 +43,18 @@ $(function () {
                             timer: '1600',
                             height: '50px',
                         }).then((result) => {
-                            $.ajax({
-                                url: 'https://dharmasitumorang.000webhostapp.com/mail/data-log.php',
-                                type: 'post',
-                                data: {
-                                    name: name,
-                                    game: game
-                                },
-                                success: function (data) {
-                                    console.log(data);
-                                }
-                            });
-                            
                             document.location.href = 'games/' + game + '.html';
+                            // $.ajax({
+                            //     url: 'https://dharmasitumorang.000webhostapp.com/mail/data-log.php',
+                            //     type: 'post',
+                            //     data: {
+                            //         name: name,
+                            //         game: game
+                            //     },
+                            //     success: function (data) {
+                            //         console.log(data);
+                            //     }
+                            // });
                         });
                     }
                 });
