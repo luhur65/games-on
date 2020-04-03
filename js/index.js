@@ -24,7 +24,7 @@ $(function () {
             }
         ]).then((result) => {
             if (result.value) {
-                const name = result.value;
+                const name = result.value[0];
 
                 Swal.fire({
                     icon: 'question',
@@ -43,7 +43,18 @@ $(function () {
                             timer: '1600',
                             height: '50px',
                         }).then((result) => {
-                            document.location.href = 'games/' + game + '.html';
+                            $.ajax({
+                                url: 'http://localhost/Praktek/javascript/ajax/Core/data-log.php',
+                                type: 'post',
+                                data: {
+                                    name: name,
+                                    game: game
+                                },
+                                success: function () {
+                                    document.location.href = 'games/' + game + '.html';
+                                }
+                            });
+
                         });
                     }
                 });
