@@ -1,0 +1,95 @@
+<!-- 
+
+
+
+
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=7">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Permainan sederhana yg mengasyikkan">
+        <meta name="keywords" content="games , javascript, batu_gunting_kertas, Tebak angka , quis math, game seru, find me">
+        <title>Find Me - javascript</title>
+
+        <link rel="shortcut icon" href="../img/icon/gambar_kuis_math.jpeg" type="image/x-icon">
+        <!-- css -->
+        <link rel="stylesheet" href="../css/blog-home.css">
+        <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
+    </head>
+
+    <body class="bg-dark">
+
+        <div class="row">
+            <div class="col-md-5 col-sm-8 col-lg-5 p-4 mx-auto py-5">
+                <div class="card mx-auto shadow rounded text-center">
+                    <div class="card-body">
+
+                        <!-- petunjuk cara bermain -->
+                        <div class="tutorial card text-left p-2">
+                            <p class="mb-0 font-weight-bold">Cara Bermain :</p>
+                            <ul class="mb-0">
+                                <li>Kumpulkan Pintu Yg bagus!.</li>
+                                <li>Berhati-hati, Ada Pintu yg rusak!.</li>
+                            </ul>
+                            <p class="mb-0 mt-2">Ketentuan:</p>
+                            <ul>
+                                <li> Pintu Bagus = <span class="ket"> 5 </span></li>
+                                <li> Pintu Rusak = <span class="ket"> 2 </span></li>
+                            </ul>
+
+                            <!-- fitur progress bar -->
+                            <!-- <div class="progress">
+                                <div class="progress-bar progress-bar-animated progress-bar-striped bg-primary" role="progressbar" style="width: 0%;" data-progress="0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div> -->
+                        </div> 
+
+                        <!-- pintu -->
+                        <div class="card mb-5 mt-3 p-2 info">
+                            <div class="pintu mt-0">
+
+                                <!-- tombol 7 pintu-->
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="1">1</button>
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="2">2</button>
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="3">3</button>
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="4">4</button>
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="5">5</button>
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="6">6</button>
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="7">7</button>
+                                
+                            </div>
+                        </div>
+                        
+                        <!-- keluar game -->
+                        <a href="" class="mt-5 quit">Quit Game ??</a>
+                    </div>
+
+                    <!-- svg -->
+                    <div class="mb-0 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="svg">
+                            <path fill="#0099ff" fill-opacity="1"
+                                d="M0,224L17.1,234.7C34.3,245,69,267,103,245.3C137.1,224,171,160,206,117.3C240,75,274,53,309,90.7C342.9,128,377,224,411,245.3C445.7,267,480,213,514,202.7C548.6,192,583,224,617,229.3C651.4,235,686,213,720,181.3C754.3,149,789,107,823,80C857.1,53,891,43,926,32C960,21,994,11,1029,16C1062.9,21,1097,43,1131,64C1165.7,85,1200,107,1234,101.3C1268.6,96,1303,64,1337,53.3C1371.4,43,1406,53,1423,58.7L1440,64L1440,320L1422.9,320C1405.7,320,1371,320,1337,320C1302.9,320,1269,320,1234,320C1200,320,1166,320,1131,320C1097.1,320,1063,320,1029,320C994.3,320,960,320,926,320C891.4,320,857,320,823,320C788.6,320,754,320,720,320C685.7,320,651,320,617,320C582.9,320,549,320,514,320C480,320,446,320,411,320C377.1,320,343,320,309,320C274.3,320,240,320,206,320C171.4,320,137,320,103,320C68.6,320,34,320,17,320L0,320Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <!-- end of svg -->
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- javascript -->
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../vendor/sweetalert2/sweetalert2.all.min.js"></script>
+        <script src="../js/door.js"></script>
+    </body>
+
+</html>
