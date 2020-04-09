@@ -14,13 +14,17 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Permainan sederhana yg mengasyikkan">
-        <meta name="keywords" content="games , javascript, batu_gunting_kertas, Tebak angka , quis math, game seru, find me">
-        <title>Find Me - javascript</title>
+        <meta name="keywords"
+            content="games , javascript, batu_gunting_kertas, Tebak angka , quis math, game seru, find goods, find Boxes">
+        <title>Find Boxes - javascript</title>
 
         <link rel="shortcut icon" href="../img/icon/gambar_kuis_math.jpeg" type="image/x-icon">
+
+        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
         <!-- css -->
         <link rel="stylesheet" href="../css/blog-home.css">
-        <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="../css/sb-admin-2.css">
     </head>
 
     <body class="bg-dark">
@@ -34,37 +38,44 @@
                         <div class="tutorial card text-left p-2">
                             <p class="mb-0 font-weight-bold">Cara Bermain :</p>
                             <ul class="mb-0">
-                                <li>Kumpulkan Pintu Yg bagus!.</li>
-                                <li>Berhati-hati, Ada Pintu yg rusak!.</li>
+                                <li>Kumpulkan Kotak Yg bagus!.</li>
+                                <li>Berhati-hati, Ada Kotak yg rusak!.</li>
                             </ul>
                             <p class="mb-0 mt-2">Ketentuan:</p>
                             <ul>
-                                <li> Pintu Bagus = <span class="ket"> 5 </span></li>
-                                <li> Pintu Rusak = <span class="ket"> 2 </span></li>
+                                <li> Kotak Bagus = <span class="ket"> 5 </span></li>
+                                <li> Kotak Rusak = <span class="ket"> 2 </span></li>
                             </ul>
 
                             <!-- fitur progress bar -->
                             <!-- <div class="progress">
                                 <div class="progress-bar progress-bar-animated progress-bar-striped bg-primary" role="progressbar" style="width: 0%;" data-progress="0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                             </div> -->
-                        </div> 
+                        </div>
 
-                        <!-- pintu -->
+                        <!-- kotak -->
                         <div class="card mb-5 mt-3 p-2 info">
-                            <div class="pintu mt-0">
+                            <div class="kotak mt-0">
 
-                                <!-- tombol 7 pintu-->
-                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="1">1</button>
-                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="2">2</button>
-                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="3">3</button>
-                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="4">4</button>
-                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="5">5</button>
-                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="6">6</button>
-                                <button type="button" class="btn btn-primary btn-lg tombolPilihPintu mt-2 mb-2" data-pintu="7">7</button>
-                                
+                                <!-- tombol 7 kotak-->
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihkotak mt-2 mb-2"
+                                    data-kotak="1">1</button>
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihkotak mt-2 mb-2"
+                                    data-kotak="2">2</button>
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihkotak mt-2 mb-2"
+                                    data-kotak="3">3</button>
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihkotak mt-2 mb-2"
+                                    data-kotak="4">4</button>
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihkotak mt-2 mb-2"
+                                    data-kotak="5">5</button>
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihkotak mt-2 mb-2"
+                                    data-kotak="6">6</button>
+                                <button type="button" class="btn btn-primary btn-lg tombolPilihkotak mt-2 mb-2"
+                                    data-kotak="7">7</button>
+
                             </div>
                         </div>
-                        
+
                         <!-- keluar game -->
                         <a href="" class="mt-5 quit">Quit Game ??</a>
                     </div>
@@ -88,8 +99,9 @@
         <!-- javascript -->
         <script src="../vendor/jquery/jquery.min.js"></script>
         <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../vendor/jquery/jquery.easing.js"></script>
         <script src="../vendor/sweetalert2/sweetalert2.all.min.js"></script>
-        <script src="../js/door.js"></script>
+        <script src="../js/boxes_game.js"></script>
     </body>
 
 </html>

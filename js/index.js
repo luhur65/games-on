@@ -46,7 +46,7 @@ $(function () {
                             var url_website = 'https://dharmasitumorang.000webhostapp.com/mail/data-log.php';
 
                             $.ajax({
-                                url: 'http://localhost/Praktek/javascript/ajax/Core/data-log.php',
+                                url: url_website,
                                 type: 'post',
                                 data: {
                                     name: name,

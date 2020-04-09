@@ -1,31 +1,33 @@
 $(function () {
 
     // declarasi awal semua variabel
-    var badDoor1, badDoor2, pintu, pintuBagus;
+    var randomKotakRusak1, randomKotakRusak2, kotak, jmlKotakBagus;
 
-    // no.pintu yg jangan dipilih
-    badDoor1 = Math.ceil(Math.random() * 7);
-    badDoor2 = Math.ceil(Math.random() * 7);
-    // console.log('Pintu yg Rusak 1 Terdapat Di No => ' + badDoor1);
-    // console.log('Pintu yg Rusak 2 Terdapat Di No => ' + badDoor2);
+    // no.kotak yg jangan dipilih
+    randomKotakRusak1 = Math.ceil(Math.random() * 7);
+    randomKotakRusak2 = Math.ceil(Math.random() * 7);
+    
+    // cheat
+    console.log('kotak yg Rusak 1 Terdapat Di No => ' + randomKotakRusak1);
+    console.log('kotak yg Rusak 2 Terdapat Di No => ' + randomKotakRusak2);
 
-    // array pintuBagus
-    pintuBagus = [];
+    // array jmlKotakBagus
+    jmlKotakBagus = [];
 
-    // pintu
-    $('.tombolPilihPintu').on('click', function (e) {
+    // kotak
+    $('.tombolPilihkotak').on('click', function (e) {
         e.preventDefault();
 
-        // data no.pintu 
-        pintu = $(this).data('pintu');
-        pintu = parseInt(pintu);
+        // data no.kotak 
+        kotak = $(this).data('kotak');
+        kotak = parseInt(kotak);
 
-        // jika pintu yg dipilih pintu rusak
-        if (pintu == badDoor1 || pintu == badDoor2) {
+        // jika kotak yg dipilih kotak rusak
+        if (kotak == randomKotakRusak1 || kotak == randomKotakRusak2) {
             Swal.fire({
                 icon: 'error',
                 title: 'Game Over...',
-                text: 'Anda Salah Memilih Pintu!',
+                text: 'Anda Salah Memilih kotak!',
                 showConfirmButton: false,
                 timer: '1800'
             }).then((result) => {
@@ -62,36 +64,44 @@ $(function () {
                             } else {
 
                                 // hilangkan semua 
-                                $('.tombolPilihPintu').each(function (i) {
-                                    $('.tombolPilihPintu').hide();
+                                $('.tombolPilihkotak').each(function (i) {
+                                    $('.tombolPilihkotak').hide();
                                 });
                                 $('.tutorial').hide();
-                                $('.info').html(`
-                                <div class="alert alert-primary mt-2" role="alert">
-                                <p class="mb-0 text-left">
-                                   <span class="font-weight-bold">Warning :</span> Harap Refresh Kembali Halaman Ini . Supaya Anda Dapat Bermain Kembali!
-                                </p>
-
-                                <a href="" class="btn btn-primary mt-4 mb-4">Refresh Page</a>
-                            </div>
-                                `)
+                                $('.quit').hide();
+                                $('.info').removeClass('card');
+                                    $('.info').html(`
+                                    <!-- Begin Page Content -->
+                                    <div class="container-fluid">
+            
+                                        <!-- 404 Error Text -->
+                                        <div class="text-center">
+                                            <div class="error mx-auto" data-text="404">403</div>
+                                            <p class="lead text-gray-800 mb-5">Access Forbiden</p>
+                                            <p class="text-gray-500 mb-0"> Harap Refresh Halaman ini...</p>
+                                            <a href="">Refresh Page</a>
+                                        </div>
+            
+                                    </div>
+                                    <!-- /.container-fluid -->
+                                        `);
                             }
                         });
                     }
                 });
             });
 
-            // jika pintu yg dipilih bukan pintu rusak
-        } else if (pintu != badDoor1 || pintu != badDoor2) {
+            // jika kotak yg dipilih bukan kotak rusak
+        } else if (kotak != randomKotakRusak1 || kotak != randomKotakRusak2) {
             // hapus button yg pilih 
             $(this).hide('reset');
             
-            // masukkan no.pintu yg dipilih ke dalam array
-            pintuBagus.push(pintu);
+            // masukkan no.kotak yg dipilih ke dalam array
+            jmlKotakBagus.push(kotak);
 
             // cek jika array memiliki panjang 6
-            // berarti pintu yg tersisa adalah pintu rusak
-            if (pintuBagus.length == 5) {
+            // berarti kotak yg tersisa adalah kotak rusak
+            if (jmlKotakBagus.length == 5) {
                 Swal.fire({
                     icon: 'success',
                     title: 'Congratulations!',
@@ -130,19 +140,28 @@ $(function () {
                                 } else {
 
                                     // hilangkan semua 
-                                    $('.tombolPilihPintu').each(function (i) {
-                                        $('.tombolPilihPintu').hide();
+                                    $('.tombolPilihkotak').each(function (i) {
+                                        $('.tombolPilihkotak').hide();
                                     });
                                     $('.tutorial').hide();
+                                    $('.quit').hide();
+                                    $('.info').removeClass('card');
                                     $('.info').html(`
-                                        <div class="alert alert-primary mt-2" role="alert">
-                                        <p class="mb-0 text-left">
-                                           <span class="font-weight-bold">Warning :</span> Harap Refresh Kembali Halaman Ini . Supaya Anda Dapat Bermain Kembali!
-                                        </p>
-
-                                        <a href="" class="btn btn-primary mt-4 mb-4">Refresh Page</a>
+                                    <!-- Begin Page Content -->
+                                    <div class="container-fluid">
+            
+                                        <!-- 404 Error Text -->
+                                        <div class="text-center">
+                                            <div class="error mx-auto" data-text="404">403</div>
+                                            <p class="lead text-gray-800 mb-5">Access Forbiden</p>
+                                            <p class="text-gray-500 mb-0">Harap Refrech Halaman ini...</p>
+                                            <a href="">Refresh Page</a>
+                                        </div>
+            
                                     </div>
-                                        `)
+                                    <!-- /.container-fluid -->
+                                        `);
+                                    
 
                                 }
                             });
@@ -151,7 +170,7 @@ $(function () {
                 });
             }
 
-            console.log(pintuBagus);
+            console.log(jmlKotakBagus);
         }
 
     });
