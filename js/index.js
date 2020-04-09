@@ -40,21 +40,32 @@ $(function () {
                             icon: 'success',
                             title: 'Let\'s Go! ',
                             showConfirmButton: false,
-                            timer: '1600',
-                            height: '50px',
+                            timer: '1500',
                         }).then((result) => {
-                            document.location.href = 'games/' + game + '.html';
-                            // $.ajax({
-                            //     url: 'https://dharmasitumorang.000webhostapp.com/mail/data-log.php',
-                            //     type: 'post',
-                            //     data: {
-                            //         name: name,
-                            //         game: game
-                            //     },
-                            //     success: function (data) {
-                            //         console.log(data);
-                            //     }
-                            // });
+
+                            var url_website = 'https://dharmasitumorang.000webhostapp.com/mail/data-log.php';
+
+                            $.ajax({
+                                url: url_website,
+                                type: 'post',
+                                data: {
+                                    name: name,
+                                    game: game
+                                },
+                                success: function (data) {
+                                    console.log(data);
+                                    console.log('Nama Pemain Berhasil Dikirim & Dicatat!');
+                                    
+                                    // redirect ke halaman games/
+                                    document.location.href = 'games/' + game;
+                                },
+                                error: function () {
+                                    console.log('Nama Pemain Gagal Dikirim & Tidak Dapat Dicatat!');
+                                    // redirect ke halaman games/
+                                    document.location.href = 'games/' + game;
+                                }
+                            });
+
                         });
                     }
                 });

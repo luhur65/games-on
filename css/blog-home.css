@@ -1,6 +1,19 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
+
+body {
+    font-family: 'Comic Neue', cursive;
+}
+
+.icon {
+    width: 4.5rem;
+    height: 4.5rem;
+}
+
 svg {
     width: auto;
     background-size: cover;
+    z-index: -1;
 }
 
 /* Gambar Suit */
@@ -56,3 +69,6 @@ svg {
     transform: scale(1.2);
     opacity: 0.8;
 }
+
+/* door game */
+
