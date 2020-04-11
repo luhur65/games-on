@@ -3,7 +3,7 @@ $(function () {
 
     $('.playButton').on('click', function (e) {
         e.preventDefault();
-    
+
         // data game apa yg dimainkan 
         const game = $(this).data('game');
 
@@ -18,60 +18,45 @@ $(function () {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             showCancelButton: true,
-        }).queue([
-            {
-                title: 'Siapa Nama mu ??'
-            }
-        ]).then((result) => {
+        }).queue([{
+            title: 'Siapa Nama mu ??'
+        }]).then((result) => {
             if (result.value) {
                 const name = result.value[0];
 
                 Swal.fire({
-                    icon: 'question',
-                    title: 'Sudah Siap ??',
-                    text: 'Game Sudah Siap! '+ name +'',
-                    confirmButtonText: 'Yes , I\'m Ready',
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    showCancelButton: true
+                    icon: 'success',
+                    title: 'Let\'s Go! ',
+                    showConfirmButton: false,
+                    timer: '1500',
                 }).then((result) => {
-                    if (result.value) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Let\'s Go! ',
-                            showConfirmButton: false,
-                            timer: '1500',
-                        }).then((result) => {
 
-                            var url_website = 'https://dharmasitumorang.000webhostapp.com/mail/data-log.php';
+                    var url_website = 'https://dharmasitumorang.000webhostapp.com/mail/data-log.php';
 
-                            $.ajax({
-                                url: url_website,
-                                type: 'post',
-                                data: {
-                                    name: name,
-                                    game: game
-                                },
-                                success: function (data) {
-                                    console.log(data);
-                                    console.log('Nama Pemain Berhasil Dikirim & Dicatat!');
-                                    
-                                    // redirect ke halaman games/
-                                    document.location.href = 'games/' + game;
-                                },
-                                error: function () {
-                                    console.log('Nama Pemain Gagal Dikirim & Tidak Dapat Dicatat!');
-                                    // redirect ke halaman games/
-                                    document.location.href = 'games/' + game;
-                                }
-                            });
+                    $.ajax({
+                        url: url_website,
+                        type: 'post',
+                        data: {
+                            name: name,
+                            game: game
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            console.log('Nama Pemain Berhasil Dikirim & Dicatat!');
 
-                        });
-                    }
+                            // redirect ke halaman games/
+                            document.location.href = 'games/' + game;
+                        },
+                        error: function () {
+                            console.log('Nama Pemain Gagal Dikirim & Tidak Dapat Dicatat!');
+                            // redirect ke halaman games/
+                            document.location.href = 'games/' + game;
+                        }
+                    });
+
                 });
-                
             }
         });
-    
+
     });
 });

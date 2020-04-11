@@ -6,8 +6,8 @@ body {
 }
 
 .icon {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 5rem;
+    height: 5rem;
 }
 
 svg {
@@ -44,20 +44,6 @@ svg {
 }
 
 
-/* tebak angka */
-.tombol-angka {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-}
-
-.tombol-angka a{
-    text-align: center;
-    margin: 0.5rem;
-}
-
-
 /* quiz math */
 .kategori button{
     width: 7rem;
@@ -72,3 +58,10 @@ svg {
 
 /* door game */
 
+
+
+/* all games - index */
+.card-img {
+    width: 2rem;
+    height: 2rem;
+}

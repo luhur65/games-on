@@ -22,52 +22,59 @@
 
     <body class="bg-dark">
 
-        <div class="row">
-            <div class="col-md-5 col-sm-8 col-lg-4 p-4 mx-auto py-5">
-                <div class="card shadow rounded p-2 bg-light">
-                    <div class="card-body">
-                        <h3 class="text-center text-white mb-3 card-header bg-primary border-0 rounded">Tebak Angka</h3>
+        <div class="container">
 
-                        <p class="text-center font-weight-bold">Coba Tebak Angka Yg Saya Punya Dari 1 - 10 !</p>
-                        <div class="tombol-angka card text-center p-3">
-                            <div class="tombol-1">
-                                <a href="#" data-angka="1" class="btn btn-outline-primary btn-lg tebakan">1</a>
-                                <a href="#" data-angka="2" class="btn btn-outline-primary btn-lg tebakan">2</a>
-                                <a href="#" data-angka="3" class="btn btn-outline-primary btn-lg tebakan">3</a>
+            <div class="row">
+                <div class="col-md-8 col-lg-5 p-4 mx-auto py-5">
+                    <div class="card shadow rounded bg-light">
+                        <div class="card-body">
+                            <h3 class="text-center text-white mb-3 card-header bg-primary border-0 rounded">Tebak Angka</h3>
+    
+                            <p class="text-center font-weight-bold">
+                                Tebak Angka Yg Saya Punya Dari 1 - 10.
+                            </p>
+
+                            <div class="card p-3">
+                               <div class="button-angka p-2 text-center">
+                                <button type="button" class="btn btn-primary btn-lg mt-2 mb-2 tebakan" data-angka="1">1</button>
+                                <button type="button" class="btn btn-primary btn-lg mt-2 mb-2 tebakan" data-angka="2">2</button>
+                                <button type="button" class="btn btn-primary btn-lg mt-2 mb-2 tebakan" data-angka="3">3</button>
+                                <button type="button" class="btn btn-primary btn-lg mt-2 mb-2 tebakan" data-angka="4">4</button>
+                                <button type="button" class="btn btn-primary btn-lg mt-2 mb-2 tebakan" data-angka="5">5</button>
+                                <button type="button" class="btn btn-primary btn-lg mt-2 mb-2 tebakan" data-angka="6">6</button>
+                                <button type="button" class="btn btn-primary btn-lg mt-2 mb-2 tebakan" data-angka="7">7</button>
+                                <button type="button" class="btn btn-primary btn-lg mt-2 mb-2 tebakan" data-angka="8">8</button>
+                                <button type="button" class="btn btn-primary btn-lg mt-2 mb-2 tebakan" data-angka="9">9</button>
+                                <button type="button" class="btn btn-primary btn-lg mt-2 mb-2 tebakan" data-angka="10">10</button>
+                               </div>
                             </div>
-                            <div class="tombol-2">
-                                <a href="#" data-angka="4" class="btn btn-outline-primary btn-lg tebakan">4</a>
-                                <a href="#" data-angka="5" class="btn btn-outline-primary btn-lg tebakan">5</a>
-                                <a href="#" data-angka="6" class="btn btn-outline-primary btn-lg tebakan">6</a>
+    
+    
+                            <!-- tombol quit game -->
+                            <div class="text-center mt-4 mb-0">
+                                <a href="../index.html" class="btn btn-danger btn-sm text-center quit">
+                                    Quit Game??
+                                </a>
                             </div>
-                            <div class="tombol-3">
-                                <a href="#" data-angka="7" class="btn btn-outline-primary btn-lg tebakan">7</a>
-                                <a href="#" data-angka="8" class="btn btn-outline-primary btn-lg tebakan">8</a>
-                                <a href="#" data-angka="9" class="btn btn-outline-primary btn-lg tebakan">9</a>
-                            </div>
-                            <div>
-                                <a href="#" data-angka="10" class="btn btn-outline-primary btn-lg tebakan">10</a>
-                            </div>
+                            <!-- end of tombol quit game -->
+    
                         </div>
 
-
-                        <!-- tombol quit game -->
-                        <div class="text-center mt-4 mb-0">
-                            <a href="../index.html" class="btn btn-danger btn-sm text-center quit">
-                                Quit Game??
-                            </a>
-                        </div>
-                        <!-- end of tombol quit game -->
-
+                        
+                        <!-- svg -->
+                    <div class="mb-0 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="svg">
+                            <path fill="#0099ff" fill-opacity="1"
+                                d="M0,224L17.1,234.7C34.3,245,69,267,103,245.3C137.1,224,171,160,206,117.3C240,75,274,53,309,90.7C342.9,128,377,224,411,245.3C445.7,267,480,213,514,202.7C548.6,192,583,224,617,229.3C651.4,235,686,213,720,181.3C754.3,149,789,107,823,80C857.1,53,891,43,926,32C960,21,994,11,1029,16C1062.9,21,1097,43,1131,64C1165.7,85,1200,107,1234,101.3C1268.6,96,1303,64,1337,53.3C1371.4,43,1406,53,1423,58.7L1440,64L1440,320L1422.9,320C1405.7,320,1371,320,1337,320C1302.9,320,1269,320,1234,320C1200,320,1166,320,1131,320C1097.1,320,1063,320,1029,320C994.3,320,960,320,926,320C891.4,320,857,320,823,320C788.6,320,754,320,720,320C685.7,320,651,320,617,320C582.9,320,549,320,514,320C480,320,446,320,411,320C377.1,320,343,320,309,320C274.3,320,240,320,206,320C171.4,320,137,320,103,320C68.6,320,34,320,17,320L0,320Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <!-- end of svg -->
 
                     </div>
-
-                    <p class="small text-center mb-0 mt-2">
-                        Made With <span class="font-weight-bold">Love</span> By <a
-                            href="https://luhur65.github.io">@dharma_situmorang</a>
-                    </p>
                 </div>
             </div>
+
         </div>
 
 

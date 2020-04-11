@@ -20,62 +20,122 @@
     </head>
 
     <body class="bg-dark">
-        <div class="row">
-            <div class="col-lg-4 col-sm-10 col-md-10 p-2 mx-auto py-5">
-                <div class="card shadow rounded">
-                    <div class="card-body text-center">
-                        <h3 class="card-text card p-2 font-weight-bold">
-                            Welcome To Our Games!
-                        </h3>
-                        <p class="lead card font-weight-bold">Silakan Pilih Game nya ??</p>
 
-                        <div class="list-game card">
-                            <div class="mb-4 mt-4">
-                                <a href="about:blank" class="playButton" data-game="math_game" title="Game Quiz Math">
-                                    <img src="img/icon/gambar_kuis_math.jpeg" class="img-fluid icon rounded"
-                                        alt="quis_math">
-                                    <span class="d-block font-weight-bold">Math Quiz</span>
-                                </a>
-                            </div>
-                            <div class="mb-4">
-                                <a href="about:blank" class="playButton" data-game="tebak_angka"
-                                    title="Game Tebak Angka">
-                                    <img src="img/icon/gambar_tebak_angka.png" class="img-fluid icon rounded"
-                                        alt="Tebak Angka">
-                                    <span class="d-block font-weight-bold">Tebak Angka</span>
-                                </a>
-                            </div>
-                            <div class="mb-4">
-                                <a href="about:blank" class="playButton" data-game="batu_gunting_kertas"
-                                    title="Game Batu Gunting Kertas">
-                                    <img src="img/icon/batu gunting kertas.png" class="img-fluid icon rounded"
-                                        alt="Game Suit">
-                                    <span class="d-block font-weight-bold">
-                                        Game Suit
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="mb-4">
-                                <a href="about:blank" class="playButton" data-game="boxes_game"
-                                    title="Game Temukan Jalan yang Benar">
-                                    <img src="img/box-icon/box1.png" class="img-fluid icon rounded"
-                                        alt="Game Temukan Jalan yang Benar">
-                                    <span class="d-block font-weight-bold">
-                                        Game Boxes
-                                    </span>
-                                </a>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6 p-2 mx-auto py-5">
+                    <div class="card shadow rounded">
+                        <div class="card-body">
+                            <h3 class="card-text card p-2 font-weight-bold text-center shadow">
+                                Welcome To Our Games!
+                            </h3>
+                            <!-- <p class="lead card font-weight-bold">Silakan Pilih Game nya ??</p> -->
+
+                            <div class="list-game">
+
+                                <!-- game quiz math -->
+                                <div class="card mb-3 shadow">
+                                    <div class="row no-gutters p-3">
+                                        <div class="col-lg mb-3">
+                                            <img src="img/icon/gambar_kuis_math.jpeg"
+                                                class="icon rounded img-fluid mx-3" alt="quis_math">
+                                        </div>
+                                        <div class="col-lg-8 mx-3">
+                                            <h6 class="text-primary">Game Math Quiz</h6>
+                                            <p class="card-text">
+                                                Game Kuis Menjawab Quiz Matematika.
+                                            </p>
+                                            <a href="about:blank" class="playButton btn btn-outline-primary btn-sm"
+                                                data-game="math_game" title="Game Quiz Math">
+                                                Play Game Now !
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- game tebak angka -->
+                                <div class="card mb-3 shadow">
+                                    <div class="row no-gutters p-3">
+                                        <div class="col-lg mb-3">
+                                            <img src="img/icon/gambar_tebak_angka.png"
+                                                class="img-fluid icon rounded mx-3" alt="Tebak Angka">
+                                        </div>
+                                        <div class="col-lg-8 mx-3">
+                                            <h6 class="text-primary">Game Tebak Angka</h6>
+                                            <p class="card-text">
+                                                Menebak Angka Yang Diberikan Comp.
+                                            </p>
+                                            <a href="about:blank" class="playButton btn btn-outline-primary btn-sm"
+                                                data-game="tebak_angka" title="Game Quiz Math">
+                                                Play Game Now !
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- game Batu gunting kertas -->
+                                <div class="card mb-3 shadow">
+                                    <div class="row no-gutters p-3">
+                                        <div class="col-lg mb-3">
+                                            <img src="img/icon/batu gunting kertas.png"
+                                                class="img-fluid icon rounded mx-3 mt-2" alt="Game Suit">
+                                        </div>
+                                        <div class="col-lg-8 mx-3">
+                                            <h6 class="text-primary">Game Suit</h6>
+                                            <p class="card-text">
+                                                Bermain Suit ( Batu / gunting / kertas ).
+                                            </p>
+                                            <a href="about:blank" class="playButton btn btn-outline-primary btn-sm"
+                                                data-game="batu_gunting_kertas" title="Game Quiz Math">
+                                                Play Game Now !
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- game mboxes -->
+                                <div class="card mb-3 shadow">
+                                    <div class="row no-gutters p-3">
+                                        <div class="col-lg mb-3">
+                                            <img src="img/box-icon/box1.png" class="img-fluid icon rounded mx-3"
+                                                alt="Game Boxes">
+                                        </div>
+                                        <div class="col-lg-8 mx-3">
+                                            <h6 class="text-primary">Game Boxes</h6>
+                                            <p class="card-text">
+                                                Cari Box yang Bagus &amp; Kumpulkan Mereka Semua!.
+                                            </p>
+                                            <a href="about:blank" class="playButton btn btn-outline-primary btn-sm"
+                                                data-game="boxes_game" title="Game Boxes">
+                                                Play Game Now!
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card mb-3">
+                                    <button type="button" class="btn btn-outline-primary keyAccess">
+                                        View All Log Player.
+                                    </button>
+                                </div>
+                                <hr class="mb-0 bg-dark">
+                                <p class="mb-0 small text-center mt-1">Made By 
+                                    <a href="https://github.com/luhur65">Luhur65 (D.B.S)</a>
+                                </p>
+
                             </div>
                         </div>
-                    </div>
-                    <div class="mb-0 rounded">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="svg">
-                            <path fill="#0099ff" fill-opacity="1"
-                                d="M0,224L17.1,234.7C34.3,245,69,267,103,245.3C137.1,224,171,160,206,117.3C240,75,274,53,309,90.7C342.9,128,377,224,411,245.3C445.7,267,480,213,514,202.7C548.6,192,583,224,617,229.3C651.4,235,686,213,720,181.3C754.3,149,789,107,823,80C857.1,53,891,43,926,32C960,21,994,11,1029,16C1062.9,21,1097,43,1131,64C1165.7,85,1200,107,1234,101.3C1268.6,96,1303,64,1337,53.3C1371.4,43,1406,53,1423,58.7L1440,64L1440,320L1422.9,320C1405.7,320,1371,320,1337,320C1302.9,320,1269,320,1234,320C1200,320,1166,320,1131,320C1097.1,320,1063,320,1029,320C994.3,320,960,320,926,320C891.4,320,857,320,823,320C788.6,320,754,320,720,320C685.7,320,651,320,617,320C582.9,320,549,320,514,320C480,320,446,320,411,320C377.1,320,343,320,309,320C274.3,320,240,320,206,320C171.4,320,137,320,103,320C68.6,320,34,320,17,320L0,320Z">
-                            </path>
-                        </svg>
+                        <div class="mb-0 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160" class="svg">
+                                <path fill="#0099ff" fill-opacity="1"
+                                    d="M0,224L17.1,234.7C34.3,245,69,267,103,245.3C137.1,224,171,160,206,117.3C240,75,274,53,309,90.7C342.9,128,377,224,411,245.3C445.7,267,480,213,514,202.7C548.6,192,583,224,617,229.3C651.4,235,686,213,720,181.3C754.3,149,789,107,823,80C857.1,53,891,43,926,32C960,21,994,11,1029,16C1062.9,21,1097,43,1131,64C1165.7,85,1200,107,1234,101.3C1268.6,96,1303,64,1337,53.3C1371.4,43,1406,53,1423,58.7L1440,64L1440,320L1422.9,320C1405.7,320,1371,320,1337,320C1302.9,320,1269,320,1234,320C1200,320,1166,320,1131,320C1097.1,320,1063,320,1029,320C994.3,320,960,320,926,320C891.4,320,857,320,823,320C788.6,320,754,320,720,320C685.7,320,651,320,617,320C582.9,320,549,320,514,320C480,320,446,320,411,320C377.1,320,343,320,309,320C274.3,320,240,320,206,320C171.4,320,137,320,103,320C68.6,320,34,320,17,320L0,320Z">
+                                </path>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
 
@@ -85,6 +145,7 @@
         <script src="vendor/jquery/jquery.easing.js"></script>
         <script src="vendor/sbadmin/sb-admin-2.js"></script>
         <script src="vendor/sweetalert2/sweetalert2.all.min.js"></script>
+        <script src="vendor/jquery/anony23scriptj238921jhsdauidh.js"></script>
         <!-- scripts -->
         <script src="js/index.js"></script>
     </body>
