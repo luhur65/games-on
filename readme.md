@@ -14,6 +14,8 @@ Alertnya menggunakan `sweetalert` tidak menggunakan alert bawaan dari browser.
 3. Game Suit (Batu / gunting / kertas).
 4. Game Find Me.
 
+<p>Fitur Cookie</p>
+
 **Note:**
 semua game akan di kembangkan dan dibuat semenarik mungkin.
 repo ini akan selalu dikembangkan secara bertahap ,hingga semua fitur nya tersedia.
