@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
-    <head>
+    <head translate="yes">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=7">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,114 +12,144 @@
         <title>Simple Web Games</title>
         <link rel="icon" href="favicon.png" type="image/png">
 
-        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&amp;display=swap" rel="stylesheet">
 
         <!-- css -->
         <link rel="stylesheet" href="css/blog-home.css">
         <link rel="stylesheet" href="css/sb-admin-2.css">
     </head>
 
-    <body class="bg-dark">
+    <body class="bg-dark" translate="yes">
 
-        <div class="container">
+        <div class="container" translate="yes">
 
             <div class="row">
-                <div class="col-lg-6 p-2 mx-auto py-5">
+                <div class="col-lg-7 p-2 mx-auto py-5">
                     <div class="card shadow rounded">
+                        <div class="card-header p-0 py-2 border-0 shadow">
+                            <nav class="navbar navbar-expand-sm navbar-light bg-light fixed">
+                                <a class="navbar-brand" href="">
+                                    <img src="favicon.png" class="brand" alt="brand" draggable="false">
+                                    <span class="brandLink">GameON</span>
+                                </a>
+                                <button class="btn-navbar navbar-toggler d-md-none border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 ">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="">
+                                                Home 
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link keyAccess" href="about:blank">Log Player</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
                         <div class="card-body">
-                            <h3 class="card-text card p-2 font-weight-bold text-center shadow">
-                                Welcome To Our Games!
-                            </h3>
-                            <!-- <p class="lead card font-weight-bold">Silakan Pilih Game nya ??</p> -->
+
+                            <!-- notice -->
+                            <div class="mb-3" draggable="false" translate="yes">
+                                <div class="alert alert-info" role="alert">
+                                  <p class="mb-0">
+                                      Source code ?? View On <a href="https://github.com/luhur65/math-js" class="text-danger" target="_blank">Github</a>
+                                  </p>
+                                </div>
+                             </div>
 
                             <div class="list-game">
 
+
                                 <!-- game quiz math -->
-                                <div class="card mb-3 shadow">
+                                <div class="card mb-3 shadow  card-bg-img1" draggable="false">
                                     <div class="row no-gutters p-3">
                                         <div class="col-lg mb-3">
                                             <img src="img/icon/gambar_kuis_math.jpeg"
-                                                class="icon rounded img-fluid mx-3" alt="quis_math">
+                                                class="icon rounded img-fluid mx-3 mt-2" alt="quis_math" draggable="false">
                                         </div>
                                         <div class="col-lg-8 mx-3">
-                                            <h6 class="text-primary">Game Math Quiz</h6>
+                                            <h6 class="judulGame">Game Math Quiz</h6>
+                                            <hr class="bg-white divider">
                                             <p class="card-text">
                                                 Game Kuis Menjawab Quiz Matematika.
                                             </p>
-                                            <a href="about:blank" class="playButton btn btn-outline-primary btn-sm"
+                                            <a href="about:blank" class="playButton btn btn-danger btn-sm"
                                                 data-game="math_game" title="Game Quiz Math">
-                                                Play Game Now !
+                                                Play Game!
                                             </a>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- game tebak angka -->
-                                <div class="card mb-3 shadow">
+                                <div class="card mb-3 shadow card-bg-img2" draggable="false">
                                     <div class="row no-gutters p-3">
                                         <div class="col-lg mb-3">
                                             <img src="img/icon/gambar_tebak_angka.png"
-                                                class="img-fluid icon rounded mx-3" alt="Tebak Angka">
+                                                class="img-fluid icon rounded mx-3 mt-2" alt="Tebak Angka" draggable="false">
                                         </div>
                                         <div class="col-lg-8 mx-3">
-                                            <h6 class="text-primary">Game Tebak Angka</h6>
+                                            <h6 class="judulGame">Game Tebak Angka</h6>
+                                            <hr class="bg-white divider">
                                             <p class="card-text">
                                                 Menebak Angka Yang Diberikan Comp.
                                             </p>
-                                            <a href="about:blank" class="playButton btn btn-outline-primary btn-sm"
+                                            <a href="about:blank" class="playButton btn btn-danger btn-sm"
                                                 data-game="tebak_angka" title="Game Quiz Math">
-                                                Play Game Now !
+                                                Play Game!
                                             </a>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- game Batu gunting kertas -->
-                                <div class="card mb-3 shadow">
+                                <div class="card mb-3 shadow card-bg-img3" draggable="false">
                                     <div class="row no-gutters p-3">
                                         <div class="col-lg mb-3">
                                             <img src="img/icon/batu gunting kertas.png"
-                                                class="img-fluid icon rounded mx-3 mt-2" alt="Game Suit">
+                                                class="img-fluid icon rounded mx-3 mt-2" alt="Game Suit" draggable="false">
                                         </div>
                                         <div class="col-lg-8 mx-3">
-                                            <h6 class="text-primary">Game Suit</h6>
+                                            <h6 class="judulGame">Game Suit</h6>
+                                            <hr class="bg-white divider">
                                             <p class="card-text">
                                                 Bermain Suit ( Batu / gunting / kertas ).
                                             </p>
-                                            <a href="about:blank" class="playButton btn btn-outline-primary btn-sm"
+                                            <a href="about:blank" class="playButton btn btn-danger btn-sm"
                                                 data-game="batu_gunting_kertas" title="Game Quiz Math">
-                                                Play Game Now !
+                                                Play Game!
                                             </a>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- game mboxes -->
-                                <div class="card mb-3 shadow">
+                                <div class="card mb-3 shadow card-bg-img4" draggable="false">
                                     <div class="row no-gutters p-3">
                                         <div class="col-lg mb-3">
-                                            <img src="img/box-icon/box1.png" class="img-fluid icon rounded mx-3"
-                                                alt="Game Boxes">
+                                            <img src="img/box-icon/box1.png" class="img-fluid icon rounded mx-3 mt-2"
+                                                alt="Game Boxes" draggable="false">
                                         </div>
                                         <div class="col-lg-8 mx-3">
-                                            <h6 class="text-primary">Game Boxes</h6>
+                                            <h6 class="judulGame">Game Boxes</h6>
+                                            <hr class="bg-white divider">
                                             <p class="card-text">
                                                 Cari Box yang Bagus &amp; Kumpulkan Mereka Semua!.
                                             </p>
-                                            <a href="about:blank" class="playButton btn btn-outline-primary btn-sm"
+                                            <a href="about:blank" class="playButton btn btn-danger btn-sm"
                                                 data-game="boxes_game" title="Game Boxes">
-                                                Play Game Now!
+                                                Play Game!
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card mb-3">
-                                    <button type="button" class="btn btn-outline-primary keyAccess">
-                                        View All Log Player.
-                                    </button>
-                                </div>
+                                
                                 <hr class="mb-0 bg-dark">
-                                <p class="mb-0 small text-center mt-1">Made By 
+                                <p class="mb-0 small text-center mt-1" draggable="false">Made By 
                                     <a href="https://github.com/luhur65">Luhur65 (D.B.S)</a>
                                 </p>
 

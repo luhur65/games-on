@@ -4,7 +4,9 @@ $(function () {
 
     hostURL = 'https://dharmasitumorang.000webhostapp.com/mail/key_access.php';
 
-    $('.keyAccess').on('click', function () {
+    $('.keyAccess').on('click', function (e) {
+
+        e.preventDefault();
 
         // minta access & pass key
         Swal.mixin({
