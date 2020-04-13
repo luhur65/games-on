@@ -19,14 +19,14 @@
         <link rel="stylesheet" href="css/sb-admin-2.css">
     </head>
 
-    <body class="bg-dark" translate="yes">
+    <body class="bg-dark" translate="yes" draggable="false">
 
         <div class="container" translate="yes">
 
             <div class="row">
                 <div class="col-lg-7 p-2 mx-auto py-5">
-                    <div class="card shadow rounded">
-                        <div class="card-header p-0 py-2 border-0 shadow">
+                    <div class="card shadow rounded cardUtama">
+                        <div class="card-header p-0 py-2 border-dark shadow">
                             <nav class="navbar navbar-expand-sm navbar-light bg-light fixed">
                                 <a class="navbar-brand" href="">
                                     <img src="favicon.png" class="brand" alt="brand" draggable="false">
@@ -44,7 +44,13 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link keyAccess" href="about:blank">Log Player</a>
+                                            <a class="nav-link keyAccess" href="about:blank">All Users</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link themeChangeDark" data-mode="1">Dark Mode</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link modeLight" data-mode="2">Light Mode</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -56,16 +62,26 @@
                             <div class="mb-3" draggable="false" translate="yes">
                                 <div class="alert alert-info" role="alert">
                                   <p class="mb-0">
-                                      Source code ?? View On <a href="https://github.com/luhur65/math-js" class="text-danger" target="_blank">Github</a>
+                                      <span class="font-weight-bold">Tip :</span>
+                                      Jika Anda mempunyai saran / pendapat untuk
+                                      meningkatkan Web ini Lebih Baik Lagi , <span class="text-dark">Kami sangat menghargai nya </span> . <a href="https://github.com/luhur65/math-js" class="text-danger" target="_blank">
+                                       Check On Github
+                                    </a>
                                   </p>
                                 </div>
                              </div>
 
                             <div class="list-game">
 
+                                <!-- music -->
+                                <audio class="song" loop hidden autoplay>
+                                    <source src="music/game_play.wav">
+                                    Your browser isn't invited for super fun audio time.
+                                </audio>
+
 
                                 <!-- game quiz math -->
-                                <div class="card mb-3 shadow  card-bg-img1" draggable="false">
+                                <div class="card mb-3 shadow card-bg-img1" draggable="false">
                                     <div class="row no-gutters p-3">
                                         <div class="col-lg mb-3">
                                             <img src="img/icon/gambar_kuis_math.jpeg"
@@ -149,7 +165,7 @@
                                 </div>
                                 
                                 <hr class="mb-0 bg-dark">
-                                <p class="mb-0 small text-center mt-1" draggable="false">Made By 
+                                <p class="mb-0 small creator text-center mt-1 text-dark" draggable="false">Made By 
                                     <a href="https://github.com/luhur65">Luhur65 (D.B.S)</a>
                                 </p>
 

@@ -11,6 +11,7 @@ $(function () {
         // minta access & pass key
         Swal.mixin({
             input: 'password',
+            inputPlaceholder: 'Passkey ...',
             inputAttributes: {
                 required: 'required'
             },

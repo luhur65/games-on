@@ -88,6 +88,7 @@ function check_cookie(game) {
         // data nama pemain yg bermain 
         Swal.mixin({
             input: 'text',
+            inputPlaceholder: 'Nama Anda ...',
             inputAttributes: {
                 required: 'required'
             },
@@ -143,11 +144,72 @@ function check_cookie(game) {
 }
 
 
+// function dark_mode
+function darkMode() {
+
+    // penghapusan class
+    $('.navbar').removeClass('navbar-light');
+    $('.navbar').removeClass('bg-light');
+    $('.card-header').removeClass('border-dark');
+    $('.playButton').removeClass('btn-danger');
+    $('.creator').removeClass('text-dark');
+
+    // penambahan class 
+    $('.navbar').addClass('navbar-dark');
+    $('.navbar').addClass('bg-dark');
+    $('.cardUtama').addClass('bg-dark');
+    $('.card-header').addClass('bg-dark');
+    $('.card-header').addClass('border-white');
+    $('.card-bg-img1').addClass('bg-dark');
+    $('.card-bg-img2').addClass('bg-dark');
+    $('.card-bg-img3').addClass('bg-dark');
+    $('.card-bg-img4').addClass('bg-dark');
+    $('.judulGame').addClass('text-success');
+    $('.card-text').addClass('text-white');
+    $('.playButton').addClass('btn-primary');
+    $('.creator').addClass('text-white');
+    $('.creator a').addClass('text-success');
+
+}
+
+// function dark_mode
+function lightMode() {
+
+    // penambahan class 
+    $('.navbar').addClass('navbar-light');
+    $('.navbar').addClass('bg-light');
+    $('.card-header').addClass('border-dark');
+    $('.playButton').addClass('btn-danger');
+    $('.creator').addClass('text-dark');
+    
+    // penghapusan class
+    $('.navbar').removeClass('navbar-dark');
+    $('.navbar').removeClass('bg-dark');
+    $('.cardUtama').removeClass('bg-dark');
+    $('.card-header').removeClass('bg-dark');
+    $('.card-header').removeClass('border-white');
+    $('.card-bg-img1').removeClass('bg-dark');
+    $('.card-bg-img2').removeClass('bg-dark');
+    $('.card-bg-img3').removeClass('bg-dark');
+    $('.card-bg-img4').removeClass('bg-dark');
+    $('.judulGame').removeClass('text-success');
+    $('.card-text').removeClass('text-white');
+    $('.playButton').removeClass('btn-primary');
+    $('.creator').removeClass('text-white');
+    $('.creator a').removeClass('text-success');
+
+}
+
+function ajaxChangeMode()
+{
+    // code here ...
+}
 
 
 // index.html
 $(function () {
 
+    // button play
     $('.playButton').on('click', function (e) {
         e.preventDefault();
 
@@ -159,4 +221,46 @@ $(function () {
         check_cookie(game);
 
     });
+
+    // hidden 
+    $('.modeLight').hide();
+
+
+    // dark-mode
+    $('.themeChangeDark').on('click', function (e) {
+
+        e.preventDefault();
+
+        var theme = $(this).data('mode');
+
+        if (theme == '1') {
+                    
+            // function darkMode()
+            darkMode();
+
+            $(this).hide();
+            $('.modeLight').show();
+
+        } 
+        
+    });
+    
+    // light-mode
+    $('.modeLight').on('click', function (e) {
+        e.preventDefault();
+        
+        var theme = $(this).data('mode');
+    
+        if (theme == '2') {
+                    
+            // function lightMode()
+            lightMode()
+    
+            $(this).hide();
+            $('.themeChangeDark').show();
+    
+        } 
+
+    })
+
 });

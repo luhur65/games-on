@@ -159,14 +159,25 @@ svg {
 
 @media(max-width: 270px) {
 
-    .brandLink {
-
+    /* .brandLink {
         display: none;
+    } */
+
+    .navbar-brand img {
+        display: none;
+    }
+
+    .nav-item .nav-link{
+        font-size: 12px;
     }
 
     .card-text {
 
         display: none;
+    }
+
+    .judulGame {
+        font-size: 14px;
     }
 
     .icon {
@@ -176,6 +187,6 @@ svg {
 
     .alert-info p,
     .breadcrumb-item {
-        font-size: 10px;
+        font-size: 12px;
     }
 }
