@@ -326,6 +326,7 @@ function darkMode() {
     $('.kotakSkor span').addClass('text-white');
     $('.kotakSoal h3').addClass('text-white');
     $('hr').addClass('bg-white');
+    $('.creator').addClass('text-white');
     $('.quit').addClass('text-danger');
     $('.changeQuiz').addClass('text-white');
 

@@ -3,7 +3,9 @@
 **Library/Framework yg dipake dalam Game:**
 1. SweetAlert2.
 2. Boostrap4.
-3. Jquery.
+3. SbAdmin2.
+4. Fontawesome.
+5. Jquery.
 
 **Fitur & Game Apa Saja yg Ada ??**
 Alertnya menggunakan `sweetalert` tidak menggunakan alert bawaan dari browser.
@@ -12,9 +14,12 @@ Alertnya menggunakan `sweetalert` tidak menggunakan alert bawaan dari browser.
 1. Game Quiz Math.
 2. Game Tebak Angka.
 3. Game Suit (Batu / gunting / kertas).
-4. Game Find Me.
+4. Game Boxes.
 
-<p>Fitur Cookie</p>
+<p>Fitur Cookie.</p>
+<p>Backsound / Music Latar Yang Relax</p>
+<p>Fitur Dark Mode / Light Mode. </p>
+<p>Fitur Progress Bar game.</p>
 
 **Note:**
 semua game akan di kembangkan dan dibuat semenarik mungkin.

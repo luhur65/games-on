@@ -150,13 +150,15 @@ function darkMode() {
     // penghapusan class
     $('.navbar').removeClass('navbar-light');
     $('.navbar').removeClass('bg-light');
+    $('.alert').removeClass('alert-info');
     $('.card-header').removeClass('border-dark');
     $('.playButton').removeClass('btn-danger');
     $('.creator').removeClass('text-dark');
-
+    
     // penambahan class 
     $('.navbar').addClass('navbar-dark');
     $('.navbar').addClass('bg-dark');
+    $('.alert').addClass('alert-dark');
     $('.cardUtama').addClass('bg-dark');
     $('.card-header').addClass('bg-dark');
     $('.card-header').addClass('border-white');
@@ -167,6 +169,7 @@ function darkMode() {
     $('.judulGame').addClass('text-success');
     $('.card-text').addClass('text-white');
     $('.playButton').addClass('btn-primary');
+    $('.btn-group a').addClass('text-white');
     $('.creator').addClass('text-white');
     $('.creator a').addClass('text-success');
 
@@ -175,16 +178,10 @@ function darkMode() {
 // function dark_mode
 function lightMode() {
 
-    // penambahan class 
-    $('.navbar').addClass('navbar-light');
-    $('.navbar').addClass('bg-light');
-    $('.card-header').addClass('border-dark');
-    $('.playButton').addClass('btn-danger');
-    $('.creator').addClass('text-dark');
-
     // penghapusan class
     $('.navbar').removeClass('navbar-dark');
     $('.navbar').removeClass('bg-dark');
+    $('.alert').removeClass('alert-dark')
     $('.cardUtama').removeClass('bg-dark');
     $('.card-header').removeClass('bg-dark');
     $('.card-header').removeClass('border-white');
@@ -195,8 +192,17 @@ function lightMode() {
     $('.judulGame').removeClass('text-success');
     $('.card-text').removeClass('text-white');
     $('.playButton').removeClass('btn-primary');
+    $('.btn-group a').removeClass('text-white');
     $('.creator').removeClass('text-white');
     $('.creator a').removeClass('text-success');
+
+    // penambahan class 
+    $('.navbar').addClass('navbar-light');
+    $('.navbar').addClass('bg-light');
+    $('.alert').addClass('alert-info');
+    $('.card-header').addClass('border-dark');
+    $('.playButton').addClass('btn-danger');
+    $('.creator').addClass('text-dark');
 
 }
 
