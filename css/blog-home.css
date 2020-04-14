@@ -45,6 +45,10 @@ svg {
 
 
 /* quiz math */
+.title {
+    font-size: 2rem;
+}
+
 .kategori button {
     width: 7rem;
     border-radius: 2rem;
@@ -55,6 +59,17 @@ svg {
     transform: scale(1.2);
     opacity: 0.8;
 }
+
+.tulisanSoal {
+    font-size: 2rem;
+}
+
+.kerjakanSoal,
+.changeQuiz {
+    display: none;
+}
+
+
 
 /* door game */
 
@@ -123,7 +138,7 @@ svg {
     color: white;
 }
 
-@media(max-width: 350px) {
+@media(max-width: 400px) {
 
     .card-bg-img1,
     .card-bg-img2,
@@ -148,12 +163,25 @@ svg {
         color: #4e73df;
     }
 
+    .icon {
+        width: 4rem;
+        height: 4rem;
+    }
+
     .brandLink {
         font-size: 16px;
     }
 
     .divider {
         color: gray;
+    }
+
+    .title {
+        font-size: 1.25rem;
+    }
+
+    .tulisanSoal {
+        font-size: 1rem;
     }
 }
 
@@ -187,6 +215,26 @@ svg {
 
     .alert-info p,
     .breadcrumb-item {
+        font-size: 12px;
+    }
+
+    /* Math Game */
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .kategori button {
+        width: 5rem;
+        font-size: 12px;
+    }
+
+    .tulisanSoal {
+        font-size: 15px;
+    }
+
+    .quit,
+    .changeQuiz {
         font-size: 12px;
     }
 }

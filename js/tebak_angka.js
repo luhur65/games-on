@@ -64,8 +64,6 @@ $(function () {
     $('.quit').on('click', function (e) {
         e.preventDefault();
 
-        const href = $(this).attr('href');
-
         Swal.fire({
             icon: 'question',
             title: 'Anda Yakin??',
@@ -81,7 +79,7 @@ $(function () {
                     showConfirmButton: false,
                     timer: '1500'
                 }).then((result) => {
-                    document.location.href = href;
+                    document.location.href = '../';
                 });
             }
         });

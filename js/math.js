@@ -1,7 +1,7 @@
 // function mode game mudah
 function gameTypeMudah(mode, skor) {
 
-    let number1, number2, soal;
+    let number1, number2, soal, bar;
 
     // buat variabel angka random
     number1 = Math.ceil(Math.random() * 10);
@@ -9,28 +9,19 @@ function gameTypeMudah(mode, skor) {
 
     soal = tambah(number1, number2);
 
+    // kunci jawaban
+    console.log(soal);
+
     // ganti halaman pemilihan type game dengan soal
     $(function () {
-        $('.kerjakan-soal').html(`
-        <p class="lead card p-2">Selamat Mengerjakan!</p>
 
-
-        <div class="d-block p-3 mb-3 card">
-            <h3 class="display-5 h1 font-weight-bold">` + number1 + ` + ` + number2 + ` = ??</h3>
-        </div>
-
-        <div class="p-1 mb-3 card">
-            <p class="lead font-weight-bold mb-0">
-                <span class="text-primary">` + skor + ` points </span>
-            </p>
-        </div>
+        $('.kotakSoal h3').html(number1 + ' + ' + number2 + ' = ?? ');
         
-        <button type="button" class="btn btn-success mb-3 btn-block jawab">
-            Jawaban Saya!
-        </button>
+        $('.kerjakanSoal').show();
+        $('.kategori').hide();
 
-        `);
-
+        $('.quit').hide();
+        $('.changeQuiz').show();
 
         // tombol jawab diklik
         $('.jawab').on('click', function () {
@@ -62,31 +53,26 @@ function gameTypeMudah(mode, skor) {
                         }).then((result) => {
                             // result skor pemain
                             skor += 10;
-                            console.log(skor);
 
-                            Swal.fire({
-                                icon: 'question',
-                                title: 'Lagi ??',
-                                text: 'Anda Ingin Bermain Lagi ?? Skor Anda : ' + skor + ' ',
-                                showCancelButton: true,
-                                confirmButtonColor: '#3085d6',
-                                cancelButtonColor: '#d33',
-                            }).then((result) => {
-                                if (result.value) {
-                                    // mainkan kembali langsung type game mudah
-                                    gameTypeMudah(mode, skor);
+                            bar = skor / 2;
 
-                                } else {
-                                    Swal.fire({
-                                        icon: 'success',
-                                        title: 'Thanks For Playing!',
-                                        showConfirmButton: false,
-                                        timer: '1500'
-                                    }).then((result) => {
-                                        document.location.href = '';
-                                    });
-                                }
-                            });
+                            $('.progress-bar').attr('style','width: ' + bar + '%;');
+                            $('.progress-bar').attr('aria-valuenow', bar);
+                            $('.tulisanBar').html(bar + '%');
+
+                            // cek jika sudah 100%
+                            if (bar == 100) {
+                                
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Congratulations!',
+                                    text: 'Anda Telah Menyelesaikan Progress Anda!',
+                                }).then((result) => {
+                                    document.location.href = '';
+                                });
+                            }
+
+                            gameTypeMudah(mode, skor);
                         });
 
                         // jawaban nya salah
@@ -110,7 +96,7 @@ function gameTypeMudah(mode, skor) {
 // function game mode type sedang
 function gameTypeSedang(mode, skor) {
 
-    let number1, number2, soal;
+    let number1, number2, soal, bar;
 
     // buat variabel angka random
     number1 = Math.ceil(Math.random() * 20);
@@ -118,27 +104,18 @@ function gameTypeSedang(mode, skor) {
 
     soal = min(number1, number2);
 
+    // kunci jawaban
+    console.log(soal);
+
     // ganti halaman pemilihan type game dengan soal
     $(function () {
-        $('.kerjakan-soal').html(`
-        <p class="lead card p-2">Selamat Mengerjakan!</p>
-
-
-        <div class="d-block p-3 mb-3 card">
-            <h3 class="display-5 h1 font-weight-bold">` + number1 + ` - ` + number2 + ` = ??</h3>
-        </div>
-
-        <div class="p-1 mb-3 card">
-            <p class="lead font-weight-bold mb-0">
-                <span class="text-primary">` + skor + ` points </span>
-            </p>
-        </div>
+        $('.kotakSoal h3').html(number1 + ' - ' + number2 + ' = ?? ');
         
-        <button type="button" class="btn btn-success mb-3 btn-block jawab">
-            Jawaban Saya!
-        </button>
+        $('.kerjakanSoal').show();
+        $('.kategori').hide();
 
-        `);
+        $('.quit').hide();
+        $('.changeQuiz').show();
 
 
         // tombol jawab diklik
@@ -162,10 +139,7 @@ function gameTypeSedang(mode, skor) {
 
                     // cek jika jawaban benar / salah
                     if (jawab == soal) {
-                        // skor pemain
-                        skor += 10;
-                        console.log(skor);
-
+                        
                         Swal.fire({
                             icon: 'success',
                             title: 'Perfect!',
@@ -173,29 +147,18 @@ function gameTypeSedang(mode, skor) {
                             showConfirmButton: false,
                             timer: '1700'
                         }).then((result) => {
-                            Swal.fire({
-                                icon: 'question',
-                                title: 'Lagi ??',
-                                text: 'Anda Ingin Bermain Lagi ?? Skor Anda : ' + skor + ' ',
-                                showCancelButton: true,
-                                confirmButtonColor: '#3085d6',
-                                cancelButtonColor: '#d33',
-                            }).then((result) => {
-                                if (result.value) {
-                                    // mainkan kembali langsung type game mudah
-                                    gameTypeSedang(mode, skor);
 
-                                } else {
-                                    Swal.fire({
-                                        icon: 'success',
-                                        title: 'Thanks For Playing!',
-                                        showConfirmButton: false,
-                                        timer: '1500'
-                                    }).then((result) => {
-                                        document.location.href = '';
-                                    });
-                                }
-                            });
+                            // skor pemain
+                            skor += 10;
+                            
+                            bar = skor / 2;
+
+                            $('.progress-bar').attr('style','width: ' + bar + '%;');
+                            $('.progress-bar').attr('aria-valuenow', bar);
+                            $('.tulisanBar').html(bar + '%');
+
+                            gameTypeSedang(mode, skor);
+
                         });
 
                         // jawaban nya salah
@@ -207,6 +170,13 @@ function gameTypeSedang(mode, skor) {
                             confirmButtonText: 'Coba Lagi!',
                             showConfirmButton: false,
                             timer: '1500'
+                        }).then((result) => {
+
+                            // skor pemain
+                            skor -= 2;
+
+                            gameTypeSedang(mode, skor);
+
                         });
                     }
                 }
@@ -218,7 +188,7 @@ function gameTypeSedang(mode, skor) {
 
 function gameTypeSulit(mode, skor) {
 
-    let number1, number2, soal;
+    let number1, number2, soal, bar;
 
     // buat variabel angka random
     number1 = Math.ceil(Math.random() * 120);
@@ -226,28 +196,18 @@ function gameTypeSulit(mode, skor) {
 
     soal = kali(number1, number2);
 
+    // kunci jawaban
+    console.log(soal);
+
     // ganti halaman pemilihan type game dengan soal
     $(function () {
-        $('.kerjakan-soal').html(`
-        <p class="lead card p-2">Selamat Mengerjakan!</p>
-
-
-        <div class="d-block p-3 mb-3 card">
-            <h3 class="h2 font-weight-bold">` + number1 + ` * ` + number2 + ` = ??</h3>
-        </div>
-
-        <div class="p-1 mb-3 card">
-            <p class="lead font-weight-bold mb-0">
-                <span class="text-primary">` + skor + ` points </span>
-            </p>
-        </div>
+        $('.kotakSoal h3').html(number1 + ' * ' + number2 + ' = ?? ');
         
-        <button type="button" class="btn btn-success mb-3 btn-block jawab">
-            Jawaban Saya!
-        </button>
+        $('.kerjakanSoal').show();
+        $('.kategori').hide();
 
-        `);
-
+        $('.quit').hide();
+        $('.changeQuiz').show();
 
         // tombol jawab diklik
         $('.jawab').on('click', function () {
@@ -278,32 +238,16 @@ function gameTypeSulit(mode, skor) {
                             timer: '1700'
                         }).then((result) => {
                             // result skor pemain
-                            skor += 10;
-                            console.log(skor);
+                            skor += 4;
 
-                            Swal.fire({
-                                icon: 'question',
-                                title: 'Lagi ??',
-                                text: 'Anda Ingin Bermain Lagi ?? Skor Anda : ' + skor + ' ',
-                                showCancelButton: true,
-                                confirmButtonColor: '#3085d6',
-                                cancelButtonColor: '#d33',
-                            }).then((result) => {
-                                if (result.value) {
-                                    // mainkan kembali langsung type game mudah
-                                    gameTypeSulit(mode, skor);
+                            bar = skor / 2;
 
-                                } else {
-                                    Swal.fire({
-                                        icon: 'success',
-                                        title: 'Thanks For Playing!',
-                                        showConfirmButton: false,
-                                        timer: '1500'
-                                    }).then((result) => {
-                                        document.location.href = '';
-                                    });
-                                }
-                            });
+                            $('.progress-bar').attr('style','width: ' + bar + '%;');
+                            $('.progress-bar').attr('aria-valuenow', bar);
+                            $('.tulisanBar').html(bar + '%');
+
+                            gameTypeSulit(mode, skor);
+                            
                         });
 
                         // jawaban nya salah
@@ -315,6 +259,11 @@ function gameTypeSulit(mode, skor) {
                             confirmButtonText: 'Coba Lagi!',
                             showConfirmButton: false,
                             timer: '1500'
+                        }).then((result) => {
+                            
+                            skor -= 2
+
+                            gameTypeSulit(mode, skor);
                         });
                     }
                 }
@@ -337,28 +286,108 @@ function kali(a, b) {
     return a * b;
 }
 
+function get_cookie(name) {
+
+    var name, decodedCookie, ca, i;
+
+    name = name + "=";
+    decodedCookie = decodeURIComponent(document.cookie);
+    ca = decodedCookie.split(';');
+
+    for (i = 0; i < ca.length; i++) {
+
+        let c = ca[i];
+
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+
+        if (c.indexOf(name) == 0) {
+
+            return c.substring(name.length, c.length);
+        }
+
+    }
+
+    return "";
+}
+
+function lightMode() {
+    
+
+}
+
+function darkMode() {
+
+    $('.kotakSkor span').removeClass('text-primary');
+
+    $('.card').addClass('bg-dark');
+    $('.title').addClass('text-white');
+    $('.kotakSkor span').addClass('text-white');
+    $('.kotakSoal h3').addClass('text-white');
+    $('hr').addClass('bg-white');
+    $('.quit').addClass('text-danger');
+    $('.changeQuiz').addClass('text-white');
+
+}
+
+function playing(mode) {
+
+    switch (mode) {
+        case 'mudah':
+            gameTypeMudah(mode, 0);
+            break;
+        case 'sedang':
+            gameTypeSedang(mode, 0);
+            break;
+        case 'sulit':
+            gameTypeSulit(mode, 0); 
+            break;
+    
+        default:
+            break;
+    }
+
+}
+
 // play game dimulai dari sini!
 $(function () {
+
+    // mainkan music
+    var music = $('.song')[0];
+    music.play();
+
+        // cek cookie theme nya 
+        themeCok = get_cookie('dark_theme');
+        userCookie = get_cookie('user_hash');
+    
+        // pemeriksaan
+        if (themeCok != "" && userCookie != "") {
+    
+            if (themeCok == '1') {
+    
+                // function darkMode()
+                darkMode();
+    
+            } else {
+    
+                // function lightMode()
+                lightMode();
+    
+            }
+        } else {
+    
+             // function lightMode()
+            lightMode();
+    }
 
     // play game quiz
     $('.typegame').on('click', function () {
 
-
         const mode = $(this).data('mode');
 
-        // jika game type mudah dipilih
-        if (mode == 'mudah') {
-            gameTypeMudah(mode, 0);
-
-            // jika game type sedang dipilih
-        } else if (mode == 'sedang') {
-            gameTypeSedang(mode, 0);
-
-            // jika game type sulit dipilih
-        } else if (mode == 'sulit') {
-            gameTypeSulit(mode, 0);         
-        }
-
+        // function playing()
+        playing(mode);
 
     });
 
@@ -381,15 +410,15 @@ $(function () {
                     showConfirmButton: false,
                     timer: '1500'
                 }).then((result) => {
-                    document.location.href = '../index.html'
-                })
+                    document.location.href = '../'
+                });
             } else {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Wise Choise'
-                }).then((result) => {
-                    document.location.href = '';
-                })
+                    title: 'Wise Choise',
+                    showConfirmButton: false,
+                    timer: '1700'
+                });
             }
         })
     })

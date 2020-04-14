@@ -181,7 +181,7 @@ function lightMode() {
     $('.card-header').addClass('border-dark');
     $('.playButton').addClass('btn-danger');
     $('.creator').addClass('text-dark');
-    
+
     // penghapusan class
     $('.navbar').removeClass('navbar-dark');
     $('.navbar').removeClass('bg-dark');
@@ -200,10 +200,51 @@ function lightMode() {
 
 }
 
-function ajaxChangeMode()
-{
-    // code here ...
+// cek cookie theme
+function checkTheme(themeOpt, hash) {
+
+    var themeCok, userCookie;
+
+    set_cookie('dark_theme', themeOpt, 365);
+
+    themeCok = get_cookie('dark_theme');
+
+    // pemeriksaan
+    if (themeCok != "") {
+
+        if (themeCok == '1') {
+
+            // function darkMode()
+            darkMode();
+
+            $('.themeChangeDark').hide();
+            $('.modeLight').show();
+
+        } else {
+
+            // function lightMode()
+            lightMode()
+
+            $('.modeLight').hide();
+            $('.themeChangeDark').show();
+
+        }
+
+    } else {
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops ...',
+            text: 'Sesuatu Yang Salah Terjadi!, Coba Lagi.',
+            showConfirmButton: false,
+            timer: '3000'
+        });
+    }
 }
+
+
+// hidden 
+$('.modeLight').hide();
 
 
 // index.html
@@ -222,9 +263,12 @@ $(function () {
 
     });
 
-    // hidden 
-    $('.modeLight').hide();
+    var audio = $('.song')[0];
+        audio.play();
 
+
+    // url
+    var urlLocal = 'http://localhost/Praktek/javascript/ajax/';
 
     // dark-mode
     $('.themeChangeDark').on('click', function (e) {
@@ -233,34 +277,56 @@ $(function () {
 
         var theme = $(this).data('mode');
 
-        if (theme == '1') {
-                    
-            // function darkMode()
-            darkMode();
+        checkTheme(theme);
 
-            $(this).hide();
-            $('.modeLight').show();
-
-        } 
-        
     });
-    
+
     // light-mode
     $('.modeLight').on('click', function (e) {
         e.preventDefault();
-        
+
         var theme = $(this).data('mode');
+
+        checkTheme(theme);
+
+    });
+
+
+});
+
+$(window).on('load', function () {
     
-        if (theme == '2') {
-                    
+    // cek cookie theme nya 
+    themeCok = get_cookie('dark_theme');
+    userCookie = get_cookie('user_hash');
+
+    // pemeriksaan
+    if (themeCok != "" && userCookie != "") {
+
+        if (themeCok == '1') {
+
+            // function darkMode()
+            darkMode();
+
+            $('.themeChangeDark').hide();
+            $('.modeLight').show();
+
+        } else {
+
             // function lightMode()
             lightMode()
-    
-            $(this).hide();
+
+            $('.modeLight').hide();
             $('.themeChangeDark').show();
-    
-        } 
 
-    })
+        }
+    } else {
 
+         // function lightMode()
+         lightMode()
+
+         $('.modeLight').hide();
+         $('.themeChangeDark').show();
+
+    }
 });
