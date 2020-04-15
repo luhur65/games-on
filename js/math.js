@@ -16,7 +16,7 @@ function gameTypeMudah(mode, skor) {
     $(function () {
 
         $('.kotakSoal h3').html(number1 + ' + ' + number2 + ' = ?? ');
-        
+
         $('.kerjakanSoal').show();
         $('.kategori').hide();
 
@@ -40,6 +40,7 @@ function gameTypeMudah(mode, skor) {
                 text: 'Tulis jawaban Mu disini!'
             }]).then((result) => {
                 if (result.value) {
+                    // jawaban 
                     const jawab = parseInt(result.value);
 
                     // cek jika jawaban benar / salah
@@ -54,25 +55,33 @@ function gameTypeMudah(mode, skor) {
                             // result skor pemain
                             skor += 10;
 
+                            // nilai bar progress , nilai bar didapat dari nilai skor dibagi 2
                             bar = skor / 2;
 
-                            $('.progress-bar').attr('style','width: ' + bar + '%;');
+                            // show progress bar 
+                            $('.progress-bar').attr('style', 'width: ' + bar + '%;');
                             $('.progress-bar').attr('aria-valuenow', bar);
                             $('.tulisanBar').html(bar + '%');
 
                             // cek jika sudah 100%
-                            if (bar == 100) {
-                                
+                            if (bar >= 100) {
+                                // ucapan Congratulations!
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Congratulations!',
                                     text: 'Anda Telah Menyelesaikan Progress Anda!',
                                 }).then((result) => {
+                                    // redirect halaman
                                     document.location.href = '';
                                 });
+
+                                // mainkan lagi game , jika belum 100%
+                            } else {
+
+                                // reload mainkan gameTypeMudah()
+                                gameTypeMudah(mode, skor);
                             }
 
-                            gameTypeMudah(mode, skor);
                         });
 
                         // jawaban nya salah
@@ -110,7 +119,7 @@ function gameTypeSedang(mode, skor) {
     // ganti halaman pemilihan type game dengan soal
     $(function () {
         $('.kotakSoal h3').html(number1 + ' - ' + number2 + ' = ?? ');
-        
+
         $('.kerjakanSoal').show();
         $('.kategori').hide();
 
@@ -139,7 +148,7 @@ function gameTypeSedang(mode, skor) {
 
                     // cek jika jawaban benar / salah
                     if (jawab == soal) {
-                        
+
                         Swal.fire({
                             icon: 'success',
                             title: 'Perfect!',
@@ -150,14 +159,31 @@ function gameTypeSedang(mode, skor) {
 
                             // skor pemain
                             skor += 10;
-                            
+
                             bar = skor / 2;
 
-                            $('.progress-bar').attr('style','width: ' + bar + '%;');
+                            $('.progress-bar').attr('style', 'width: ' + bar + '%;');
                             $('.progress-bar').attr('aria-valuenow', bar);
                             $('.tulisanBar').html(bar + '%');
 
-                            gameTypeSedang(mode, skor);
+                            // cek jika sudah 100%
+                            if (bar >= 100) {
+                                // ucapan Congratulations!
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Congratulations!',
+                                    text: 'Anda Telah Menyelesaikan Progress Anda!',
+                                }).then((result) => {
+                                    // redirect halaman
+                                    document.location.href = '';
+                                });
+
+                                // mainkan lagi game , jika belum 100%
+                            } else {
+
+                                // reload mainkan gameTypeMudah()
+                                gameTypeSedang(mode, skor);
+                            }
 
                         });
 
@@ -171,11 +197,8 @@ function gameTypeSedang(mode, skor) {
                             showConfirmButton: false,
                             timer: '1500'
                         }).then((result) => {
-
                             // skor pemain
-                            skor -= 2;
-
-                            gameTypeSedang(mode, skor);
+                            skor -= 5;
 
                         });
                     }
@@ -202,7 +225,7 @@ function gameTypeSulit(mode, skor) {
     // ganti halaman pemilihan type game dengan soal
     $(function () {
         $('.kotakSoal h3').html(number1 + ' * ' + number2 + ' = ?? ');
-        
+
         $('.kerjakanSoal').show();
         $('.kategori').hide();
 
@@ -242,12 +265,30 @@ function gameTypeSulit(mode, skor) {
 
                             bar = skor / 2;
 
-                            $('.progress-bar').attr('style','width: ' + bar + '%;');
+                            $('.progress-bar').attr('style', 'width: ' + bar + '%;');
                             $('.progress-bar').attr('aria-valuenow', bar);
                             $('.tulisanBar').html(bar + '%');
 
-                            gameTypeSulit(mode, skor);
-                            
+                            // cek jika sudah 100%
+                            if (bar >= 100) {
+                                // ucapan Congratulations!
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Congratulations!',
+                                    text: 'Anda Telah Menyelesaikan Progress Anda!',
+                                }).then((result) => {
+                                    // redirect halaman
+                                    document.location.href = '';
+                                });
+
+                                // mainkan lagi game , jika belum 100%
+                            } else {
+
+                                // reload mainkan gameTypeSulit()
+                                gameTypeSulit(mode, skor);
+                            }
+
+
                         });
 
                         // jawaban nya salah
@@ -260,10 +301,8 @@ function gameTypeSulit(mode, skor) {
                             showConfirmButton: false,
                             timer: '1500'
                         }).then((result) => {
-                            
-                            skor -= 2
-
-                            gameTypeSulit(mode, skor);
+                            // skor min 5
+                            skor -= 5
                         });
                     }
                 }
@@ -286,6 +325,21 @@ function kali(a, b) {
     return a * b;
 }
 
+// set cookie
+function set_cookie(name, value, expired) {
+
+    // tanggal 
+    var d, exp;
+
+    d = new Date();
+
+    d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
+    exp = "Expires=" + d.toUTCString();
+
+    document.cookie = name + "=" + value + ";" + expired + ";path=/";
+}
+
+// get cookie
 function get_cookie(name) {
 
     var name, decodedCookie, ca, i;
@@ -312,24 +366,42 @@ function get_cookie(name) {
     return "";
 }
 
-function lightMode() {
-    
+function check_makeTheme(theme) {
 
-}
+    switch (theme) {
+        case '1':
+            // dark mode
+            $('.kotakSkor span').removeClass('text-primary');
 
-function darkMode() {
+            $('body').addClass('bg-dark');
+            $('.card').addClass('bg-dark');
+            $('.title').addClass('text-white');
+            $('.kotakSkor span').addClass('text-white');
+            $('.kotakSoal h3').addClass('text-white');
+            $('hr').addClass('bg-white');
+            $('.creator').addClass('text-white');
+            $('.titleBar').addClass('text-white');
+            $('.quit').addClass('text-danger');
+            $('.changeQuiz').addClass('text-white');
 
-    $('.kotakSkor span').removeClass('text-primary');
+            break;
 
-    $('.card').addClass('bg-dark');
-    $('.title').addClass('text-white');
-    $('.kotakSkor span').addClass('text-white');
-    $('.kotakSoal h3').addClass('text-white');
-    $('hr').addClass('bg-white');
-    $('.creator').addClass('text-white');
-    $('.quit').addClass('text-danger');
-    $('.changeQuiz').addClass('text-white');
+        case '2':
+            // light mode
+            $('.kotakSkor span').addClass('text-primary');
 
+            $('body').removeClass('bg-dark');
+            $('.card').removeClass('bg-dark');
+            $('.title').removeClass('text-white');
+            $('.kotakSkor span').removeClass('text-white');
+            $('.kotakSoal h3').removeClass('text-white');
+            $('hr').removeClass('bg-white');
+            $('.creator').removeClass('text-white');
+            $('.quit').removeClass('text-danger');
+            $('.changeQuiz').removeClass('text-white');
+
+            break;
+    }
 }
 
 function playing(mode) {
@@ -342,9 +414,9 @@ function playing(mode) {
             gameTypeSedang(mode, 0);
             break;
         case 'sulit':
-            gameTypeSulit(mode, 0); 
+            gameTypeSulit(mode, 0);
             break;
-    
+
         default:
             break;
     }
@@ -352,35 +424,67 @@ function playing(mode) {
 }
 
 // play game dimulai dari sini!
-$(function () {
 
-    // mainkan music
-    var music = $('.song')[0];
-    music.play();
+// mainkan music
+var music, themeCok, player;
 
-        // cek cookie theme nya 
-        themeCok = get_cookie('dark_theme');
-        userCookie = get_cookie('user_hash');
+music = $('.song')[0];
+music.play();
+
+// cek cookie theme nya 
+themeCok = get_cookie('dark_theme');
+
+// pemeriksaan cookie theme
+if (themeCok != "") {
+    // theme 
+    check_makeTheme(themeCok);
+
+} 
+
+// cek cookie player
+player = get_cookie('player');
+
+// pemeriksaan player
+if (player == "") {
     
-        // pemeriksaan
-        if (themeCok != "" && userCookie != "") {
-    
-            if (themeCok == '1') {
-    
-                // function darkMode()
-                darkMode();
-    
+    Swal.fire({
+        icon: 'error',
+        title: 'Access Denied!',
+        text: 'Anda belum terdaftar di Website Ini!',
+        showConfirmButton: false,
+        timer: '3200'
+    }).then((result) => {
+        
+        // buat swal untuk menjawab
+        Swal.mixin({
+            input: 'text',
+            inputAttributes: {
+                required: 'required'
+            },
+            validationMessage: 'Nama Anda Tidak Ada!',
+            confirmButtonText: 'Submit',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            showCancelButton: true,
+        }).queue([{
+            title: 'Siapa Nama Anda ??'
+        }]).then((result) => {
+            if (result.value) {
+                
+                const nama = result.value[0];
+                // buat cookie
+                set_cookie('player', nama, 365);
+
             } else {
-    
-                // function lightMode()
-                lightMode();
-    
+                
+                // pindahkan ke halaman index
+                document.location.href = '../';
             }
-        } else {
-    
-             // function lightMode()
-            lightMode();
-    }
+        });
+    });
+}
+
+$(function () {
 
     // play game quiz
     $('.typegame').on('click', function () {
@@ -411,7 +515,7 @@ $(function () {
                     showConfirmButton: false,
                     timer: '1500'
                 }).then((result) => {
-                    document.location.href = '../'
+                    document.location.href = '../';
                 });
             } else {
                 Swal.fire({

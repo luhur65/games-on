@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Permainan sederhana yg mengasyikkan">
         <meta name="keywords" content="games , javascript, batu_gunting_kertas, Tebak angka , quis math, game seru">
-        <title>Game Tebak Angka - javascript</title>
+        <title>Game Tebak Angka</title>
 
         <link rel="shortcut icon" href="../img/icon/gambar_tebak_angka.png" type="image/x-icon">
 
@@ -18,21 +18,28 @@
         <!-- css -->
         <link rel="stylesheet" href="../css/blog-home.css">
         <link rel="stylesheet" href="../css/sb-admin-2.css">
+        <link rel="stylesheet" href="../vendor/fontawesome-free/css/all.css">
     </head>
 
-    <body class="bg-dark">
+    <body>
 
         <div class="container">
 
             <div class="row">
-                <div class="col-md-8 col-lg-5 p-4 mx-auto py-5">
+                <div class="col-lg-7 p-4 mx-auto py-5">
                     <div class="card shadow rounded bg-light">
                         <div class="card-body">
-                            <h3 class="text-center text-white mb-3 card-header bg-primary border-0 rounded">Tebak Angka</h3>
+                            <h3 class="text-center headerTitle mb-3 card shadow p-2 rounded">Tebak Angka</h3>
     
-                            <p class="text-center font-weight-bold">
+                            <p class="text-center himbau">
                                 Tebak Angka Yg Saya Punya Dari 1 - 10.
                             </p>
+
+                            <!-- song -->
+                            <audio class="song" loop hidden controls>
+                                <source src="../music/soundTrack.mp3">
+                                Your browser isn't invited for super fun audio time.
+                            </audio>
 
                             <div class="card p-3">
                                <div class="button-angka p-2 text-center">
@@ -51,12 +58,16 @@
     
     
                             <!-- tombol quit game -->
-                            <div class="text-center mt-4 mb-0">
-                                <a href="../index.html" class="btn btn-danger btn-sm text-center quit">
-                                    Quit Game??
-                                </a>
+                            <div class="mb-0 mt-3 text-center">
+                                <a href="" class="mt-5 quit">Quit Game ??</a>
                             </div>
                             <!-- end of tombol quit game -->
+                            <!-- garis -->
+                            <hr class="mb-0">
+
+                            <p class="mb-3 mt-0 small creator text-center mt-1" draggable="false">Made With <i class="fa fa-heart fa-fw text-danger" aria-hidden="true"></i> By 
+                                <a href="https://github.com/luhur65" class="text-success">Luhur65 (D.B.S)</a>
+                            </p>
     
                         </div>
 
@@ -82,6 +93,7 @@
         <script src="../vendor/jquery/jquery.min.js"></script>
         <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
         <script src="../vendor/jquery/jquery.easing.js"></script>
+        <script src="../vendor/fontawesome-free/js/all.min.js"></script>
         <script src="../vendor/sbadmin/sb-admin-2.js"></script>
         <script src="../vendor/sweetalert2/sweetalert2.all.min.js"></script>
         <script src="../js/tebak_angka.js"></script>

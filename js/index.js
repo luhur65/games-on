@@ -143,73 +143,145 @@ function check_cookie(game) {
     }
 }
 
-
 // function dark_mode
-function darkMode() {
+function chooseTheme(theme) {
 
-    // penghapusan class
-    $('.navbar').removeClass('navbar-light');
-    $('.navbar').removeClass('bg-light');
-    $('.alert').removeClass('alert-info');
-    $('.card-header').removeClass('border-dark');
-    $('.playButton').removeClass('btn-danger');
-    $('.creator').removeClass('text-dark');
-    
-    // penambahan class 
-    $('.navbar').addClass('navbar-dark');
-    $('.navbar').addClass('bg-dark');
-    $('.alert').addClass('alert-dark');
-    $('.cardUtama').addClass('bg-dark');
-    $('.card-header').addClass('bg-dark');
-    $('.card-header').addClass('border-white');
-    $('.card-bg-img1').addClass('bg-dark');
-    $('.card-bg-img2').addClass('bg-dark');
-    $('.card-bg-img3').addClass('bg-dark');
-    $('.card-bg-img4').addClass('bg-dark');
-    $('.judulGame').addClass('text-success');
-    $('.card-text').addClass('text-white');
-    $('.playButton').addClass('btn-primary');
-    $('.btn-group a').addClass('text-white');
-    $('.creator').addClass('text-white');
-    $('.creator a').addClass('text-success');
+    switch (theme) {
+        // dark theme;
+        case '1':
+            // penghapusan class
+            $('.navbar').removeClass('navbar-light');
+            $('.navbar').removeClass('bg-light');
+            $('.alert').removeClass('alert-info');
+            $('.cardUtama').removeClass('border-white');
+            $('.card-header').removeClass('border-dark');
+            $('.playButton').removeClass('btn-danger');
+            $('.creator').removeClass('text-dark');
+            $('hr').removeClass('bg-dark');
+
+            // penambahan class 
+            $('body').addClass('bg-dark');
+            $('.navbar').addClass('navbar-dark');
+            $('.navbar').addClass('bg-dark');
+            $('.brandLink').addClass('text-success');
+            $('.alert').addClass('alert-dark');
+            $('.cardUtama').addClass('bg-dark');
+            $('.cardUtama').addClass('border-white');
+            $('.card-header').addClass('bg-dark');
+            $('.card-header').addClass('border-white');
+            $('.card-bg-img1').addClass('bg-dark');
+            $('.card-bg-img2').addClass('bg-dark');
+            $('.card-bg-img3').addClass('bg-dark');
+            $('.card-bg-img4').addClass('bg-dark');
+            $('.judulGame').addClass('text-success');
+            $('.card-text').addClass('text-white');
+            $('.playButton').addClass('btn-primary');
+            $('.btn-group a').addClass('text-white');
+            $('.creator').addClass('text-white');
+            $('.creator a').addClass('text-success');
+            $('hr').addClass('bg-white');
+
+            break;
+            // light theme;
+        case '2':
+            // penghapusan class
+            $('body').removeClass('bg-dark');
+            $('.navbar').removeClass('navbar-dark');
+            $('.navbar').removeClass('bg-dark');
+            $('.brandLink').removeClass('text-success');
+            $('.alert').removeClass('alert-dark');
+            $('.cardUtama').removeClass('bg-dark');
+            $('.cardUtama').removeClass('border-white');
+            $('.card-header').removeClass('bg-dark');
+            $('.card-header').removeClass('border-white');
+            $('.card-bg-img1').removeClass('bg-dark');
+            $('.card-bg-img2').removeClass('bg-dark');
+            $('.card-bg-img3').removeClass('bg-dark');
+            $('.card-bg-img4').removeClass('bg-dark');
+            $('.judulGame').removeClass('text-success');
+            $('.card-text').removeClass('text-white');
+            $('.playButton').removeClass('btn-primary');
+            $('.btn-group a').removeClass('text-white');
+            $('.creator').removeClass('text-white');
+            $('.creator a').removeClass('text-success');
+            $('hr').removeClass('bg-white');
+
+            // penambahan class 
+            $('.navbar').addClass('navbar-light');
+            $('.navbar').addClass('bg-light');
+            $('.alert').addClass('alert-info');
+            $('.cardUtama').addClass('border-dark');
+            $('.card-header').addClass('border-dark');
+            $('.playButton').addClass('btn-danger');
+            $('.creator').addClass('text-dark');
+            $('hr').addClass('bg-dark');
+
+            break;
+
+        default:
+            // penghapusan class
+            $('body').removeClass('bg-dark');
+            $('.navbar').removeClass('navbar-dark');
+            $('.navbar').removeClass('bg-dark');
+            $('.alert').removeClass('alert-dark');
+            $('.brandLink').removeClass('text-success');
+            $('.cardUtama').removeClass('bg-dark');
+            $('.card-header').removeClass('bg-dark');
+            $('.card-header').removeClass('border-white');
+            $('.card-bg-img1').removeClass('bg-dark');
+            $('.card-bg-img2').removeClass('bg-dark');
+            $('.card-bg-img3').removeClass('bg-dark');
+            $('.card-bg-img4').removeClass('bg-dark');
+            $('.judulGame').removeClass('text-success');
+            $('.card-text').removeClass('text-white');
+            $('.playButton').removeClass('btn-primary');
+            $('.btn-group a').removeClass('text-white');
+            $('.creator').removeClass('text-white');
+            $('.creator a').removeClass('text-success');
+
+            // penambahan class 
+            $('.navbar').addClass('navbar-light');
+            $('.navbar').addClass('bg-light');
+            $('.alert').addClass('alert-info');
+            $('.card-header').addClass('border-dark');
+            $('.cardUtama').addClass('border-dark');
+            $('.playButton').addClass('btn-danger');
+            $('.creator').addClass('text-dark');
+
+            break;
+    }
 
 }
 
-// function dark_mode
-function lightMode() {
+function makeTheme(theme) {
 
-    // penghapusan class
-    $('.navbar').removeClass('navbar-dark');
-    $('.navbar').removeClass('bg-dark');
-    $('.alert').removeClass('alert-dark')
-    $('.cardUtama').removeClass('bg-dark');
-    $('.card-header').removeClass('bg-dark');
-    $('.card-header').removeClass('border-white');
-    $('.card-bg-img1').removeClass('bg-dark');
-    $('.card-bg-img2').removeClass('bg-dark');
-    $('.card-bg-img3').removeClass('bg-dark');
-    $('.card-bg-img4').removeClass('bg-dark');
-    $('.judulGame').removeClass('text-success');
-    $('.card-text').removeClass('text-white');
-    $('.playButton').removeClass('btn-primary');
-    $('.btn-group a').removeClass('text-white');
-    $('.creator').removeClass('text-white');
-    $('.creator a').removeClass('text-success');
+    switch (theme) {
+        // theme dark
+        case '1':
+            // function darkMode()
+            chooseTheme(theme);
 
-    // penambahan class 
-    $('.navbar').addClass('navbar-light');
-    $('.navbar').addClass('bg-light');
-    $('.alert').addClass('alert-info');
-    $('.card-header').addClass('border-dark');
-    $('.playButton').addClass('btn-danger');
-    $('.creator').addClass('text-dark');
+            $('.themeChangeDark').hide();
+            $('.modeLight').show();
 
+            break;
+        
+        // theme light
+        case '2':
+            // function lightMode()
+            chooseTheme(theme)
+
+            $('.modeLight').hide();
+            $('.themeChangeDark').show();
+
+            break;
+    }
 }
 
 // cek cookie theme
-function checkTheme(themeOpt, hash) {
+function checkTheme(themeOpt) {
 
-    var themeCok, userCookie;
+    var themeCok;
 
     set_cookie('dark_theme', themeOpt, 365);
 
@@ -218,23 +290,7 @@ function checkTheme(themeOpt, hash) {
     // pemeriksaan
     if (themeCok != "") {
 
-        if (themeCok == '1') {
-
-            // function darkMode()
-            darkMode();
-
-            $('.themeChangeDark').hide();
-            $('.modeLight').show();
-
-        } else {
-
-            // function lightMode()
-            lightMode()
-
-            $('.modeLight').hide();
-            $('.themeChangeDark').show();
-
-        }
+        makeTheme(themeCok);
 
     } else {
 
@@ -248,9 +304,30 @@ function checkTheme(themeOpt, hash) {
     }
 }
 
-
 // hidden 
 $('.modeLight').hide();
+
+// cek cookie theme nya 
+var themeCok = get_cookie('dark_theme');
+
+// pemeriksaan
+if (themeCok != "") {
+
+    makeTheme(themeCok);
+
+} else {
+
+    // function lightMode()
+    chooseTheme(themeCok);
+
+    $('.modeLight').hide();
+    $('.themeChangeDark').show();
+
+}
+
+// music
+var audio = $('.song')[0];
+audio.play();
 
 
 // index.html
@@ -268,13 +345,6 @@ $(function () {
         check_cookie(game);
 
     });
-
-    var audio = $('.song')[0];
-        audio.play();
-
-
-    // url
-    var urlLocal = 'http://localhost/Praktek/javascript/ajax/';
 
     // dark-mode
     $('.themeChangeDark').on('click', function (e) {
@@ -298,41 +368,4 @@ $(function () {
     });
 
 
-});
-
-$(window).on('load', function () {
-    
-    // cek cookie theme nya 
-    themeCok = get_cookie('dark_theme');
-    userCookie = get_cookie('user_hash');
-
-    // pemeriksaan
-    if (themeCok != "" && userCookie != "") {
-
-        if (themeCok == '1') {
-
-            // function darkMode()
-            darkMode();
-
-            $('.themeChangeDark').hide();
-            $('.modeLight').show();
-
-        } else {
-
-            // function lightMode()
-            lightMode()
-
-            $('.modeLight').hide();
-            $('.themeChangeDark').show();
-
-        }
-    } else {
-
-         // function lightMode()
-         lightMode()
-
-         $('.modeLight').hide();
-         $('.themeChangeDark').show();
-
-    }
 });

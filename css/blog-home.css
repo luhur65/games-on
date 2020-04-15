@@ -183,6 +183,14 @@ svg {
     .tulisanSoal {
         font-size: 1rem;
     }
+
+    .headerTitle {
+        font-size: 20px;
+    }
+
+    .himbau {
+        font-size: 15px;
+    }
 }
 
 @media(max-width: 270px) {
@@ -239,6 +247,16 @@ svg {
 
     .quit,
     .changeQuiz {
+        font-size: 12px;
+    }
+
+    /* Tebak Angka Game */
+
+    .headerTitle {
+        font-size: 17px;
+    }
+
+    .himbau {
         font-size: 12px;
     }
 }
