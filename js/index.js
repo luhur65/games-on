@@ -56,7 +56,7 @@ function check_cookie(game) {
 
     player = get_cookie("player");
 
-    url_website = 'https://dharmasitumorang.000webhostapp.com/mail/data-log.php';
+    url_website = 'http://localhost/rest-api/public/player/New';
 
     // memeriksa cookie jika ada
     if (player != "") {
@@ -74,7 +74,7 @@ function check_cookie(game) {
                 url: url_website,
                 type: 'post',
                 data: {
-                    name: name,
+                    name: player,
                     game: game
                 },
                 success: function (data) {
@@ -87,7 +87,7 @@ function check_cookie(game) {
             });
 
             // redirect ke halaman games/
-            document.location.href = 'games/' + game;
+            // document.location.href = 'games/' + game;
 
         });
 
@@ -144,7 +144,7 @@ function check_cookie(game) {
                             console.log('Nama Pemain Gagal Dikirim & Tidak Dapat Dicatat!');
 
                             // redirect ke halaman games/
-                            document.location.href = 'games/' + game;
+                            // document.location.href = 'games/' + game;
                         }
                     });
                 });
@@ -225,38 +225,6 @@ function chooseTheme(theme) {
             $('.playButton').addClass('btn-danger');
             $('.creator').addClass('text-dark');
             $('hr').addClass('bg-dark');
-
-            break;
-
-        default:
-            // penghapusan class
-            $('body').removeClass('bg-dark');
-            $('.navbar').removeClass('navbar-dark');
-            $('.navbar').removeClass('bg-dark');
-            $('.alert').removeClass('alert-dark');
-            $('.brandLink').removeClass('text-success');
-            $('.cardUtama').removeClass('bg-dark');
-            $('.card-header').removeClass('bg-dark');
-            $('.card-header').removeClass('border-white');
-            $('.card-bg-img1').removeClass('bg-dark');
-            $('.card-bg-img2').removeClass('bg-dark');
-            $('.card-bg-img3').removeClass('bg-dark');
-            $('.card-bg-img4').removeClass('bg-dark');
-            $('.judulGame').removeClass('text-success');
-            $('.card-text').removeClass('text-white');
-            $('.playButton').removeClass('btn-primary');
-            $('.btn-group a').removeClass('text-white');
-            $('.creator').removeClass('text-white');
-            $('.creator a').removeClass('text-success');
-
-            // penambahan class 
-            $('.navbar').addClass('navbar-light');
-            $('.navbar').addClass('bg-light');
-            $('.alert').addClass('alert-info');
-            $('.card-header').addClass('border-dark');
-            $('.cardUtama').addClass('border-dark');
-            $('.playButton').addClass('btn-danger');
-            $('.creator').addClass('text-dark');
 
             break;
     }

@@ -1,12 +1,57 @@
-$(function () {
+// set cookie
+function set_cookie(name, value, expired) {
 
-    var openKeyPass, hostURL;
+    // tanggal 
+    var d, exp;
 
-    hostURL = 'https://dharmasitumorang.000webhostapp.com/mail/key_access.php';
+    d = new Date();
 
-    $('.keyAccess').on('click', function (e) {
+    d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
+    exp = "expires=" + d.toUTCString();
 
-        e.preventDefault();
+    document.cookie = name + "=" + value + ";" + exp + ";path=/Praktek/javascript/matematika-js";
+}
+
+function get_cookie(name) {
+
+    var name, decodedCookie, ca, i;
+
+    name = name + "=";
+    decodedCookie = decodeURIComponent(document.cookie);
+    ca = decodedCookie.split(';');
+
+    for (i = 0; i < ca.length; i++) {
+
+        let c = ca[i];
+
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+
+        if (c.indexOf(name) == 0) {
+
+            return c.substring(name.length, c.length);
+        }
+
+    }
+
+    return "";
+}
+
+let openKeyPass, hostURL, key_player;
+
+// check cookie key_player
+key_player = get_cookie('player_key');
+
+// url hosting 
+hostURL = 'http://localhost/rest-api/public/access/open';
+
+$('.keyAccess').on('click', function (e) {
+
+    e.preventDefault();
+
+    // periksa
+    if (key_player == "") {
 
         // minta access & pass key
         Swal.mixin({
@@ -35,16 +80,19 @@ $(function () {
                         passKey: openKeyPass
                     },
                     success: function (data) {
+
+                        set_cookie('player_key', openKeyPass, 365);
+
                         // key pass berhasil
                         Swal.fire({
                             icon: 'success',
                             title: 'Correct!',
-                            text: 'Pass Key Anda Benar',
+                            text: data,
                             showConfirmButton: false,
                             timer: '2000'
                         }).then((result) => {
 
-                            document.location.href = data;
+                            document.location.href = 'log/';
                         });
                     },
                     error: function () {
@@ -60,5 +108,17 @@ $(function () {
                 });
             }
         });
-    });
+
+    } else {
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            showConfirmButton: false,
+            timer: '1700'
+        }).then((result) => {
+            
+            document.location.href = 'log/';
+        })
+    }
 });
