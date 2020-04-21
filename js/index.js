@@ -56,10 +56,13 @@ function check_cookie(game) {
 
     player = get_cookie("player");
 
-    url_website = 'http://localhost/rest-api/public/player/New';
+    url_website = 'http://localhost/rest-api/public/player/';
 
     // memeriksa cookie jika ada
     if (player != "") {
+
+        // tunjukkan history
+        $('#history').show();
 
         Swal.fire({
             icon: 'success',
@@ -83,6 +86,15 @@ function check_cookie(game) {
 
                     // redirect ke halaman games/
                     document.location.href = 'games/' + game;
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Sorry...',
+                        text: 'Something Wrong Happen, please try again!',
+                        showConfirmButton: false,
+                        timer: '3000'
+                    });
                 }
             });
 
@@ -145,6 +157,14 @@ function check_cookie(game) {
 
                             // redirect ke halaman games/
                             // document.location.href = 'games/' + game;
+
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Sorry...',
+                                text: 'Something Wrong Happen, please try again!',
+                                showConfirmButton: false,
+                                timer: '3000'
+                            });
                         }
                     });
                 });

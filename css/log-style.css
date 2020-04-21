@@ -1,0 +1,53 @@
+.table th {
+    color : #4e73df;
+}
+
+.all-user,
+.top-100-user {
+    color: rgb(66, 62, 62);
+}
+
+.rank {
+    color :red;
+}
+
+.top-player {
+    display: none;
+}
+
+.notif-not-found {
+    display: none;
+}
+
+.filter-sort-game,
+.hide-filter {
+    display: none;
+}
+
+@media(max-width: 460px) {
+
+    p {
+        font-size: 13px;
+    }
+
+    .card-header h3 {
+        font-size: 20px;
+    }
+
+    .alert-info p {
+        font-size: 13px;
+    }
+
+    .table th,
+    .all-user td,
+    .top-100-user td {
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 270px) {
+
+    .card-header h3 {
+        font-size: 13px;
+    }
+}
