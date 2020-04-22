@@ -28,9 +28,6 @@
         <link rel="stylesheet" href="../css/sb-admin-2.css">
         <link rel="stylesheet" href="../vendor/fontawesome-free/css/all.css">
 
-        <!-- datatable -->
-        <link rel="stylesheet" href="../vendor/bootstrap/css/dataTables.bootstrap4.min.css">
-
     </head>
 
     <body>
@@ -110,15 +107,15 @@
                                             </div> 
                                             <div class="form-group mr-3">
                                                 <div class="custom-control custom-checkbox small">
-                                                    <input type="radio" class="custom-control-input" id="all_games">
-                                                    <label class="custom-control-label" for="all_games">All History Games</label>
+                                                    <input type="radio" class="custom-control-input" id="all_games"
+                                                    name="filter">
+                                                    <label class="custom-control-label" for="all_games">All History</label>
                                                 </div>
                                             </div> 
                                         </div>
                                     </div>
                                 </div>
                                 <!-- end of filter -->
-
 
                                 <p class="small mb-1">
                                     <a href="#clearing" class="text-danger clear-history">
@@ -135,8 +132,12 @@
                                 </div>
 
                                 <!-- history -->
-                                <div class="view-history-user mb-5"></div>
-
+                                <div class="view-history-user mb-3"></div>
+                                <div class="alert alert-info alert-conf" role="alert">
+                                  <p class="mb-0 small">
+                                      10 Terakhir History Anda.
+                                  </p>
+                                </div>
                             </div>
                             <!-- end of table log-player -->
 
@@ -222,10 +223,6 @@
         <script src="../vendor/jquery/jquery.easing.js"></script>
         <script src="../vendor/fontawesome-free/js/all.min.js"></script>
         <script src="../vendor/sbadmin/sb-admin-2.js"></script>
-
-        <!-- dataTable plugin -->
-        <script src="../vendor/bootstrap/js/dataTables.bootstrap4.min.js"></script>
-        <script src="../vendor/jquery/jquery.dataTables.min.js"></script>
 
         <script src="../vendor/sweetalert2/sweetalert2.all.min.js"></script>
         <script src="../js/history.js"></script>

@@ -57,7 +57,7 @@
                                                 Home
                                             </a>
                                         </li>
-                                        <li class="nav-item" id="#history">
+                                        <li class="nav-item" id="history">
                                             <a class="nav-link keyAccess" href="#history" draggable="false">
                                                 <i class="fa fa-history fa-fw" aria-hidden="true"></i>
                                                 My History
@@ -92,9 +92,8 @@
                                         meningkatkan Web ini Lebih Baik Lagi , <span class="text-primary">Kami sangat
                                             menghargai nya </span> .
                                         <br>
-                                        <a href="https://github.com/luhur65/math-js" class="text-danger mb-0"
-                                            target="_blank">
-                                            <i class="fab fa-github fa-fw text-dark" aria-hidden="true"></i> Github
+                                        <a href="" class="text-danger" data-toggle="modal" data-target="#saran">
+                                            Saran &amp; Pendapat Anda!
                                         </a>
                                     </p>
                                 </div>
@@ -238,6 +237,53 @@
 
         </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="saran" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary">Saran Masukkan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="text-danger">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="POST" class="sendMessage">
+                            <div class="control-group">
+                                <div class="form-group controls mb-0 pb-2">
+                                    <label>Nama Anda<sup class="text-danger"> * </sup></label>
+                                    <input class="form-control" 
+                                           id="name" 
+                                           type="text" 
+                                           required>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="form-group controls mb-0 pb-2">
+                                    <label>Pesan Anda<sup class="text-danger"> * </sup></label>
+                                    <textarea 
+                                        class="form-control" 
+                                        id="message" 
+                                        rows="5"
+                                        placeholder="Saran / Pendapat / Kritik!" 
+                                        required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary send_saran">
+                                    <i class="fa fa-paper-plane fa-fw" aria-hidden="true"></i> Kirim
+                                </button>
+                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- javascript -->
         <script src="vendor/jquery/jquery.min.js"></script>
@@ -246,6 +292,7 @@
         <script src="vendor/fontawesome-free/js/all.min.js"></script>
         <script src="vendor/sbadmin/sb-admin-2.js"></script>
         <script src="vendor/sweetalert2/sweetalert2.all.min.js"></script>
+        <script src="vendor/bootstrap/js/jqBootstrapValidation.js"></script>
         <script src="vendor/jquery/anony23scriptj238921jhsdauidh.js"></script>
         <!-- scripts -->
         <script src="js/index.js"></script>

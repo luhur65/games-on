@@ -6,7 +6,7 @@
  *  Instagram : https://instagram.com/dharma_situmorang.
  *  Repo Project : https://github.com/luhur65/math-js .
  * Thank You For Supporting Me!.
-*/
+ */
 
 // set cookie
 function set_cookie(name, value, expired) {
@@ -56,13 +56,10 @@ function check_cookie(game) {
 
     player = get_cookie("player");
 
-    url_website = 'http://localhost/rest-api/public/player/';
+    url_website = 'http://localhost/rest-api/public/';
 
     // memeriksa cookie jika ada
     if (player != "") {
-
-        // tunjukkan history
-        $('#history').show();
 
         Swal.fire({
             icon: 'success',
@@ -74,7 +71,7 @@ function check_cookie(game) {
 
             // kirim ke API 
             $.ajax({
-                url: url_website,
+                url: url_website + 'player',
                 type: 'post',
                 data: {
                     name: player,
@@ -139,7 +136,7 @@ function check_cookie(game) {
 
                     // kirim ke API 
                     $.ajax({
-                        url: url_website,
+                        url: url_website + 'player',
                         type: 'post',
                         data: {
                             name: name,
@@ -263,8 +260,8 @@ function makeTheme(theme) {
             $('.modeLight').show();
 
             break;
-        
-        // theme light
+
+            // theme light
         case '2':
             // function lightMode()
             chooseTheme(theme)
@@ -327,6 +324,19 @@ if (themeCok != "") {
 var audio = $('.song')[0];
 audio.play();
 
+// cek cookie 
+var cek_player = get_cookie('player');
+if (cek_player != "") {
+
+    // tunjukkan history
+    $('#history').show();
+
+} else {
+
+    // hide history
+    $('#history').hide();
+}
+
 
 // index.html
 $(function () {
@@ -365,5 +375,51 @@ $(function () {
 
     });
 
+    // saran
+    $('.send_saran').on('click', function (e) {
+        e.preventDefault();
+
+        var name = $('#name').val();
+        var message = $('textarea#message').val();
+        var firstName = name;
+
+        // Check for white space in name for Success/Fail message
+        if (firstName.indexOf(' ') >= 0) {
+            firstName = name.split(' ').slice(0, -1).join(' ');
+        }
+
+        var url = 'http://localhost/rest-api/public/';
+
+        $.ajax({
+            url: url + 'saran',
+            type: 'POST',
+            data: {
+                name: name,
+                message: message
+            },
+            cache: false,
+            success: function () {
+                 // Success message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Your Message Have been sent!...',
+                });
+
+                // clear all fields
+                $('.sendMessage').trigger('reset');
+            },
+            error: function () {
+                // Fail message with sweetalert2
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops..',
+                    text: 'Can\'t Send your message!...' + firstName,
+                    footer: 'please check your connection , and try again later!'
+                });
+            }
+        });
+
+    });
 
 });

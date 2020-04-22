@@ -106,18 +106,19 @@ $.ajax({
             $('.view-history-user').append(`
 
             <div class="card shadow p-3">
-            <div class="small text-primary">` + data.last_access + `</div>
+            <span class="small text-primary">` + data.last_access + `</span>
             <span class="font-weight-normal text-dark">
                Anda Bermain ` + data.title + `
             </span>
         </div>
-                `);
+        `);
         });
     },
     error: function () {
 
         $('.clear-history').hide();
         $('.filter').hide();
+        $('.alert-conf').hide();
         $('.notif-not-found').show();
     }
 });
@@ -139,6 +140,7 @@ $('.close').on('click', function () {
 $('#all_games').on('click', function () {
 
     document.location.href = '';
+    
 });
 
 $('.custom-control-input').on('click', function () {
@@ -163,13 +165,15 @@ $('.custom-control-input').on('click', function () {
                 $('.view-history-user').append(`
     
                 <div class="card shadow p-3">
-                <div class="small text-primary">` + data.last_access + `</div>
-                <span class="font-weight-normal text-dark">
-                   Anda Bermain ` + data.title + `
-                </span>
-            </div>
-                    `);
+            <span class="small text-primary">` + data.last_access + `</span>
+            <span class="font-weight-normal text-dark">
+               Anda Bermain ` + data.title + `
+            </span>
+        </div>
+            `);
             });
+
+            $('.alert-conf').hide();
 
         },
         error: function () {
@@ -177,18 +181,27 @@ $('.custom-control-input').on('click', function () {
             $('.view-history-user').append(`
             
             <div class="card shadow p-3">
-                <!-- <div class="small text-primary"></div> -->
-                <span class="font-weight-normal text-danger">
-                   Tidak Ada Data History
-                </span>
+                <!-- <div class="small text-danger"></div> -->
+                <p class="mb-0 text-danger">
+                    <i class="fa fa-history fa-fw" aria-hidden="true"></i>
+                    History Anda Kosong!.
+                </p>
             </div>
             
             `);
+
+            $('.alert-conf').hide();
         }
     });
 });
 
 // end of filter history
+
+// hapus history yg dipilih
+$('.hapus-history').on('click', function () {
+
+    alert('Dihapus');
+});
 
 // hapus semua history
 $('.clear-history').on('click', function (e) {
