@@ -1,3 +1,13 @@
+/*
+ *  Author : Dharma Bakti Situmorang.
+ *  Name File : index.js
+ *  Github : https://github.com/luhur65.
+ *  Facebook : https://facebook.com/Adiknya.situmorang.
+ *  Instagram : https://instagram.com/dharma_situmorang.
+ *  Repo Project : https://github.com/luhur65/math-js .
+ * Thank You For Supporting Me!.
+*/
+
 // set cookie
 function set_cookie(name, value, expired) {
 
@@ -7,9 +17,9 @@ function set_cookie(name, value, expired) {
     d = new Date();
 
     d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
-    exp = "Expires=" + d.toUTCString();
+    exp = "expires=" + d.toUTCString();
 
-    document.cookie = name + "=" + value + ";" + expired + ";path=/";
+    document.cookie = name + "=" + value + ";" + exp + ";path=/Praktek/javascript/matematika-js";
 }
 
 

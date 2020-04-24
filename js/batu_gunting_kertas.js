@@ -17,9 +17,9 @@ function set_cookie(name, value, expired) {
     d = new Date();
 
     d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
-    exp = "Expires=" + d.toUTCString();
+    exp = "expires=" + d.toUTCString();
 
-    document.cookie = name + "=" + value + ";" + expired + ";path=/";
+    document.cookie = name + "=" + value + ";" + exp + ";path=/Praktek/javascript/matematika-js/games/batu_gunting_kertas";
 }
 
 
@@ -48,6 +48,7 @@ function get_cookie(name) {
 
     return "";
 }
+
 
 // function winner
 function winner(comp, player) {
@@ -219,7 +220,7 @@ if (player_cookie == "") {
 
                 const nama = result.value[0];
                 // buat cookie
-                set_cookie('player', nama, 30);
+                set_cookie('player', nama, 365);
 
             } else {
 
@@ -265,7 +266,8 @@ $(function () {
             $('.pemilihanModeSuit').hide();
             $('.gameplay').show();
 
-            set_cookie('mode_suit', mode, 30);
+            set_cookie('mode_suit', mode, 1);
+
         } else if (mode == '2') {
             
             Swal.fire({
@@ -286,7 +288,7 @@ $(function () {
         $('.pemilihanModeSuit').show();
         $('.gameplay').hide();
 
-        set_cookie('mode_suit', 0, 30);
+        set_cookie('mode_suit', 0, 1);
 
     });
 

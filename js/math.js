@@ -344,9 +344,9 @@ function set_cookie(name, value, expired) {
     d = new Date();
 
     d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
-    exp = "Expires=" + d.toUTCString();
+    exp = "expires=" + d.toUTCString();
 
-    document.cookie = name + "=" + value + ";" + expired + ";path=/";
+    document.cookie = name + "=" + value + ";" + exp + ";path=/Praktek/javascript/matematika-js/games/math_game";
 }
 
 // get cookie

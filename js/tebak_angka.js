@@ -19,7 +19,7 @@ function set_cookie(name, value, expired) {
     d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
     exp = "Expires=" + d.toUTCString();
 
-    document.cookie = name + "=" + value + ";" + expired + ";path=/";
+    document.cookie = name + "=" + value + ";" + exp + ";path=/Praktek/javascript/matematika-js/games/tebak_angka";
 }
 
 function get_cookie(name) {
