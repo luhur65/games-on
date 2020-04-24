@@ -53,7 +53,7 @@
                             </nav>
 
                             <!-- alert info -->
-                            <div class="alert alert-info" role="alert">
+                            <div class="alert alert-info alert-tip" role="alert">
                                 <p class="mb-0">
                                     <i class="fas fa-lightbulb"></i>
                                     <span class="font-weight-bold">Tip :</span>
@@ -69,11 +69,12 @@
                                 <div class="mb-3">
                                     <p class="text-dark mb-1 small">
                                         <a href="#null" class="filter">Filter History Game</a>
-                                        <button type="button" class="close btn-lg hide-filter" data-dismiss="alert" aria-label="Close">
+                                        <button type="button" class="close btn-lg hide-filter" data-dismiss="alert"
+                                            aria-label="Close">
                                             <span aria-hidden="true" class="text-danger">
                                                 &times;
                                             </span>
-                                          </button>
+                                        </button>
                                     </p>
                                     <div class="filter-sort-game">
                                         <div class="form-inline">
@@ -83,35 +84,37 @@
                                                         name="filter" data-filter="1">
                                                     <label class="custom-control-label" for="gameMath">Math Quiz</label>
                                                 </div>
-                                            </div> 
+                                            </div>
                                             <div class="form-group mr-3">
                                                 <div class="custom-control custom-checkbox small">
                                                     <input type="radio" class="custom-control-input" id="gameTebakAngka"
                                                         name="filter" data-filter="2">
-                                                    <label class="custom-control-label" for="gameTebakAngka">Tebak Angka</label>
+                                                    <label class="custom-control-label" for="gameTebakAngka">Tebak
+                                                        Angka</label>
                                                 </div>
-                                            </div> 
+                                            </div>
                                             <div class="form-group mr-3">
                                                 <div class="custom-control custom-checkbox small">
                                                     <input type="radio" class="custom-control-input" id="gameSuit"
                                                         name="filter" data-filter="3">
                                                     <label class="custom-control-label" for="gameSuit">Suit</label>
                                                 </div>
-                                            </div> 
+                                            </div>
                                             <div class="form-group mr-3">
                                                 <div class="custom-control custom-checkbox small">
                                                     <input type="radio" class="custom-control-input" id="gameBoxes"
                                                         name="filter" data-filter="4">
                                                     <label class="custom-control-label" for="gameBoxes">Boxes</label>
                                                 </div>
-                                            </div> 
+                                            </div>
                                             <div class="form-group mr-3">
                                                 <div class="custom-control custom-checkbox small">
                                                     <input type="radio" class="custom-control-input" id="all_games"
-                                                    name="filter">
-                                                    <label class="custom-control-label" for="all_games">All History</label>
+                                                        name="filter">
+                                                    <label class="custom-control-label" for="all_games">All
+                                                        History</label>
                                                 </div>
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -119,10 +122,10 @@
 
                                 <p class="small mb-1">
                                     <a href="#clearing" class="text-danger clear-history">
-                                        <i class="fas fa-trash-alt fa-fw"></i> 
+                                        <i class="fas fa-trash-alt fa-fw"></i>
                                         Hapus Semua History!
                                     </a>
-                                   </p>
+                                </p>
 
                                 <div class="card notif-not-found p-2 alert-primary mb-4 mt-3">
                                     <p class="mb-0 text-primary">
@@ -134,46 +137,36 @@
                                 <!-- history -->
                                 <div class="view-history-user mb-3"></div>
                                 <div class="alert alert-info alert-conf" role="alert">
-                                  <p class="mb-0 small">
-                                      10 Terakhir History Anda.
-                                  </p>
+                                    <p class="mb-0 small">
+                                        10 History Terakhir Anda.
+                                    </p>
                                 </div>
                             </div>
                             <!-- end of table log-player -->
 
                             <!-- table top-player -->
-                            <div class="text-center top-player">
-                                <table class="table border-dark table-responsive mt-3 table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Rank</th>
-                                            <th>Player</th>
-                                            <th>Game</th>
-                                            <th>Points</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="top-100-user">
-                                        <tr>
-                                            <td class="rank"> 1 <sup>st</sup></td>
-                                            <td scope="row" class="name">dharma</td>
-                                            <td>math_game</td>
-                                            <td>1000</td>
-                                        </tr>
-                                        <tr>
-                                            <td scope="row"></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="top-player">
+                                <div class="shadow card p-2 mb-3 border-bottom-primary">
+                                    <div class="d-flex align-items-center">
+                                        <div class="mx-2">
+                                            <p class="text-dark mb-0"> Dharma S</p>
+                                            <div class="small text-info">Newbie . 100 pts</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- end of table top-player -->
 
                             <div class="card mb-5 border-0">
                                 <p class="mb-0"> Lihat Juga Yg Lain :</p>
                                 <p class="text-primary mb-0">
-                                    <a href="#top-player" class="view-top-player">
-                                        1. Daftar 100 Top Player
+                                    <a href="#top-player" class="other_page" data-page="top_player">
+                                        <i class="fa fa-user-circle fa-fw" aria-hidden="true"></i> Top Player
+                                    </a>
+                                </p>
+                                <p class="text-primary mb-0">
+                                    <a href="#my_history" class="other_page" data-page="history">
+                                       <i class="fas fa-history fa-fw"></i> History Saya
                                     </a>
                                 </p>
                             </div>

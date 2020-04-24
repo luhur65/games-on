@@ -324,20 +324,6 @@ if (themeCok != "") {
 var audio = $('.song')[0];
 audio.play();
 
-// cek cookie 
-var cek_player = get_cookie('player');
-if (cek_player != "") {
-
-    // tunjukkan history
-    $('#history').show();
-
-} else {
-
-    // hide history
-    $('#history').hide();
-}
-
-
 // index.html
 $(function () {
 

@@ -60,7 +60,7 @@ $(function () {
                         if (jawab == soal) {
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Perfect!',
+                                title: 'Correct!',
                                 text: 'Jawaban Anda Benar!',
                                 showConfirmButton: false,
                                 timer: '1700'
@@ -82,10 +82,43 @@ $(function () {
                                     Swal.fire({
                                         icon: 'success',
                                         title: 'Congratulations!',
-                                        text: 'Anda Telah Menyelesaikan Progress Anda!',
+                                        text: 'Anda Mendapatkan 10 Points!',
                                     }).then((_result) => {
-                                        // redirect halaman
-                                        document.location.href = '';
+
+                                        const player = get_cookie('player');
+                                        const points = 10;
+
+                                        $.ajax({
+                                            url: 'http://localhost/rest-api/public/player/points',
+                                            type: 'post',
+                                            data: {
+                                                player: player,
+                                                points: points
+                                            },
+                                            cache: false,
+                                            success: function () {
+                                                
+                                                Swal.fire({
+                                                    icon: 'question',
+                                                    title: 'Lagi ??',
+                                                    text: 'Anda Ingin Bermain Lagi ??',
+                                                    showCancelButton: true,
+                                                    confirmButtonColor: '#3085d6',
+                                                    cancelButtonColor: '#d33',
+                                                }).then((result) => {
+                                                    if (result.value) {
+
+                                                        gameTypeMudah(mode, skor);
+
+                                                    } else {
+
+                                                        // ke halaman pemilihan mode
+                                                        document.location.href = '';
+                                                    }
+                                                });
+                                            }
+                                        });
+                                        
                                     });
 
                                     // mainkan lagi game , jika belum 100%
