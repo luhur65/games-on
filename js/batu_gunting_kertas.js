@@ -172,7 +172,7 @@ function make_theme(data) {
 
 }
 
-let playAgain, player_cookie, theme;
+let playAgain, player_cookie, theme, url_website;
 
 // mainkan kembali 
 playAgain = get_cookie('mode_suit');
@@ -191,6 +191,7 @@ if (playAgain == '1') {
 
 // pengecekan cookie player
 player_cookie = get_cookie('player');
+url_website = 'http://localhost/rest-api/public/';
 
 if (player_cookie == "") {
 
@@ -202,32 +203,9 @@ if (player_cookie == "") {
         timer: '3200'
     }).then((result) => {
 
-        // buat swal untuk menjawab
-        Swal.mixin({
-            input: 'text',
-            inputAttributes: {
-                required: 'required'
-            },
-            validationMessage: 'Nama Anda Tidak Ada!',
-            confirmButtonText: 'Submit',
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            showCancelButton: true,
-        }).queue([{
-            title: 'Siapa Nama Anda ??'
-        }]).then((result) => {
-            if (result.value) {
-
-                const nama = result.value[0];
-                // buat cookie
-                set_cookie('player', nama, 365);
-
-            } else {
-
-                // pindahkan ke halaman index
-                document.location.href = '../';
-            }
-        });
+        // pindahkan ke halaman index
+        document.location.href = '../';
+        
     });
 } else {
 

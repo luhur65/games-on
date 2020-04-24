@@ -89,7 +89,7 @@ let keyword = get_cookie('player');
 
 url = 'http://localhost/rest-api/public/';
 
-// ajax history >> semua history
+// ajax history >> semua history saya
 $.ajax({
     url: url + 'player/history',
     type: 'post',

@@ -81,10 +81,13 @@ let randomKotakRusak1,
     progress,
     theme,
     music,
-    player;
+    player,
+    url_website;
 
 // cek cookie player
 player = get_cookie('player');
+url_website = 'http://localhost/rest-api/public/';
+
 if (player == "") {
 
     Swal.fire({
@@ -93,34 +96,11 @@ if (player == "") {
         text: 'Anda belum terdaftar di Website Ini!',
         showConfirmButton: false,
         timer: '3200'
-    }).then((result) => {
+    }).then(() => {
 
-        // buat swal untuk menjawab
-        Swal.mixin({
-            input: 'text',
-            inputAttributes: {
-                required: 'required'
-            },
-            validationMessage: 'Nama Anda Tidak Ada!',
-            confirmButtonText: 'Submit',
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            showCancelButton: true,
-        }).queue([{
-            title: 'Siapa Nama Anda ??'
-        }]).then((result) => {
-            if (result.value) {
-
-                const nama = result.value[0];
-                // buat cookie
-                set_cookie('player', nama, 365);
-
-            } else {
-
-                // pindahkan ke halaman index
-                document.location.href = '../';
-            }
-        });
+       // pindahkan ke halaman index
+        document.location.href = '../';
+        
     });
 }
 
@@ -165,7 +145,7 @@ $(function () {
                 text: 'Anda Salah Memilih kotak!',
                 showConfirmButton: false,
                 timer: '1800'
-            }).then((result) => {
+            }).then(() => {
                 // game di reset kembali
                 Swal.fire({
                     icon: 'question',
@@ -195,14 +175,14 @@ $(function () {
                                     title: 'Thanks For Playing!',
                                     showConfirmButton: false,
                                     timer: '1500'
-                                }).then((result) => {
+                                }).then(() => {
                                     document.location.href = '../';
                                 });
 
                             } else {
 
                                 // hilangkan semua 
-                                $('.tombolPilihkotak').each(function (i) {
+                                $('.tombolPilihkotak').each(function () {
                                     $('.tombolPilihkotak').hide();
                                 });
                                 $('.tutorial').hide();
@@ -255,7 +235,7 @@ $(function () {
                     text: 'Anda Berhasil Memenangkan Permainan Ini!',
                     showConfirmButton: false,
                     timer: '1800'
-                }).then((result) => {
+                }).then(() => {
                     Swal.fire({
                         icon: 'question',
                         title: 'Lagi ??',
@@ -284,13 +264,13 @@ $(function () {
                                         title: 'Thanks For Playing!',
                                         showConfirmButton: false,
                                         timer: '1500'
-                                    }).then((result) => {
+                                    }).then(() => {
                                         document.location.href = '../';
                                     });
                                 } else {
 
                                     // hilangkan semua 
-                                    $('.tombolPilihkotak').each(function (i) {
+                                    $('.tombolPilihkotak').each(function () {
                                         $('.tombolPilihkotak').hide();
                                     });
                                     $('.tutorial').hide();
@@ -326,7 +306,6 @@ $(function () {
     $('.quit').on('click', function (e) {
         e.preventDefault();
 
-        const href = $(this).attr('href');
 
         Swal.fire({
             icon: 'question',
@@ -342,7 +321,7 @@ $(function () {
                     title: 'Thanks For Playing!',
                     showConfirmButton: false,
                     timer: '1500'
-                }).then((result) => {
+                }).then(() => {
                     document.location.href = '../';
                 });
             }

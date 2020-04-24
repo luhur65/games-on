@@ -69,7 +69,7 @@ function check_game(random, angka) {
             icon: 'success',
             title: 'Good Job!',
             text: 'Angka Saya Adalah :' + random
-        }).then((result) => {
+        }).then((_result) => {
             Swal.fire({
                 icon: 'question',
                 title: 'Bermain Lagi??',
@@ -95,7 +95,7 @@ function check_game(random, angka) {
             text: 'Tebakan Anda Salah!',
             showConfirmButton: false,
             timer: '2700'
-        }).then((result) => {
+        }).then((_result) => {
             // memberikan clue
             if (angka <= random) {
                 Swal.fire({
@@ -120,7 +120,7 @@ function check_game(random, angka) {
     
 }
 
-var theme, player, music;
+let theme, player, music, url_website;
 
 // music
 music = $('.song')[0];
@@ -137,6 +137,7 @@ if (theme == '1') {
 
 // cek cookie player
 player = get_cookie('player');
+url_website = 'http://localhost/rest-api/public/';
 
 // pemeriksaan player
 if (player == "") {
@@ -147,34 +148,11 @@ if (player == "") {
         text: 'Anda belum terdaftar di Website Ini!',
         showConfirmButton: false,
         timer: '3200'
-    }).then((result) => {
+    }).then((_result) => {
         
-        // buat swal untuk menjawab
-        Swal.mixin({
-            input: 'text',
-            inputAttributes: {
-                required: 'required'
-            },
-            validationMessage: 'Nama Anda Tidak Ada!',
-            confirmButtonText: 'Submit',
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            showCancelButton: true,
-        }).queue([{
-            title: 'Siapa Nama Anda ??'
-        }]).then((result) => {
-            if (result.value) {
-                
-                const nama = result.value[0];
-                // buat cookie
-                set_cookie('player', nama, 365);
-
-            } else {
-                
-                // pindahkan ke halaman index
-                document.location.href = '../';
-            }
-        });
+        // pindahkan ke halaman index
+        document.location.href = '../';
+        
     });
 }
 
@@ -213,7 +191,7 @@ $(function () {
                     title: 'Thanks For Playing!',
                     showConfirmButton: false,
                     timer: '1500'
-                }).then((result) => {
+                }).then((_result) => {
                     document.location.href = '../';
                 });
             }
