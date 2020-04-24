@@ -80,6 +80,7 @@ let randomKotakRusak1,
     jmlKotakBagus,
     progress,
     theme,
+    music,
     player;
 
 // cek cookie player
@@ -128,6 +129,9 @@ theme = get_cookie('dark_theme');
 if (theme != "") {
     switch_theme(theme);
 }
+// music
+music = $('.song')[0];
+music.play();
 
 $(function () {
 
@@ -227,6 +231,7 @@ $(function () {
 
             // jika kotak yg dipilih bukan kotak rusak
         } else if (kotak != randomKotakRusak1 || kotak != randomKotakRusak2) {
+
             // hapus button yg pilih 
             $(this).hide('reset');
 
