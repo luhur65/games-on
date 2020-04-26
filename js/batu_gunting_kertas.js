@@ -356,7 +356,6 @@ $(function () {
 
     });
 
-
     // suit comp
     $('.suitcomp').on('click', function (e) {
         e.preventDefault();
