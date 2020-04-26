@@ -16,9 +16,9 @@ $(function () {
     // get value cookie based on cookie name
     function get_cookie(name) {
 
-        var name, decodedCookie, ca, i;
+        var cookie_name, decodedCookie, ca, i;
 
-        name = name + "=";
+        cookie_name = name + "=";
         decodedCookie = decodeURIComponent(document.cookie);
         ca = decodedCookie.split(';');
 
@@ -30,9 +30,9 @@ $(function () {
                 c = c.substring(1);
             }
 
-            if (c.indexOf(name) == 0) {
+            if (c.indexOf(cookie_name) == 0) {
 
-                return c.substring(name.length, c.length);
+                return c.substring(cookie_name.length, c.length);
             }
 
         }

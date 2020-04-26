@@ -27,9 +27,9 @@ function set_cookie(name, value, expired) {
 // get cookie
 function get_cookie(name) {
 
-    var name, decodedCookie, ca, i;
+    var cookieName, decodedCookie, ca, i;
 
-    name = name + "=";
+    cookieName = name + "=";
     decodedCookie = decodeURIComponent(document.cookie);
     ca = decodedCookie.split(';');
 
@@ -41,9 +41,9 @@ function get_cookie(name) {
             c = c.substring(1);
         }
 
-        if (c.indexOf(name) == 0) {
+        if (c.indexOf(cookieName) == 0) {
 
-            return c.substring(name.length, c.length);
+            return c.substring(cookieName.length, c.length);
         }
 
     }
@@ -81,7 +81,7 @@ let randomKotakRusak1,
     progress,
     theme,
     music,
-    player,;
+    player;
 
 // cek cookie player
 player = get_cookie('player');
