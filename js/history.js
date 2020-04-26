@@ -124,7 +124,7 @@ $(function () {
     var url;
     let keyword = get_cookie('player_key');
 
-    url = 'https://apppublic.000webhostapp.com/public';
+    url = 'https://apppublic.000webhostapp.com/public/';
 
     // ajax history >> semua history saya
     $.ajax({
