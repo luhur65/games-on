@@ -56,7 +56,7 @@ function check_cookie(game) {
 
     player = get_cookie("player");
 
-    url_website = 'http://localhost/rest-api/public/';
+    url_website = 'https://apppublic.000webhostapp.com/public/';
 
     // memeriksa cookie jika ada
     if (player != "") {
@@ -390,7 +390,7 @@ $(function () {
             firstName = name.split(' ').slice(0, -1).join(' ');
         }
 
-        var url = 'http://localhost/rest-api/public/';
+        var url = 'https://apppublic.000webhostapp.com/public/';
 
         $this = $(".saranButton");
         $this.prop("disabled", true);

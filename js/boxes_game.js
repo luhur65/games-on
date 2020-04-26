@@ -81,12 +81,10 @@ let randomKotakRusak1,
     progress,
     theme,
     music,
-    player,
-    url_website;
+    player,;
 
 // cek cookie player
 player = get_cookie('player');
-url_website = 'http://localhost/rest-api/public/';
 
 if (player == "") {
 
@@ -266,7 +264,7 @@ $(function () {
             const player = get_cookie('player');
 
             $.ajax({
-                url: 'http://localhost/rest-api/public/player/points',
+                url: 'https://apppublic.000webhostapp.com/public/player/points',
                 type: 'post',
                 data: {
                     player: player,

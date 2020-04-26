@@ -124,7 +124,7 @@ if (theme == '1') {
 
 // cek cookie player
 player = get_cookie('player');
-url_website = 'http://localhost/rest-api/public/';
+url_website = 'https://apppublic.000webhostapp.com/public/';
 
 // pemeriksaan player
 if (player == "") {
@@ -179,7 +179,7 @@ $(function () {
             const player = get_cookie('player');
 
             $.ajax({
-                url: 'http://localhost/rest-api/public/player/points',
+                url: 'https://apppublic.000webhostapp.com/public/player/points',
                 type: 'post',
                 data: {
                     player: player,

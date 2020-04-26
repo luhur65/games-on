@@ -451,7 +451,7 @@ $(function () {
     // play game dimulai dari sini!
 
     // mainkan music
-    let music, themeCok, player, url_website;
+    let music, themeCok, player;
 
     music = $('.song')[0];
     music.play();
@@ -468,7 +468,6 @@ $(function () {
 
     // cek cookie player
     player = get_cookie('player');
-    url_website = 'http://localhost/rest-api/public/';
 
     // pemeriksaan player
     if (player == "") {
@@ -517,7 +516,7 @@ $(function () {
             const player = get_cookie('player');
 
             $.ajax({
-                url: 'http://localhost/rest-api/public/player/points',
+                url: 'https://apppublic.000webhostapp.com/public/player/points',
                 type: 'post',
                 data: {
                     player: player,

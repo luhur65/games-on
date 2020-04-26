@@ -124,7 +124,7 @@ $(function () {
     var url;
     let keyword = get_cookie('player_key');
 
-    url = 'http://localhost/rest-api/public/';
+    url = 'https://apppublic.000webhostapp.com/public';
 
     // ajax history >> semua history saya
     $.ajax({
@@ -297,7 +297,7 @@ $(function () {
 
     // top-player : all
     $.ajax({
-        url: 'http://localhost/rest-api/public/player/view_points',
+        url: 'https://apppublic.000webhostapp.com/public/player/view_points',
         method: 'POST',
         dataType: 'json',
         data: {},
@@ -362,7 +362,7 @@ $(function () {
 
         // ajax 
         $.ajax({
-            url: 'http://localhost/rest-api/public/player/view_my_point',
+            url: 'https://apppublic.000webhostapp.com/public/player/view_my_point',
             method: 'POST',
             dataType: 'json',
             data: {

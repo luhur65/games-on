@@ -44,7 +44,7 @@ let openKeyPass, hostURL, key_player;
 key_player = get_cookie('player_key');
 
 // url hosting 
-hostURL = 'http://localhost/rest-api/public/access/open';
+hostURL = 'https://apppublic.000webhostapp.com/public/access/open';
 
 $('.keyAccess').on('click', function (e) {
 

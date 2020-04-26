@@ -166,7 +166,7 @@ function make_theme(data) {
 
 }
 
-let playAgain, player_cookie, theme, url_website;
+let playAgain, player_cookie, theme;
 
 // mainkan kembali 
 playAgain = get_cookie('mode_suit');
@@ -185,7 +185,6 @@ if (playAgain == '1') {
 
 // pengecekan cookie player
 player_cookie = get_cookie('player');
-url_website = 'http://localhost/rest-api/public/';
 
 if (player_cookie == "") {
 
@@ -382,7 +381,7 @@ $(function () {
             const player = get_cookie('player');
 
             $.ajax({
-                url: 'http://localhost/rest-api/public/player/points',
+                url: 'https://apppublic.000webhostapp.com/public/player/points',
                 type: 'post',
                 data: {
                     player: player,
