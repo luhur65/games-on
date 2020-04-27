@@ -410,7 +410,7 @@ $(function () {
     // play game dimulai dari sini!
 
     // mainkan music
-    let music, themeCok, player, url;
+    let music, themeCok, player, url, quizMode;
 
     music = $('.song')[0];
     music.play();
@@ -425,6 +425,12 @@ $(function () {
         // theme 
         check_makeTheme(themeCok);
 
+    }
+
+    quizMode = Cookies.get('quiz_math');
+    if (quizMode != undefined) {
+        
+        playing(quizMode);
     }
 
     // cek cookie player
@@ -452,8 +458,31 @@ $(function () {
 
         const mode = $(this).data('mode');
 
+        Cookies.set('quiz_math', mode);
+
         // function playing()
         playing(mode);
+
+    });
+
+    // change mode quiz
+    $('.changeQuiz').on('click', function (e) {
+        e.preventDefault();
+
+        Swal.fire({
+            icon: 'question',
+            title: 'Ganti Quiz??',
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Tidak',
+            confirmButtonText: 'Ya, Ganti Quiz'
+        }).then((result) => {
+            if (result.value) {
+               
+               Cookies.remove('quiz_math');
+               document.location.href = "";
+           }
+        });
 
     });
 

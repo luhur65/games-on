@@ -8,6 +8,12 @@
  * Thank You For Supporting Me!.
  */
 
+$(window).on('load', function () {
+    // music
+    var audio = $('.song')[0];
+    audio.play();
+    
+});
 
 // memeriksa cookie
 function check_cookie(game) {
@@ -60,10 +66,6 @@ function check_cookie(game) {
                     });
                 }
             });
-
-            // redirect ke halaman games/
-            // document.location.href = 'games/' + game;
-
         });
 
 
@@ -89,8 +91,8 @@ function check_cookie(game) {
             if (result.value) {
                 const name = result.value[0];
 
-                // set_cookie 
-                Cookies.set('player', name);
+                // Cookies.set 
+                Cookies.set("player", name);
 
                 Swal.fire({
                     icon: 'success',
@@ -263,7 +265,7 @@ function checkTheme(themeOpt) {
         Swal.fire({
             icon: 'error',
             title: 'Oops ...',
-            text: 'Sesuatu Yang Salah Terjadi!, Coba Lagi.',
+            text: 'Tidak Bisa Mengganti Theme!, Coba Lagi.',
             showConfirmButton: false,
             timer: '3000'
         });
@@ -290,10 +292,6 @@ if (themeCok != undefined) {
     $('.themeChangeDark').show();
 
 }
-
-// music
-var audio = $('.song')[0];
-audio.play();
 
 // index.html
 $(function () {

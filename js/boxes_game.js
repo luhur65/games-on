@@ -68,6 +68,7 @@ theme = Cookie.get('dark_theme');
 if (theme != undefined) {
     switch_theme(theme);
 }
+
 // music
 music = $('.song')[0];
 music.play();

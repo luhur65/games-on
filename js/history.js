@@ -33,7 +33,8 @@ $(function () {
     }
 
     // cek view page
-    let page_view;
+    let page_view, key_cookie, url, keyword;
+
     page_view = Cookies.get('page');
 
     if (page_view != undefined) {
@@ -42,8 +43,6 @@ $(function () {
     }
 
     // check cookie 
-    let key_cookie;
-
     key_cookie = Cookies.get('player_key');
 
     $('.notif-not-found').hide();
@@ -53,7 +52,7 @@ $(function () {
         Swal.fire({
             icon: 'error',
             title: 'Access Denied!',
-            text: 'Kamu Harus Memasukkan Pas Key Terlebih Dahulu!',
+            text: 'Tidak Ada PassKey, Dilarang Masuk!',
             showConfirmButton: false,
             timer: '3200'
         }).then((result) => {
@@ -81,9 +80,8 @@ $(function () {
         });
     });
 
-    var url;
-    let keyword = Cookies.get('player_key');
 
+    keyword = Cookies.get('player_key');
     url = 'https://apppublic.000webhostapp.com/public/';
 
     // ajax history >> semua history saya
@@ -355,7 +353,7 @@ $(function () {
 
             $(this).hide();
             $('.view_my_rank').show();
-        })
+        });
         
     });
 });

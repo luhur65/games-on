@@ -7,7 +7,6 @@
  *  Repo Project : https://github.com/luhur65/math-js .
  * Thank You For Supporting Me!.
 */
-
 // dark theme
 function darkTheme() {
 
