@@ -7,49 +7,6 @@
  *  Repo Project : https://github.com/luhur65/math-js .
  * Thank You For Supporting Me!.
 */
-
-// set cookie
-function set_cookie(name, value, expired) {
-
-    // tanggal 
-    var d, exp;
-
-    d = new Date();
-
-    d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
-    exp = "expires=" + d.toUTCString();
-
-    document.cookie = name + "=" + value + ";" + exp + ";path=/Praktek/javascript/matematika-js/games/batu_gunting_kertas";
-}
-
-
-function get_cookie(name) {
-
-    var cookie_name, decodedCookie, ca, i;
-
-    cookie_name = name + "=";
-    decodedCookie = decodeURIComponent(document.cookie);
-    ca = decodedCookie.split(';');
-
-    for (i = 0; i < ca.length; i++) {
-
-        let c = ca[i];
-
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-
-        if (c.indexOf(cookie_name) == 0) {
-
-            return c.substring(cookie_name.length, c.length);
-        }
-
-    }
-
-    return "";
-}
-
-
 // function winner
 function winner(comp, player) {
 
@@ -169,7 +126,7 @@ function make_theme(data) {
 let playAgain, player_cookie, theme;
 
 // mainkan kembali 
-playAgain = get_cookie('mode_suit');
+playAgain = Cookies.get('mode_suit');
 
 if (playAgain == '1') {
 
@@ -184,9 +141,9 @@ if (playAgain == '1') {
 }
 
 // pengecekan cookie player
-player_cookie = get_cookie('player');
+player_cookie = Cookies.get('player');
 
-if (player_cookie == "") {
+if (player_cookie == undefined) {
 
     Swal.fire({
         icon: 'error',
@@ -207,9 +164,9 @@ if (player_cookie == "") {
 }
 
 // pengecekan cookie dark_theme
-theme = get_cookie('dark_theme');
+theme = Cookies.get('dark_theme');
 
-if (theme != "") {
+if (theme != undefined) {
     // buat theme
     make_theme(theme);
 }
@@ -218,11 +175,14 @@ if (theme != "") {
 $(function () {
 
     // pemilihan mode game 
-    let mode, comp, player, skorplayer, skorcomp;
+    let mode, comp, player, skorplayer, skorcomp, url;
 
     // data skor player & data skor comp
     skorplayer = [];
     skorcomp = [];
+
+    // url hosting
+    url = 'https://apppublic.000webhostapp.com/public/';
     
     // pilih mode
     $('.ModeSuit').on('click', function (e) {
@@ -237,7 +197,7 @@ $(function () {
             $('.pemilihanModeSuit').hide();
             $('.gameplay').show();
 
-            set_cookie('mode_suit', mode, 1);
+            Cookie.set('mode_suit', mode);
 
         } else if (mode == '2') {
             
@@ -259,7 +219,7 @@ $(function () {
         $('.pemilihanModeSuit').show();
         $('.gameplay').hide();
 
-        set_cookie('mode_suit', 0, 1);
+        Cookies.remove('mode_suit');
 
     });
 
@@ -375,13 +335,12 @@ $(function () {
             timer: '3000'
         }).then((_result) => {
 
-            $this = $(".reward3");
-            $this.prop("disabled", true);
+            $(this).prop("disabled", true);
 
-            const player = get_cookie('player');
+            const player = Cookies.get('player');
 
             $.ajax({
-                url: 'https://apppublic.000webhostapp.com/public/player/points',
+                url: url + 'player/points',
                 type: 'post',
                 data: {
                     player: player,
@@ -422,7 +381,7 @@ $(function () {
                         timer: '1700'
                     }).then((result) => {
                         setTimeout(function() {
-                            $this.prop("disabled", false);
+                            $(this).prop("disabled", false);
                             // Re-enable submit button when AJAX call is complete
                           }, 1000);
                     });

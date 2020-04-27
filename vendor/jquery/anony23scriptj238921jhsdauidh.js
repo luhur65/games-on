@@ -1,47 +1,7 @@
-// set cookie
-function set_cookie(name, value, expired) {
-
-    // tanggal 
-    var d, exp;
-
-    d = new Date();
-
-    d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
-    exp = "expires=" + d.toUTCString();
-
-    document.cookie = name + "=" + value + ";" + exp + ";path=/Praktek/javascript/matematika-js";
-}
-
-function get_cookie(name) {
-
-    var cookie_name, decodedCookie, ca, i;
-
-    cookie_name = name + "=";
-    decodedCookie = decodeURIComponent(document.cookie);
-    ca = decodedCookie.split(';');
-
-    for (i = 0; i < ca.length; i++) {
-
-        let c = ca[i];
-
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-
-        if (c.indexOf(cookie_name) == 0) {
-
-            return c.substring(cookie_name.length, c.length);
-        }
-
-    }
-
-    return "";
-}
-
 let openKeyPass, hostURL, key_player;
 
 // check cookie key_player
-key_player = get_cookie('player_key');
+key_player = Cookies.get('player_key');
 
 // url hosting 
 hostURL = 'https://apppublic.000webhostapp.com/public/access/open';
@@ -51,7 +11,7 @@ $('.keyAccess').on('click', function (e) {
     e.preventDefault();
 
     // periksa
-    if (key_player == "") {
+    if (key_player == undefined) {
 
         // minta access & pass key
         Swal.mixin({
@@ -73,8 +33,7 @@ $('.keyAccess').on('click', function (e) {
                 // inputan passkey user
                 openKeyPass = result.value[0];
 
-                $this = $(".keyAccess");
-                $this.prop("disabled", true);
+                $(".keyAccess").prop("disabled", true);
 
                 $.ajax({
                     url: hostURL,
@@ -84,7 +43,7 @@ $('.keyAccess').on('click', function (e) {
                     },
                     success: function (data) {
 
-                        set_cookie('player_key', openKeyPass, 365);
+                        Cookies.set('player_key', openKeyPass);
 
                         // key pass berhasil
                         Swal.fire({
@@ -107,8 +66,7 @@ $('.keyAccess').on('click', function (e) {
                             showConfirmButton: false,
                             timer: '2000'
                         }).then(() => {
-                            $this = $(".keyAccess");
-                            $this.prop("disabled", false);
+                            $(".keyAccess").prop("disabled", false);
                         });
                     }
                 });

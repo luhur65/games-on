@@ -8,46 +8,6 @@
  * Thank You For Supporting Me!.
 */
 
-// set cookie
-function set_cookie(name, value, expired) {
-
-    // tanggal 
-    var d, exp;
-
-    d = new Date();
-
-    d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
-    exp = "Expires=" + d.toUTCString();
-
-    document.cookie = name + "=" + value + ";" + exp + ";path=/Praktek/javascript/matematika-js/games/tebak_angka";
-}
-
-function get_cookie(name) {
-
-    var cookie_name, decodedCookie, ca, i;
-
-    cookie_name = name + "=";
-    decodedCookie = decodeURIComponent(document.cookie);
-    ca = decodedCookie.split(';');
-
-    for (i = 0; i < ca.length; i++) {
-
-        let c = ca[i];
-
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-
-        if (c.indexOf(cookie_name) == 0) {
-
-            return c.substring(cookie_name.length, c.length);
-        }
-
-    }
-
-    return "";
-}
-
 // dark theme
 function darkTheme() {
 
@@ -114,7 +74,7 @@ music = $('.song')[0];
 music.play();
 
 // dark theme
-theme = get_cookie('dark_theme');
+theme = Cookies.get('dark_theme');
 
 if (theme == '1') {
     
@@ -123,11 +83,11 @@ if (theme == '1') {
 } 
 
 // cek cookie player
-player = get_cookie('player');
+player = Cookies.get('player');
 url_website = 'https://apppublic.000webhostapp.com/public/';
 
 // pemeriksaan player
-if (player == "") {
+if (player == undefined) {
     
     Swal.fire({
         icon: 'error',
@@ -173,13 +133,12 @@ $(function () {
             timer: '3000'
         }).then((_result) => {
 
-            $this = $(".reward2");
-            $this.prop("disabled", true);
+            $(this).prop("disabled", true);
 
-            const player = get_cookie('player');
+            const player = Cookies.get('player');
 
             $.ajax({
-                url: 'https://apppublic.000webhostapp.com/public/player/points',
+                url: url_website + 'player/points',
                 type: 'post',
                 data: {
                     player: player,
@@ -220,7 +179,7 @@ $(function () {
                         timer: '1700'
                     }).then((result) => {
                         setTimeout(function() {
-                            $this.prop("disabled", false);
+                            $(this).prop("disabled", false);
                             // Re-enable submit button when AJAX call is complete
                           }, 1000);
                     });

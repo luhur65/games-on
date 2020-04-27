@@ -350,47 +350,6 @@ $(function () {
         return a * b;
     }
 
-    // set cookie
-    function set_cookie(name, value, expired) {
-
-        // tanggal 
-        var d, exp;
-
-        d = new Date();
-
-        d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
-        exp = "expires=" + d.toUTCString();
-
-        document.cookie = name + "=" + value + ";" + exp + ";path=/Praktek/javascript/matematika-js/games/math_game";
-    }
-
-    // get cookie
-    function get_cookie(name) {
-
-        var cookie_name, decodedCookie, ca, i;
-
-        cookie_name = name + "=";
-        decodedCookie = decodeURIComponent(document.cookie);
-        ca = decodedCookie.split(';');
-
-        for (i = 0; i < ca.length; i++) {
-
-            let c = ca[i];
-
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-
-            if (c.indexOf(cookie_name) == 0) {
-
-                return c.substring(cookie_name.length, c.length);
-            }
-
-        }
-
-        return "";
-    }
-
     function check_makeTheme(theme) {
 
         switch (theme) {
@@ -451,26 +410,28 @@ $(function () {
     // play game dimulai dari sini!
 
     // mainkan music
-    let music, themeCok, player;
+    let music, themeCok, player, url;
 
     music = $('.song')[0];
     music.play();
 
+    url = 'https://apppublic.000webhostapp.com/public/';
+
     // cek cookie theme nya 
-    themeCok = get_cookie('dark_theme');
+    themeCok = Cookies.get('dark_theme');
 
     // pemeriksaan cookie theme
-    if (themeCok != "") {
+    if (themeCok != undefined) {
         // theme 
         check_makeTheme(themeCok);
 
     }
 
     // cek cookie player
-    player = get_cookie('player');
+    player = Cookies.get('player');
 
     // pemeriksaan player
-    if (player == "") {
+    if (player == undefined) {
 
         Swal.fire({
             icon: 'error',
@@ -510,13 +471,12 @@ $(function () {
             timer: '3000'
         }).then((_result) => {
 
-            $this = $(".kerjakanSoal .reward");
-            $this.prop("disabled", true);
+            $(".kerjakanSoal .reward").prop("disabled", true);
 
-            const player = get_cookie('player');
+            const player = Cookies.get('player');
 
             $.ajax({
-                url: 'https://apppublic.000webhostapp.com/public/player/points',
+                url: url + 'player/points',
                 type: 'post',
                 data: {
                     player: player,
@@ -541,7 +501,7 @@ $(function () {
                         timer: '1700'
                     }).then((result) => {
                         setTimeout(function() {
-                            $this.prop("disabled", false);
+                            $(this).prop("disabled", false);
                             // Re-enable submit button when AJAX call is complete
                           }, 1000);
                     });
@@ -553,8 +513,6 @@ $(function () {
     // Quit Game
     $('.quit').on('click', function (e) {
         e.preventDefault();
-
-        $(this).prop("disabled", true);
 
         Swal.fire({
             icon: 'question',
@@ -571,15 +529,6 @@ $(function () {
                     timer: '1500'
                 }).then((_result) => {
                     document.location.href = '../';
-                });
-            } else {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Wise Choise',
-                    showConfirmButton: false,
-                    timer: '1700'
-                }).then(() => {
-                    $(this).prop("disabled", false);
                 });
             }
         })

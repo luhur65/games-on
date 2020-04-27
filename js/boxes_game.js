@@ -9,49 +9,7 @@
  *  Thank You For Supporting Me!.
  *  -------------------------------
  */
-
-// set cookie
-function set_cookie(name, value, expired) {
-
-    // tanggal 
-    var d, exp;
-
-    d = new Date();
-
-    d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
-    exp = "expires=" + d.toUTCString();
-
-    document.cookie = name + "=" + value + ";" + exp + ";path=/Praktek/javascript/matematika-js";
-}
-
-// get cookie
-function get_cookie(name) {
-
-    var cookieName, decodedCookie, ca, i;
-
-    cookieName = name + "=";
-    decodedCookie = decodeURIComponent(document.cookie);
-    ca = decodedCookie.split(';');
-
-    for (i = 0; i < ca.length; i++) {
-
-        let c = ca[i];
-
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-
-        if (c.indexOf(cookieName) == 0) {
-
-            return c.substring(cookieName.length, c.length);
-        }
-
-    }
-
-    return "";
-}
-
-// theme 
+// theme
 function switch_theme(mode) {
 
     switch (mode) {
@@ -81,12 +39,15 @@ let randomKotakRusak1,
     progress,
     theme,
     music,
-    player;
+    player,
+    url;
+
+url = 'https://apppublic.000webhostapp.com/public/';
 
 // cek cookie player
-player = get_cookie('player');
+player = Cookie.get('player');
 
-if (player == "") {
+if (player == undefined) {
 
     Swal.fire({
         icon: 'error',
@@ -103,8 +64,8 @@ if (player == "") {
 }
 
 // cek theme 
-theme = get_cookie('dark_theme');
-if (theme != "") {
+theme = Cookie.get('dark_theme');
+if (theme != undefined) {
     switch_theme(theme);
 }
 // music
@@ -258,10 +219,9 @@ $(function () {
             timer: '3000'
         }).then((_result) => {
 
-            $this = $(".reward2");
-            $this.prop("disabled", true);
+            $(this).prop("disabled", true);
 
-            const player = get_cookie('player');
+            const player = Cookie.get('player');
 
             $.ajax({
                 url: 'https://apppublic.000webhostapp.com/public/player/points',
@@ -306,7 +266,7 @@ $(function () {
                         timer: '1700'
                     }).then((result) => {
                         setTimeout(function() {
-                            $this.prop("disabled", false);
+                            $(this).prop("disabled", false);
                             // Re-enable submit button when AJAX call is complete
                           }, 1000);
                     });
@@ -318,7 +278,6 @@ $(function () {
     // Quit Game 
     $('.quit').on('click', function (e) {
         e.preventDefault();
-        $(this).prop('disabled', true);
 
         Swal.fire({
             icon: 'question',
@@ -338,10 +297,7 @@ $(function () {
                 }).then(() => {
                     document.location.href = '../';
                 });
-            } else {
-                
-                $(this).prop('disabled', false);
-            }
+            } 
         });
     });
 });

@@ -8,58 +8,18 @@
  * Thank You For Supporting Me!.
  */
 
-// set cookie
-function set_cookie(name, value, expired) {
-
-    // tanggal 
-    var d, exp;
-
-    d = new Date();
-
-    d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
-    exp = "expires=" + d.toUTCString();
-
-    document.cookie = name + "=" + value + ";" + exp + ";path=/Praktek/javascript/matematika-js";
-}
-
-
-function get_cookie(name) {
-
-    var cookie_name, decodedCookie, ca, i;
-
-    cookie_name = name + "=";
-    decodedCookie = decodeURIComponent(document.cookie);
-    ca = decodedCookie.split(';');
-
-    for (i = 0; i < ca.length; i++) {
-
-        let c = ca[i];
-
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-
-        if (c.indexOf(cookie_name) == 0) {
-
-            return c.substring(cookie_name.length, c.length);
-        }
-
-    }
-
-    return "";
-}
 
 // memeriksa cookie
 function check_cookie(game) {
 
     var player, url_website;
 
-    player = get_cookie("player");
+    player = Cookies.get("player");
 
     url_website = 'https://apppublic.000webhostapp.com/public/';
 
     // memeriksa cookie jika ada
-    if (player != "") {
+    if (player != undefined) {
 
         Swal.fire({
             icon: 'success',
@@ -69,8 +29,7 @@ function check_cookie(game) {
             timer: '3000'
         }).then((result) => {
 
-            $this = $(".playButton");
-            $this.prop("disabled", true);
+            $(".playButton").prop("disabled", true);
 
             // kirim ke API 
             $.ajax({
@@ -95,9 +54,8 @@ function check_cookie(game) {
                         showConfirmButton: false,
                         timer: '3000'
                     }).then(() => {
-                        
-                        $this = $(".playButton");
-                        $this.prop("disabled", false);
+
+                        $(".playButton").prop("disabled", false);
 
                     });
                 }
@@ -132,8 +90,7 @@ function check_cookie(game) {
                 const name = result.value[0];
 
                 // set_cookie 
-                set_cookie("player", name, 365);
-
+                Cookies.set('player', name);
 
                 Swal.fire({
                     icon: 'success',
@@ -142,8 +99,7 @@ function check_cookie(game) {
                     timer: '1700',
                 }).then((result) => {
 
-                    $this = $(".playButton");
-                    $this.prop("disabled", true);
+                    $(".playButton").prop("disabled", true);
 
                     // kirim ke API 
                     $.ajax({
@@ -173,9 +129,8 @@ function check_cookie(game) {
                                 showConfirmButton: false,
                                 timer: '3000'
                             }).then(() => {
-                                
-                                $this = $(".playButton");
-                                $this.prop("disabled", false);
+
+                                $(".playButton").prop("disabled", false);
 
                             });
                         }
@@ -294,12 +249,12 @@ function checkTheme(themeOpt) {
 
     var themeCok;
 
-    set_cookie('dark_theme', themeOpt, 365);
+    Cookies.set('dark_theme', themeOpt);
 
-    themeCok = get_cookie('dark_theme');
+    themeCok = Cookies.get('dark_theme');
 
     // pemeriksaan
-    if (themeCok != "") {
+    if (themeCok != undefined) {
 
         makeTheme(themeCok);
 
@@ -319,10 +274,10 @@ function checkTheme(themeOpt) {
 $('.modeLight').hide();
 
 // cek cookie theme nya 
-var themeCok = get_cookie('dark_theme');
+var themeCok = Cookies.get('dark_theme');
 
 // pemeriksaan
-if (themeCok != "") {
+if (themeCok != undefined) {
 
     makeTheme(themeCok);
 
@@ -392,8 +347,7 @@ $(function () {
 
         var url = 'https://apppublic.000webhostapp.com/public/';
 
-        $this = $(".saranButton");
-        $this.prop("disabled", true);
+        $(".saranButton").prop("disabled", true);
 
         $.ajax({
             url: url + 'saran',
@@ -404,7 +358,7 @@ $(function () {
             },
             cache: false,
             success: function () {
-                 // Success message
+                // Success message
                 Swal.fire({
                     icon: 'success',
                     title: 'Success!',
@@ -412,11 +366,11 @@ $(function () {
                     showConfirmButton: false,
                     timer: '3200'
                 }).then(() => {
-                    
+
                     // clear all fields
                     $('.sendMessage').trigger('reset');
                 });
-                    
+
             },
             error: function () {
                 // Fail message with sweetalert2
@@ -427,10 +381,9 @@ $(function () {
                     showConfirmButton: false,
                     timer: '3200'
                 }).then(() => {
-                    
-                    $this = $(".saranButton");
-                    $this.prop("disabled", false);
-                    
+
+                    $(".saranButton").prop("disabled", false);
+
                 });
             }
         });
