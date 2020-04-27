@@ -197,7 +197,7 @@ $(function () {
             $('.pemilihanModeSuit').hide();
             $('.gameplay').show();
 
-            Cookie.set('mode_suit', mode);
+            Cookies.set('mode_suit', mode);
 
         } else if (mode == '2') {
             
