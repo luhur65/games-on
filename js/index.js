@@ -350,7 +350,7 @@ $(function () {
         $(".saranButton").prop("disabled", true);
 
         $.ajax({
-            url: url + 'saran',
+            url: url + 'Saran',
             type: 'POST',
             data: {
                 name: name,
