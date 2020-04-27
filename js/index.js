@@ -22,7 +22,7 @@ function check_cookie(game) {
 
     player = Cookies.get("player");
 
-    url_website = 'http://localhost/rest-api/public/';
+    url_website = 'https://apppublic.000webhostapp.com/public/';
 
     // memeriksa cookie jika ada
     if (player != undefined) {
@@ -343,7 +343,7 @@ $(function () {
             firstName = name.split(' ').slice(0, -1).join(' ');
         }
 
-        var url = 'http://localhost/rest-api/public/';
+        var url = 'https://apppublic.000webhostapp.com/public/';
 
         $(".saranButton").prop("disabled", true);
 

@@ -47,7 +47,7 @@ $(function () {
 
     $('.notif-not-found').hide();
 
-    // jika kedua cookie kosong
+    // jika cookie kosong
     if (key_cookie == undefined) {
         Swal.fire({
             icon: 'error',
@@ -82,7 +82,7 @@ $(function () {
 
 
     keyword = Cookies.get('player_key');
-    url = 'http://localhost/rest-api/public/';
+    url = 'https://apppublic.000webhostapp.com/public/';
 
     // ajax history >> semua history saya
     $.ajax({

@@ -410,10 +410,12 @@ $(function () {
     // play game dimulai dari sini!
 
     // mainkan music
-    let music, themeCok, player, url_website, quizMode;
+    let music, themeCok, player, url, quizMode;
 
     music = $('.song')[0];
     music.play();
+
+    url = 'https://apppublic.000webhostapp.com/public/';
 
     // cek cookie theme nya 
     themeCok = Cookies.get('dark_theme');
@@ -433,7 +435,6 @@ $(function () {
 
     // cek cookie player
     player = Cookies.get('player');
-    url_website = 'http://localhost/rest-api/public/';
 
     // pemeriksaan player
     if (player == undefined) {
@@ -499,13 +500,12 @@ $(function () {
             timer: '3000'
         }).then((_result) => {
 
-            $this = $(".kerjakanSoal .reward");
-            $this.prop("disabled", true);
+            $(".kerjakanSoal .reward").prop("disabled", true);
 
             const player = Cookies.get('player');
 
             $.ajax({
-                url: 'http://localhost/rest-api/public/player/points',
+                url: url + 'player/points',
                 type: 'post',
                 data: {
                     player: player,
@@ -530,7 +530,7 @@ $(function () {
                         timer: '1700'
                     }).then((result) => {
                         setTimeout(function() {
-                            $this.prop("disabled", false);
+                            $(this).prop("disabled", false);
                             // Re-enable submit button when AJAX call is complete
                           }, 1000);
                     });
@@ -542,8 +542,6 @@ $(function () {
     // Quit Game
     $('.quit').on('click', function (e) {
         e.preventDefault();
-
-        $(this).prop("disabled", true);
 
         Swal.fire({
             icon: 'question',
@@ -560,15 +558,6 @@ $(function () {
                     timer: '1500'
                 }).then((_result) => {
                     document.location.href = '../';
-                });
-            } else {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Wise Choise',
-                    showConfirmButton: false,
-                    timer: '1700'
-                }).then(() => {
-                    $(this).prop("disabled", false);
                 });
             }
         })

@@ -123,13 +123,10 @@ function make_theme(data) {
 
 }
 
-let playAgain, player_cookie, theme, url_website;
+let playAgain, player_cookie, theme;
 
 // mainkan kembali 
-// pengecekan cookie player
 playAgain = Cookies.get('mode_suit');
-player_cookie = Cookies.get('player');
-url_website = 'http://localhost/rest-api/public/';
 
 if (playAgain == '1') {
 
@@ -142,6 +139,9 @@ if (playAgain == '1') {
 
     $('.breadcrumb-item.active span').html('2 Player');
 }
+
+// pengecekan cookie player
+player_cookie = Cookies.get('player');
 
 if (player_cookie == undefined) {
 
@@ -175,11 +175,14 @@ if (theme != undefined) {
 $(function () {
 
     // pemilihan mode game 
-    let mode, comp, player, skorplayer, skorcomp;
+    let mode, comp, player, skorplayer, skorcomp, url;
 
     // data skor player & data skor comp
     skorplayer = [];
     skorcomp = [];
+
+    // url hosting
+    url = 'https://apppublic.000webhostapp.com/public/';
     
     // pilih mode
     $('.ModeSuit').on('click', function (e) {
@@ -332,12 +335,12 @@ $(function () {
             timer: '3000'
         }).then((_result) => {
 
-            $(".reward3").prop("disabled", true);
+            $(this).prop("disabled", true);
 
             const player = Cookies.get('player');
 
             $.ajax({
-                url: 'http://localhost/rest-api/public/player/points',
+                url: url + 'player/points',
                 type: 'post',
                 data: {
                     player: player,
@@ -378,7 +381,7 @@ $(function () {
                         timer: '1700'
                     }).then((result) => {
                         setTimeout(function() {
-                            $(".reward3").prop("disabled", false);
+                            $(this).prop("disabled", false);
                             // Re-enable submit button when AJAX call is complete
                           },1000);
                     });

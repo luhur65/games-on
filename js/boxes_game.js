@@ -9,8 +9,7 @@
  *  Thank You For Supporting Me!.
  *  -------------------------------
  */
-
-// theme 
+// theme
 function switch_theme(mode) {
 
     switch (mode) {
@@ -41,11 +40,12 @@ let randomKotakRusak1,
     theme,
     music,
     player,
-    url_website;
+    url;
+
+url = 'https://apppublic.000webhostapp.com/public/';
 
 // cek cookie player
-player = Cookies.get('player');
-url_website = 'http://localhost/rest-api/public/';
+player = Cookie.get('player');
 
 if (player == undefined) {
 
@@ -64,7 +64,7 @@ if (player == undefined) {
 }
 
 // cek theme 
-theme = Cookies.get('dark_theme');
+theme = Cookie.get('dark_theme');
 if (theme != undefined) {
     switch_theme(theme);
 }
@@ -220,12 +220,12 @@ $(function () {
             timer: '3000'
         }).then((_result) => {
 
-            $(".reward4").prop("disabled", true);
+            $(this).prop("disabled", true);
 
-            const player = Cookies.get('player');
+            const player = Cookie.get('player');
 
             $.ajax({
-                url: 'http://localhost/rest-api/public/player/points',
+                url: 'https://apppublic.000webhostapp.com/public/player/points',
                 type: 'post',
                 data: {
                     player: player,
@@ -267,7 +267,7 @@ $(function () {
                         timer: '1700'
                     }).then((result) => {
                         setTimeout(function() {
-                            $(".reward4").prop("disabled", false);
+                            $(this).prop("disabled", false);
                             // Re-enable submit button when AJAX call is complete
                           }, 1000);
                     });
@@ -279,7 +279,6 @@ $(function () {
     // Quit Game 
     $('.quit').on('click', function (e) {
         e.preventDefault();
-        $(this).prop('disabled', true);
 
         Swal.fire({
             icon: 'question',
@@ -299,10 +298,7 @@ $(function () {
                 }).then(() => {
                     document.location.href = '../';
                 });
-            } else {
-                
-                $(this).prop('disabled', false);
-            }
+            } 
         });
     });
 });

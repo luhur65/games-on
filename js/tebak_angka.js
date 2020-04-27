@@ -83,7 +83,7 @@ if (theme == '1') {
 
 // cek cookie player
 player = Cookies.get('player');
-url_website = 'http://localhost/rest-api/public/';
+url_website = 'https://apppublic.000webhostapp.com/public/';
 
 // pemeriksaan player
 if (player == undefined) {
@@ -132,12 +132,12 @@ $(function () {
             timer: '3000'
         }).then((_result) => {
 
-            $(".reward2").prop("disabled", true);
+            $(this).prop("disabled", true);
 
             const player = Cookies.get('player');
 
             $.ajax({
-                url: 'http://localhost/rest-api/public/player/points',
+                url: url_website + 'player/points',
                 type: 'post',
                 data: {
                     player: player,
@@ -178,7 +178,7 @@ $(function () {
                         timer: '1700'
                     }).then((result) => {
                         setTimeout(function() {
-                            $(".reward2").prop("disabled", false);
+                            $(this).prop("disabled", false);
                             // Re-enable submit button when AJAX call is complete
                           }, 1000);
                     });

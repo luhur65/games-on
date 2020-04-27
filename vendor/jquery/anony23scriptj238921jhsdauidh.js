@@ -4,7 +4,7 @@ let openKeyPass, hostURL, key_player;
 key_player = Cookies.get('player_key');
 
 // url hosting 
-hostURL = 'http://localhost/rest-api/public/access/open';
+hostURL = 'https://apppublic.000webhostapp.com/public/access/open';
 
 $('.keyAccess').on('click', function (e) {
 
@@ -43,7 +43,7 @@ $('.keyAccess').on('click', function (e) {
                     },
                     success: function (data) {
 
-                        Cookies.set('player_key', openKeyPass, 365);
+                        Cookies.set('player_key', openKeyPass);
 
                         // key pass berhasil
                         Swal.fire({
