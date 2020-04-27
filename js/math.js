@@ -350,47 +350,6 @@ $(function () {
         return a * b;
     }
 
-    // set cookie
-    function set_cookie(name, value, expired) {
-
-        // tanggal 
-        var d, exp;
-
-        d = new Date();
-
-        d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
-        exp = "expires=" + d.toUTCString();
-
-        document.cookie = name + "=" + value + ";" + exp + ";path=/Praktek/javascript/matematika-js/games/math_game";
-    }
-
-    // get cookie
-    function get_cookie(name) {
-
-        var name, decodedCookie, ca, i;
-
-        name = name + "=";
-        decodedCookie = decodeURIComponent(document.cookie);
-        ca = decodedCookie.split(';');
-
-        for (i = 0; i < ca.length; i++) {
-
-            let c = ca[i];
-
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-
-            if (c.indexOf(name) == 0) {
-
-                return c.substring(name.length, c.length);
-            }
-
-        }
-
-        return "";
-    }
-
     function check_makeTheme(theme) {
 
         switch (theme) {
@@ -451,27 +410,33 @@ $(function () {
     // play game dimulai dari sini!
 
     // mainkan music
-    let music, themeCok, player, url_website;
+    let music, themeCok, player, url_website, quizMode;
 
     music = $('.song')[0];
     music.play();
 
     // cek cookie theme nya 
-    themeCok = get_cookie('dark_theme');
+    themeCok = Cookies.get('dark_theme');
 
     // pemeriksaan cookie theme
-    if (themeCok != "") {
+    if (themeCok != undefined) {
         // theme 
         check_makeTheme(themeCok);
 
     }
 
+    quizMode = Cookies.get('quiz_math');
+    if (quizMode != undefined) {
+        
+        playing(quizMode);
+    }
+
     // cek cookie player
-    player = get_cookie('player');
+    player = Cookies.get('player');
     url_website = 'http://localhost/rest-api/public/';
 
     // pemeriksaan player
-    if (player == "") {
+    if (player == undefined) {
 
         Swal.fire({
             icon: 'error',
@@ -492,8 +457,31 @@ $(function () {
 
         const mode = $(this).data('mode');
 
+        Cookies.set('quiz_math', mode);
+
         // function playing()
         playing(mode);
+
+    });
+
+    // change mode quiz
+    $('.changeQuiz').on('click', function (e) {
+        e.preventDefault();
+
+        Swal.fire({
+            icon: 'question',
+            title: 'Ganti Quiz??',
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Tidak',
+            confirmButtonText: 'Ya, Ganti Quiz'
+        }).then((result) => {
+            if (result.value) {
+               
+               Cookies.remove('quiz_math');
+               document.location.href = "";
+           }
+        });
 
     });
 
@@ -514,7 +502,7 @@ $(function () {
             $this = $(".kerjakanSoal .reward");
             $this.prop("disabled", true);
 
-            const player = get_cookie('player');
+            const player = Cookies.get('player');
 
             $.ajax({
                 url: 'http://localhost/rest-api/public/player/points',

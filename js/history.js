@@ -1,44 +1,4 @@
 $(function () {
-    // set cookie
-    function set_cookie(name, value, expired) {
-
-        // tanggal 
-        var d, exp;
-
-        d = new Date();
-
-        d.setTime(d.getTime() + (expired * 24 * 60 * 60 * 1000));
-        exp = "expires=" + d.toUTCString();
-
-        document.cookie = name + "=" + value + ";" + exp + ";path=/Praktek/javascript/matematika-js";
-    }
-
-    // get value cookie based on cookie name
-    function get_cookie(name) {
-
-        var name, decodedCookie, ca, i;
-
-        name = name + "=";
-        decodedCookie = decodeURIComponent(document.cookie);
-        ca = decodedCookie.split(';');
-
-        for (i = 0; i < ca.length; i++) {
-
-            let c = ca[i];
-
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-
-            if (c.indexOf(name) == 0) {
-
-                return c.substring(name.length, c.length);
-            }
-
-        }
-
-        return "";
-    }
 
     // page view 
     function page_viewing(data) {
@@ -73,27 +33,26 @@ $(function () {
     }
 
     // cek view page
-    let page_view;
-    page_view = get_cookie('page');
+    let page_view, key_cookie, url, keyword;
 
-    if (page_view != "") {
+    page_view = Cookies.get('page');
+
+    if (page_view != undefined) {
 
         page_viewing(page_view);
     }
 
     // check cookie 
-    let key_cookie;
-
-    key_cookie = get_cookie('player_key');
+    key_cookie = Cookies.get('player_key');
 
     $('.notif-not-found').hide();
 
     // jika kedua cookie kosong
-    if (key_cookie == "") {
+    if (key_cookie == undefined) {
         Swal.fire({
             icon: 'error',
             title: 'Access Denied!',
-            text: 'Kamu Harus Memasukkan Pas Key Terlebih Dahulu!',
+            text: 'Tidak Ada PassKey, Dilarang Masuk!',
             showConfirmButton: false,
             timer: '3200'
         }).then((result) => {
@@ -121,9 +80,8 @@ $(function () {
         });
     });
 
-    var url;
-    let keyword = get_cookie('player_key');
 
+    keyword = Cookies.get('player_key');
     url = 'http://localhost/rest-api/public/';
 
     // ajax history >> semua history saya
@@ -237,7 +195,7 @@ $(function () {
     $('.clear-history').on('click', function (e) {
         e.preventDefault();
 
-        const player = get_cookie('player_key');
+        const player = Cookies.get('player_key');
 
         Swal.fire({
             icon: 'question',
@@ -289,7 +247,7 @@ $(function () {
 
         const page = $(this).data('page');
 
-        set_cookie('page', page, 365);
+        Cookies.set('page', page);
 
         page_viewing(page);
 
@@ -297,7 +255,7 @@ $(function () {
 
     // top-player : all
     $.ajax({
-        url: 'http://localhost/rest-api/public/player/view_points',
+        url: url + 'player/view_points',
         method: 'POST',
         dataType: 'json',
         data: {},
@@ -305,7 +263,7 @@ $(function () {
         success: function (data) {
 
             const player = data;
-            const key = get_cookie('player_key');
+            const key = Cookies.get('player_key');
 
             $.each(player, function (i, data) {
 
@@ -356,13 +314,13 @@ $(function () {
     $('.view_my_rank').on('click', function (e) {
         e.preventDefault();
 
-        const player = get_cookie('player_key');
+        const player = Cookies.get('player_key');
 
         $(this).hide();
 
         // ajax 
         $.ajax({
-            url: 'http://localhost/rest-api/public/player/view_my_point',
+            url: url + 'player/view_my_point',
             method: 'POST',
             dataType: 'json',
             data: {
@@ -395,7 +353,7 @@ $(function () {
 
             $(this).hide();
             $('.view_my_rank').show();
-        })
+        });
         
     });
 });
