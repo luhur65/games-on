@@ -45,7 +45,7 @@ let randomKotakRusak1,
 url = 'https://apppublic.000webhostapp.com/public/';
 
 // cek cookie player
-player = Cookie.get('player');
+player = Cookies.get('player');
 
 if (player == undefined) {
 
@@ -64,7 +64,7 @@ if (player == undefined) {
 }
 
 // cek theme 
-theme = Cookie.get('dark_theme');
+theme = Cookies.get('dark_theme');
 if (theme != undefined) {
     switch_theme(theme);
 }
@@ -222,7 +222,7 @@ $(function () {
 
             $(this).prop("disabled", true);
 
-            const player = Cookie.get('player');
+            const player = Cookies.get('player');
 
             $.ajax({
                 url: 'https://apppublic.000webhostapp.com/public/player/points',

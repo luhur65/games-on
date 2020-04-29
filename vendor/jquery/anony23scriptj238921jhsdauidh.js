@@ -4,7 +4,7 @@ let openKeyPass, hostURL, key_player;
 key_player = Cookies.get('player_key');
 
 // url hosting 
-hostURL = 'https://apppublic.000webhostapp.com/public/access/open';
+hostURL = 'https://apppublic.000webhostapp.com/public/player/open';
 
 $('.keyAccess').on('click', function (e) {
 
