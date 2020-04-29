@@ -8,12 +8,9 @@
  * Thank You For Supporting Me!.
  */
 
-$(window).on('load', function () {
-    // music
-    var audio = $('.song')[0];
-    audio.play();
-    
-});
+// music
+var audio = $('.song')[0];
+audio.play();
 
 // memeriksa cookie
 function check_cookie(game) {
