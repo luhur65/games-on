@@ -32,6 +32,10 @@
 
     <body id="#page-top" translate="yes" draggable="false">
 
+        <!-- Loading -->
+        <div class="se-pre-con"></div>
+
+        <!-- main content -->
         <div class="container" translate="yes">
 
             <div class="row">
@@ -92,7 +96,8 @@
                                         meningkatkan Web ini Lebih Baik Lagi , <span class="text-primary">Kami sangat
                                             menghargai nya </span> .
                                         <br>
-                                        <a href="" class="text-danger saranButton" data-toggle="modal" data-target="#saran">
+                                        <a href="" class="text-danger saranButton" data-toggle="modal"
+                                            data-target="#saran">
                                             Beri Saran Kepada Kami!
                                         </a>
                                     </p>
@@ -252,21 +257,14 @@
                             <div class="control-group">
                                 <div class="form-group controls mb-0 pb-2">
                                     <label>Nama Anda<sup class="text-danger"> * </sup></label>
-                                    <input class="form-control" 
-                                           id="name" 
-                                           type="text" 
-                                           required="required">
+                                    <input class="form-control" id="name" type="text" required="required">
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="form-group controls mb-0 pb-2">
                                     <label>Pesan Anda<sup class="text-danger"> * </sup></label>
-                                    <textarea 
-                                        class="form-control" 
-                                        id="message" 
-                                        rows="5"
-                                        placeholder="Saran / Pendapat / Kritik!" 
-                                        required="required"></textarea>
+                                    <textarea class="form-control" id="message" rows="5"
+                                        placeholder="Saran / Pendapat / Kritik!" required="required"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -295,6 +293,18 @@
         <script src="vendor/cookie/js.cookie.js"></script>
         <script src="vendor/jquery/anony23scriptj238921jhsdauidh.js"></script>
         <script src="js/index.js"></script>
+
+        <script>
+
+            // showing loading gif
+            $(window).on('load', function () {
+                // animate loader off screen
+                $('.se-pre-con').fadeOut('slow');
+
+            });
+
+        </script>
+
     </body>
 
 </html>
