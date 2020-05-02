@@ -84,21 +84,23 @@ $(function () {
     keyword = Cookies.get('player_key');
     url = 'https://apppublic.000webhostapp.com/public/';
 
-    // ajax history >> semua history saya
-    $.ajax({
-        url: url + 'player/history',
-        type: 'post',
-        dataType: 'json',
-        data: {
-            keyword: keyword
-        },
-        cache: false,
-        success: function (data) {
+    // setiap 3 detik akan load halaman jika ada perubahan baru
+    setInterval(function () {
+        // ajax history >> semua history saya
+        $.ajax({
+            url: url + 'player/history',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                keyword: keyword
+            },
+            cache: false,
+            success: function (data) {
 
-            const history_log = data;
+                const history_log = data;
 
-            $.each(history_log, function (i, data) {
-                $('.view-history-user').append(`
+                $.each(history_log, function (i, data) {
+                    $('.view-history-user').append(`
     
                 <div class="card shadow p-3">
                 <span class="small text-primary">` + data.last_access + `</span>
@@ -107,16 +109,17 @@ $(function () {
                 </span>
             </div>
             `);
-            });
-        },
-        error: function () {
+                });
+            },
+            error: function () {
 
-            $('.clear-history').hide();
-            $('.filter').hide();
-            $('.alert-conf').hide();
-            $('.notif-not-found').show();
-        }
-    });
+                $('.clear-history').hide();
+                $('.filter').hide();
+                $('.alert-conf').hide();
+                $('.notif-not-found').show();
+            }
+        });
+    }, 3000)
 
     // filter history
     $('.filter').on('click', function (e) {
@@ -254,59 +257,62 @@ $(function () {
     });
 
     // top-player : all
-    $.ajax({
-        url: url + 'player/view_points',
-        method: 'POST',
-        dataType: 'json',
-        data: {},
-        cache: false,
-        success: function (data) {
+    setInterval(function () {
 
-            const player = data;
-            const key = Cookies.get('player_key');
-
-            $.each(player, function (i, data) {
-
-                var firstName = data.player;
-
-                // Check for white space in name for Success/Fail message
-                if (firstName.indexOf(' ') >= 0) {
-                    firstName = data.player.split(' ').slice(0, -1).join(' ');
-                }
-
-
-                // top-player
-                if (key == firstName) {
-
-                    $('.top-player').append(`
-               
-                <div class="shadow card p-2 mb-3 border-bottom-success bg-dark" id="#my_rank">
-                <div class="d-flex align-items-center">
-                    <div class="mx-2">
-                        <p class="text-white mb-0"> <i class="fas fa-user-circle fa-fw"></i> ` + firstName + ` </p>
-                        <div class="small text-warning">` + data.rank + ` . <i class="fa fa-star fa-fw" aria-hidden="true"></i> ` + data.points + `
+        $.ajax({
+            url: url + 'player/view_points',
+            method: 'POST',
+            dataType: 'json',
+            data: {},
+            cache: false,
+            success: function (data) {
+    
+                const player = data;
+                const key = Cookies.get('player_key');
+    
+                $.each(player, function (i, data) {
+    
+                    var firstName = data.player;
+    
+                    // Check for white space in name for Success/Fail message
+                    if (firstName.indexOf(' ') >= 0) {
+                        firstName = data.player.split(' ').slice(0, -1).join(' ');
+                    }
+    
+    
+                    // top-player
+                    if (key == firstName) {
+    
+                        $('.top-player').append(`
+                   
+                    <div class="shadow card p-2 mb-3 border-bottom-success bg-dark" id="#my_rank">
+                    <div class="d-flex align-items-center">
+                        <div class="mx-2">
+                            <p class="text-white mb-0"> <i class="fas fa-user-circle fa-fw"></i> ` + firstName + ` </p>
+                            <div class="small text-warning">` + data.rank + ` . <i class="fa fa-star fa-fw" aria-hidden="true"></i> ` + data.points + `
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            `)
-                } else {
-                    $('.top-player').append(`
-               
-                <div class="shadow card p-2 mb-3 border-bottom-primary">
-                <div class="d-flex align-items-center">
-                    <div class="mx-2">
-                        <p class="text-dark mb-0"> ` + firstName + ` </p>
-                        <div class="small text-info">` + data.rank + ` . <i class="fa fa-star fa-fw" aria-hidden="true"></i> ` + data.points + `
+                `)
+                    } else {
+                        $('.top-player').append(`
+                   
+                    <div class="shadow card p-2 mb-3 border-bottom-primary">
+                    <div class="d-flex align-items-center">
+                        <div class="mx-2">
+                            <p class="text-dark mb-0"> ` + firstName + ` </p>
+                            <div class="small text-info">` + data.rank + ` . <i class="fa fa-star fa-fw" aria-hidden="true"></i> ` + data.points + `
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            `)
-                }
-            });
-        }
-    });
+                `)
+                    }
+                });
+            }
+        });
+    }, 3000)
 
     $('.hide').hide();
 
@@ -319,32 +325,34 @@ $(function () {
         $(this).hide();
 
         // ajax 
-        $.ajax({
-            url: url + 'player/view_my_point',
-            method: 'POST',
-            dataType: 'json',
-            data: {
-                name: player
-            },
-            cache: false,
-            success: function (data) {
-                $('.view_rank').html(`
-                
-                <div class="shadow card p-2 mb-3 border-bottom-success bg-dark">
-                <div class="d-flex align-items-center">
-                    <div class="mx-2">
-                        <p class="text-white mb-0"> <i class="fas fa-user-circle fa-fw"></i> ` + data.player + ` </p>
-                        <div class="small text-warning">` + data.rank + ` . <i class="fa fa-star fa-fw" aria-hidden="true"></i> ` + data.points + `
+        setInterval(function () {
+            $.ajax({
+                url: url + 'player/view_my_point',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    name: player
+                },
+                cache: false,
+                success: function (data) {
+                    $('.view_rank').html(`
+                    
+                    <div class="shadow card p-2 mb-3 border-bottom-success bg-dark">
+                    <div class="d-flex align-items-center">
+                        <div class="mx-2">
+                            <p class="text-white mb-0"> <i class="fas fa-user-circle fa-fw"></i> ` + data.player + ` </p>
+                            <div class="small text-warning">` + data.rank + ` . <i class="fa fa-star fa-fw" aria-hidden="true"></i> ` + data.points + `
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-                
-                `);
-
-                $('.hide').show();
-            }
-        });
+                    
+                    `);
+    
+                    $('.hide').show();
+                }
+            });
+       },3000)
 
         $('.hide').on('click', function (e) {
             e.preventDefault();
@@ -354,6 +362,6 @@ $(function () {
             $(this).hide();
             $('.view_my_rank').show();
         });
-        
+
     });
 });
