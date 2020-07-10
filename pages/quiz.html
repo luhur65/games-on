@@ -1,0 +1,62 @@
+<div class="mt-3 d-flex justify-content-start">
+    <img class="mini-icon" src="./img/icon/gambar_kuis_math.jpeg" alt="Icon Game">
+    <div class="ml-3">
+        <h4 class="h4 lead text-primary font-weight-normal">Quiz Math</h4>
+        <p class="small text-muted">Permainan Kuis yg mengasah otak.</p>
+    </div>
+</div>
+
+<div class="card mt-1">
+    <div class="card-body text-center">
+
+        <!-- pemilihan kategori soal -->
+        <div class="kategori">
+            <button type="button" class="btn btn-success button-kategori mb-2 mr-1"
+                data-mode="easy">Mudah</button>
+            <button type="button" class="btn btn-info button-kategori mb-2 mr-1"
+                data-mode="normal">Sedang</button>
+            <button type="button" class="btn btn-danger button-kategori mb-2 mr-1"
+                data-mode="hard">Sulit</button>
+        </div>
+
+        <!-- kerjakan soal -->
+        <div class="kerjakanSoal d-none">
+            <div class="alert alert-info text-left" role="alert">
+                <p class="mb-0">
+                    <span class="font-weight-bold">PRO :</span>
+                    Dalam Kasus Kuis Soal Pembagian , Hasil Bagi nya Harus Di Bulatkan ke Atas 
+                    Contoh : ( 1,4 => 2 ) , ( 2,6 => 3 )   
+                </p>
+            </div>
+            <div class="user-info text-left"></div>
+            <div class="d-block mb-3 card p-3">
+                <h3 class="lead h3 display-4 font-weight-normal text-dark tulisanSoal">
+                    <!-- ... soal view -->
+                </h3>
+            </div>
+
+            <div class="text-left">
+                <span class="badge badge-light">Jawaban Mu</span>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Tulis Jawaban Disini ..." aria-label="Answer User"
+                    aria-describedby="button-addon2" id="jawaban-user" autofocus>
+                <div class="input-group-append">
+                    <button class="btn btn-primary cek-jawaban" type="button" id="button-addon2">
+                        Periksa Jawaban !!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ... other action -->
+<div class="d-flex justify-content-between btn-other-actions">
+    <a href="javascript:void(0)" class="mt-2 quit btn btn-outline-danger btn-sm">
+        <i class="fa fa-angle-left" aria-hidden="true"></i> Keluar
+    </a>
+    <a href="javascript:void(0)" class="mt-2 changeQuiz d-none btn btn-outline-secondary btn-sm">
+        <i class="fa fa-undo" aria-hidden="true"></i> Ganti Mode
+    </a>
+</div>
