@@ -1,7 +1,6 @@
 # Javascript Game
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5a77e667-8d14-4854-be03-35ac2be98df7/deploy-status)](https://app.netlify.com/sites/simply-games/deploys)
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f7016492-78c9-4a11-9c9c-06fa2533951b/deploy-status)](https://app.netlify.com/sites/games-on/deploys)
 **Library/Framework yg dipake dalam Game:**
 1. SweetAlert2.
 2. Boostrap4.
