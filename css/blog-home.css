@@ -1,4 +1,3 @@
-/* google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
 
 body {
@@ -6,18 +5,29 @@ body {
 }
 
 .icon {
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
 }
 
-svg {
-    width: auto;
+.mini-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+.bg-custom-img {
+    background: transparent url(../img/card-bg4.jpg) no-repeat;
     background-size: cover;
-    z-index: -1;
+    background-clip: padding-box;
+}
+
+/* all games - index */
+.card-img {
+    width: 2rem;
+    height: 2rem;
 }
 
 /* Game Suit */
-.pilihModeSuit button{
+/* .pilihModeSuit button{
     width: 10rem;
     border-radius: 2rem;
 }
@@ -68,7 +78,7 @@ svg {
     padding: 10px;
     text-align: center;
     color: rgb(27, 27, 27);
-}
+} */
 
 
 /* quiz math */
@@ -83,145 +93,23 @@ svg {
 
 .kategori button:hover {
     color: rgb(0, 0, 0);
-    transform: scale(1.2);
+    transform: scale(1.1);
     opacity: 0.8;
 }
 
 .tulisanSoal {
     font-size: 2rem;
-}
-
-.kerjakanSoal,
-.changeQuiz {
-    display: none;
-}
-
-
-
-/* all games - index */
-.card-img {
-    width: 2rem;
-    height: 2rem;
-}
-
-.brand {
-    width: 2rem;
-    height: 2rem;
-}
-
-.btn-navbar {
-    outline: none;
-}
-
-.card-bg-img1 {
-    background: transparent url('../img/card-bg1.jpg') no-repeat;
-    background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    color: white;
-}
-
-.card-bg-img2 {
-    background: transparent url('../img/card-bg2.jpg') no-repeat;
-    background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    color: white;
-}
-
-.card-bg-img3 {
-    background: transparent url('../img/card-bg3.jpg') no-repeat;
-    background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    color: white;
-}
-
-.card-bg-img4 {
-    background: transparent url('../img/card-bg4.jpg') no-repeat;
-    background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    color: white;
-}
-
-.card-bg-img1:hover,
-.card-bg-img2:hover,
-.card-bg-img3:hover,
-.card-bg-img4:hover {
-    transform: scale(0.97);
-}
+} 
 
 .judulGame {
 
     color: white;
 }
 
-hr {
-    width: 20rem;
-}
-
-.kerjakanSoal .reward,
-.card-body .reward2,
-.card-body .reward3,
-.card-body .reward4 {
-    display: none;
-}
-
-/* Loading Gif */
-.no-js #loader {display: none;}
-
-.js #loader {
-    display: block;
-    position: absolute;
-    left: 100px;
-    top: 0;
-}
-
-.se-pre-con {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    background: url('../img/Preloader_3.gif') center no-repeat #fff;
-}
-
-
-@media(max-width: 770px) {
-
-    .nav-item a {
-        font-size: 14px;
-    }
-}
 
 @media(max-width: 400px) {
 
-    .card-bg-img1,
-    .card-bg-img2,
-    .card-bg-img3,
-    .card-bg-img4 {
-        text-align: center;
-        background-size: contain;
-        -moz-background-size: contain;
-        -webkit-background-size: contain;
-        -o-background-size: contain;
-        color: black;
-    }
-
-    .card-bg-img1:hover,
-    .card-bg-img2:hover,
-    .card-bg-img3:hover,
-    .card-bg-img4:hover {
-        transform: none;
-    }
-
-    .judulGame {
+    /* .judulGame {
         color: #4e73df;
     }
 
@@ -280,24 +168,12 @@ hr {
 
     hr {
         width: 8rem;
-    }
+    } */
 }
 
 @media(max-width: 270px) {
 
-    /* .brandLink {
-        display: none;
-    } */
-
-    .navbar-brand img {
-        display: none;
-    }
-
-    .nav-item .nav-link{
-        font-size: 12px;
-    }
-
-    .card-text {
+    /* .card-text {
 
         display: none;
     }
@@ -319,11 +195,11 @@ hr {
 
     .social-media {
         font-size: 12px;
-    }
+    } */
     
     /* Math Game */
 
-    .title {
+    /* .title {
         font-size: 1rem;
     }
 
@@ -339,21 +215,21 @@ hr {
     .quit,
     .changeQuiz {
         font-size: 12px;
-    }
+    } */
 
     /* Tebak Angka Game */
 
-    .headerTitle {
+    /* .headerTitle {
         font-size: 17px;
     }
 
     .himbau {
         font-size: 12px;
-    }
+    } */
 
     /* game suit */
-    .tombolSuit a img{
+    /* .tombolSuit a img{
         width: 2.5rem;
         height: 2.5rem;
-    }
+    } */
 }
