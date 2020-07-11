@@ -27,19 +27,10 @@ body {
 }
 
 /* Game Suit */
-/* .pilihModeSuit button{
-    width: 10rem;
-    border-radius: 2rem;
-}
-
-.noticeGame {
-    font-size: 20px;
-}
-
 .tombolSuit {
     display: flex;
-    margin: auto;
-}
+    margin: 10px 10px;
+} 
 
 .tombolSuit a {
     border-radius: 15rem;
@@ -47,38 +38,27 @@ body {
 
 .tombolSuit a img{
     flex: 1;
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
     border-radius: 15rem;
-    border: 1px solid black;
+    border: 3px solid rgb(175, 171, 171);
     margin: 3px;
 }
 
 .tombolSuit a img:hover,
 .tombolSuit a img:focus {
-    border: 2px solid blue;
+    border: 5px solid rgb(159, 159, 160);
 }
 
-.gameplay,
-.playagain {
-    display: none;
-}
-
-.winner {
-    background-color: #5af7bd;
+.kotak-score {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid gray;
     border-radius: 10px;
-    padding: 10px;
     text-align: center;
-    color: rgb(17, 17, 17);
+    line-height: 2.5rem;
+    font-size: 30px;
 }
-
-.loser {
-    background-color: #fa8176;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    color: rgb(27, 27, 27);
-} */
 
 
 /* quiz math */
@@ -106,130 +86,11 @@ body {
     color: white;
 }
 
+@media(max-width: 440px) {
 
-@media(max-width: 400px) {
-
-    /* .judulGame {
-        color: #4e73df;
-    }
-
-    .icon {
-        width: 4rem;
-        height: 4rem;
-    }
-
-    .brandLink {
-        font-size: 16px;
-    }
-
-    .divider {
-        color: gray;
-    }
-
-    .alert-info p,
-    .alert-info span {
-        font-size: 12px;
-    }
-
-    .breadcrumb-item,
-    .breadcrumb-item a,
-    .breadcrumb-item span {
-        font-size: 11px;
-    }
-
-    .title {
-        font-size: 1.25rem;
-    }
-
-    .tulisanSoal {
-        font-size: 1rem;
-    }
-
-    .headerTitle {
-        font-size: 20px;
-    }
-
-    .himbau {
-        font-size: 15px;
-    }
-    .pilihModeSuit button{
-        width: 7rem;
-        font-size: 12px;
-    }
-
-    .noticeGame {
-        font-size: 12px;
-    }
-
-    .tombolSuit a img{
+    /* Game Suit */
+    .tombolSuit a img {
         width: 3rem;
         height: 3rem;
     }
-
-    hr {
-        width: 8rem;
-    } */
-}
-
-@media(max-width: 270px) {
-
-    /* .card-text {
-
-        display: none;
-    }
-
-    .judulGame {
-        font-size: 14px;
-    }
-
-    .icon {
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .alert-info p,
-    .alert-info span,
-    .breadcrumb-item {
-        font-size: 12px;
-    }
-
-    .social-media {
-        font-size: 12px;
-    } */
-    
-    /* Math Game */
-
-    /* .title {
-        font-size: 1rem;
-    }
-
-    .kategori button {
-        width: 5rem;
-        font-size: 12px;
-    }
-
-    .tulisanSoal {
-        font-size: 15px;
-    }
-
-    .quit,
-    .changeQuiz {
-        font-size: 12px;
-    } */
-
-    /* Tebak Angka Game */
-
-    /* .headerTitle {
-        font-size: 17px;
-    }
-
-    .himbau {
-        font-size: 12px;
-    } */
-
-    /* game suit */
-    /* .tombolSuit a img{
-        width: 2.5rem;
-        height: 2.5rem;
-    } */
 }

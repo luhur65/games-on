@@ -1,150 +1,117 @@
  <div class="row">
-     <div class="col-lg-7 p-4 mx-auto py-5">
+     <div class="col-lg-7 mx-auto py-3">
+         <div class="mt-4 d-flex justify-content-start">
+             <img class="mini-icon" src="./img/icon/batu gunting kertas.png" alt="Icon Game">
+             <div class="ml-3">
+                 <h4 class="h4 lead text-primary font-weight-normal">Suit Game</h4>
+                 <p class="small text-muted">Permainan suit melawan AI (Comp) </p>
+             </div>
+         </div>
+         <ol class="breadcrumb">
+             <li class="breadcrumb-item">
+                 <a href="javascript:void(0)" class="quit">
+                     <i class="fas fa-home fa-fw"></i>
+                     Home
+                 </a>
+             </li>
+             <li class="breadcrumb-item">
+                 <a href="index.html#suit" class="change-suit-mode">Suit Game</a>
+             </li>
+         </ol>
+
+         <ul class="list-group final-score lead d-none mb-2">
+             <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="lead">Computer</span>
+                <div class="kotak-score comp-score">3</div>
+             </li>
+             <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="lead font-weight-bold text-primary">You</span>
+                <div class="kotak-score player-score">0</div>
+             </li>
+         </ul>
+
+         <div class="card p-2 mb-2 d-none">
+             <div class="d-flex justify-content-between align-items-center text-center">
+                 <div class="player-score">
+                     <span class="badge badge-primary">You</span>
+                     <div class="kotak-score player">0</div>
+                 </div>
+                 <h2 class="font-weight-bold mt-2">:</h2>
+                 <div class="comp-score">
+                     <span class="badge badge-success">Comp</span>
+                     <div class="kotak-score comp">0</div>
+                 </div>
+             </div>
+         </div>
+
          <div class="card shadow rounded bg-light">
              <div class="card-body">
-                 <h3 class="text-center card p-2 rounded title">Game Suit</h3>
 
-                 <!-- pilih mode suit -->
-                 <div class="pemilihanModeSuit">
-
-                     <div class="card p-2">
-                         <div class="mt-2 mb-0 text-center pilihModeSuit">
-                             <p class="noticeGame">Pilih Mode Game!</p>
-                             <hr class="pemisah">
-                             <button type="button" class="btn btn-outline-primary ModeSuit mb-2 btn1"
-                                 data-mode="1">1Player</button>
-                             <button type="button" class="btn btn-outline-success ModeSuit mb-2 btn2"
-                                 data-mode="2">2Player</button>
-                         </div>
-                     </div>
-                     <!-- notice  -->
-                     <div class="alert alert-info mt-2" role="alert">
-                         <span class="mb-0">
-                             <i class="fas fa-lightbulb" aria-hidden="true"></i>
-                             <span class="font-weight-bold">Tip :</span>
-                             <span class="d-block">1Player = Human VS Comp.</span>
-                             <span>2Player = Human VS Human.</span>
-                         </span>
-                     </div>
-                 </div>
-
-                 <!-- permainan dimulai , berdasarkan mode game yg dipilih! -->
+                 <!-- gameplay -->
                  <div class="gameplay mb-0">
 
-                     <ol class="breadcrumb">
-                         <li class="breadcrumb-item">
-                             <a href="../" class="quit"> <i class="fas fa-home fa-fw"></i> Home</a>
-                         </li>
-                         <li class="breadcrumb-item">
-                             <a href="" class="change-suit-mode">Suit Mode</a>
-                         </li>
-                         <li class="breadcrumb-item active">
-                             <span></span>
-                         </li>
-                     </ol>
-
-                     <!-- skoring -->
-                     <div class="row text-center">
-                         <div class="col-lg col-md col-sm">
-                             <div class="alert alert-primary" role="alert">
-                                 <h6 class="alertTitle">Player's Points</h6>
-                                 <h5 class="player-score">
-                                     <!-- score player -->
-                                     0
-                                 </h5>
-                             </div>
-                         </div>
-                         <div class="col-lg-6 col-md-6 col-sm-6">
-                             <div class="alert alert-secondary" role="alert">
-                                 <h6 class="alertTitle">Comp's Points</h6>
-                                 <h5 class="comp-score">
-                                     <!-- score comp -->
-                                     0
-                                 </h5>
-                             </div>
-                         </div>
-                     </div>
-
-                     <!-- kotak suit & pegumuman winner -->
-                     <div class="card p-2 text-center">
+                     <!-- suit -->
+                     <div class="text-center">
 
                          <!-- Comp Suit -->
-                         <div class="comp p-2">
-                             <div class="til">
-                                 <p class="text-center mb-0 noticeGame">
-                                     <i class="fas fa-robot fa-fw"></i>
-                                     Comp
-                                 </p>
-                             </div>
-                             <div class="tombolSuit mt-2 btn-group text-center">
-                                 <a href="#computer" class="suitcomp">
-                                     <img src="../img/game1/batu.png" alt="Suit Batu" class="img-fluid rounded-circle">
-                                 </a>
-                                 <a href="#computer" class="suitcomp">
-                                     <img src="../img/game1/gunting.png" alt="Suit Gunting"
-                                         class="img-fluid rounded-circle">
-                                 </a>
-                                 <a href="#computer" class="suitcomp">
-                                     <img src="../img/game1/kertas.png" alt="Suit Kertas"
-                                         class="img-fluid rounded-circle">
-                                 </a>
+                         <div class="comp p-3">
+
+                             <i class="fas fa-robot fa-2x fa-fw"></i>
+                             <p class="mb-0 noticeGame">
+                                 <span class="lead">Comp</span>
+                             </p>
+                             <hr>
+                             <div class="tombolSuit comp-suit mt-2 btn-group">
+                                 <div class="alert alert-info" role="alert">
+                                     <strong>Pilih Suit Anda!!</strong>
+                                 </div>
                              </div>
                          </div>
-
-                         <hr class="mx-auto">
 
                          <!-- Player Suit -->
-                         <div class="player p-2">
-                             <div class="tombolSuit btn-group text-center">
-                                 <a href="#player" data-suit="batu" class="suitplayer">
-                                     <img src="../img/game1/batu.png" alt="Suit Batu" class="img-fluid rounded-circle">
+                         <div class="player p-3">
+                             <div class="tombolSuit btn-group">
+                                 <a href="javascript:void(0)" data-suit="batu" class="suitplayer">
+                                     <img src="./img/game1/batu.png" alt="Suit Batu" class="img-fluid">
                                  </a>
-                                 <a href="#player" data-suit="gunting" class="suitplayer">
-                                     <img src="../img/game1/gunting.png" alt="Suit Gunting"
-                                         class="img-fluid rounded-circle">
+                                 <a href="javascript:void(0)" data-suit="gunting" class="suitplayer">
+                                     <img src="./img/game1/gunting.png" alt="Suit Gunting" class="img-fluid">
                                  </a>
-                                 <a href="#player" data-suit="kertas" class="suitplayer">
-                                     <img src="../img/game1/kertas.png" alt="Suit Kertas"
-                                         class="img-fluid rounded-circle">
+                                 <a href="javascript:void(0)" data-suit="kertas" class="suitplayer">
+                                     <img src="./img/game1/kertas.png" alt="Suit Kertas" class="img-fluid">
                                  </a>
                              </div>
-                             <div class="til">
-                                 <p class="text-center mb-0 noticeGame">
-                                     <i class="fa fa-user-circle fa-fw" aria-hidden="true"></i>
-                                     <span class="playername"></span>
-                                 </p>
-                             </div>
+                             <hr>
+                             <div>
+                                 <i class="far fa-user-circle fa-fw fa-2x" aria-hidden="true"></i>
+                                 <p class="playerInfo mb-0 lead">Dharma</p>
+                            </div>
+                            <a href="" class="btn btn-outline-primary play-again mt-2 mb-0 d-none btn-sm btn-block">
+                                <i class="fa fa-undo fa-fw" aria-hidden="true"></i> Main Lagi
+                            </a>
                          </div>
-
-                         <button type="button" class="btn btn-success mt-2 btn-block reward3">
-                             Claim Reward!
-                         </button>
-
-                         <a href="" class="mt-3 playagain">
-                             <i class="fas fa-undo-alt fa-fw"></i>
-                             Main Lagi
-                         </a>
-
 
                      </div>
                      <!-- end of kotak suit -->
-
-                     <!-- notice  -->
-                     <div class="alert alert-info mt-2 mb-0" role="alert">
-                         <span class="mb-0">
-                             <i class="fas fa-lightbulb" aria-hidden="true"></i>
-                             <span class="font-weight-bold">Tip :</span>
-                             <span>Jangan Mengklik gambar suit punya Comp !.</span>
-                         </span>
-                     </div>
 
                  </div>
                  <!-- end of gameplay -->
 
              </div>
+             <!-- end of card-body -->
 
          </div>
-         <!-- end of card-body -->
+         <!-- end of card -->
+
+         <!-- ... other action -->
+         <div class="d-flex justify-content-between btn-other-actions">
+             <a href="javascript:void(0)" class="mt-2 quit btn btn-outline-danger btn-sm">
+                 <i class="fa fa-angle-left" aria-hidden="true"></i> Keluar
+             </a>
+         </div>
 
      </div>
+     <!-- end of col -->
+
  </div>
+ <!-- end of row -->
