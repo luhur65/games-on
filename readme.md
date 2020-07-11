@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # Documentasi
 ### By : Dharma Bakti Situmorang 
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f7016492-78c9-4a11-9c9c-06fa2533951b/deploy-status)](https://app.netlify.com/sites/games-on/deploys)
 
 [Luhur Ertz](https://www.facebook.com/Adiknya.situmorang)
 [@dharma_situmorang](https://www.instagram.com/dharma_situmorang)
