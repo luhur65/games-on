@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Documentasi
 ### By : Dharma Bakti Situmorang 
 
