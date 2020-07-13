@@ -37,7 +37,7 @@ const pageIndex = _ => {
     games.forEach(game => elem.innerHTML += UIrender(game));
 
     const user = Cookies.get('player');
-    $('.user-info').html(`${user}`);
+    $('.user-info').html(user);
 
 }
 

@@ -22,12 +22,12 @@ const games = [{
     {
         "icon": "img/box-icon/box1.png",
         "judul": "Tebak Kotak",
-        "ket": "Permainan Menebak & Memilih Kotak Yang Bagus",
+        "ket": "Permainan menebak & sekaligus Memilih Kotak Yang Bagus",
         "href": "tebak_kotak",
         "tag" : "Tebakan , Kotak"
     },
     {
-        "icon": null,
+        "icon": "img/car-icon/car.jpg",
         "judul": "Balapan Mobil",
         "ket": "Permainan Sederhana Balapan Mobil Yang Seru!",
         "href": "balapan",
