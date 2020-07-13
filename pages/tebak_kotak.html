@@ -1,0 +1,106 @@
+
+    <div class="row">
+        <div class="col-lg-8 p-3 mx-auto py-4">
+
+            <div class="mt-3 d-flex justify-content-start">
+                <img class="mini-icon" src="img/box-icon/box1.png" alt="Icon Game">
+                <div class="ml-3">
+                    <h4 class="h4 lead text-primary font-weight-normal">Tebak Kotak</h4>
+                    <p class="small text-muted">Permainan menebak kotak mana yg bagus & mengumpulkan nya.</p>
+                </div>
+            </div>
+
+            <div class="card mx-auto shadow rounded text-center">
+                <div class="card-body">
+
+                    <div class="alert alert-info text-left" role="alert">
+                        <p class="mb-0">
+                            Lihat <span class="font-weight-bold">
+                                <i class="fa fa-question-circle fa-fw" aria-hidden="true"></i> Cara Bermain
+                            </span> Sebelum memulai permainan supaya kamu paham bermain di permainan ini . Terima Kasih!
+                        </p>
+                    </div>
+
+                    <!-- fitur progress bar -->
+                    <p class="mb-1 text-left mt-2 himbau progress-title">
+                        Progress Saya :
+                    </p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-animated progress-bar-striped bg-primary"
+                            role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0"
+                            aria-valuemax="100">
+                            <span class="text-bar"></span>
+                        </div>
+                    </div>
+
+                    <!-- kotak -->
+                    <div class="card mb-4 mt-3 p-1 info">
+                        <div class="kotak-view mt-0"></div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- ... other action -->
+            <div class="d-flex justify-content-between btn-other-actions">
+                <a href="javascript:void(0)" class="mt-2 quit btn btn-outline-danger btn-sm">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i> Keluar
+                </a>
+                <button type="button" class="btn btn-outline-info mt-2 btn-sm" data-toggle="modal" data-target="#modalInfoGame">
+                    <i class="fa fa-question-circle fa-fw" aria-hidden="true"></i>
+                    Cara Bermain!!
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="modalInfoGame" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary">
+                        Cara Bermain
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    
+                    <p>Berikut Ini Petunjuk Cara Bermain , antara lain:</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            1. Pertama , Kamu menebak salah satu kotak dibagian bawah setelah <span class="badge badge-info">
+                                progress saya
+                            </span>.
+                            <div class="card mt-2">
+                                <img class="img-fluid" src="./img/box-icon/kotak_click.png" alt="Pilihan Kotak">
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            2. Kedua , Jika tebakan kamu adalah kotak yg bagus maka secara otomatis proggress kamu akan bertambah , jika tidak
+                            proggress kamu tidak akan bertambah melainkan kamu akan kalah di permainan ini .
+                            <div class="card mt-2">
+                                <p class="small mb-1">Jawaban Benar , Progress Meningkat</p>
+                                <img class="img-fluid" src="./img/box-icon/progress.png" alt="Pilihan Kotak">
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            3. Berhati-hati saat memilih kotak bisa jadi kotak yg kamu pilih itu bukan kotak yg bagus ( Kotak Rusak ) .
+                            <div class="card mt-2">
+                                <img class="img-fluid" src="./img/box-icon/salah_kotak.PNG" alt="Pilihan Kotak">
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            4. Jika progress mu telah mencapai 100% itu berarti kamu telah mengumpulkan semua kotak yg bagus dan game telah kamu menangkan
+                            <div class="card mt-2">
+                                <img class="img-fluid" src="./img/box-icon/menang.png" alt="Pilihan Kotak">
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="mt-3">
+                        <button type="button" class="btn btn-outline-danger btn-block" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
