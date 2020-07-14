@@ -1,10 +1,17 @@
 import getNavbar from './navbar.js';
 
-try {
+const TIMEOUT = 3000;
+setTimeout(function () {
 
-    getNavbar();
+    try {
 
-} catch (error) {
+        getNavbar();
 
-    // ... your code here
-}
+    } catch (error) {
+
+        // ... your code here
+        console.warn(error);
+
+    }
+
+}, TIMEOUT);

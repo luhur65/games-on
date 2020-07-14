@@ -14,11 +14,6 @@ body {
     height: 3rem;
 }
 
-.bg-custom-img {
-    background: transparent url(../img/card-bg4.jpg) no-repeat;
-    background-size: cover;
-    background-clip: padding-box;
-}
 
 /* all games - index */
 .card-img {
