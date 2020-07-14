@@ -27,7 +27,7 @@ const games = [{
         "tag" : "Tebakan , Kotak"
     },
     {
-        "icon": "img/car-icon/car.jpg",
+        "icon": "img/car-icon/car.png",
         "judul": "Balapan Mobil",
         "ket": "Permainan Sederhana Balapan Mobil Yang Seru!",
         "href": "balapan",
