@@ -25,13 +25,13 @@ body {
 .tombolSuit {
     display: flex;
     margin: 10px auto;
-} 
+}
 
 .tombolSuit a {
     border-radius: 15rem;
 }
 
-.tombolSuit a img{
+.tombolSuit a img {
     flex: 1;
     width: 6rem;
     height: 6rem;
@@ -74,7 +74,7 @@ body {
 
 .tulisanSoal {
     font-size: 2rem;
-} 
+}
 
 .judulGame {
 
@@ -87,5 +87,25 @@ body {
     .tombolSuit a img {
         width: 3rem;
         height: 3rem;
+    }
+
+    .about-name {
+        font-size: 17px !important;
+    }
+
+    .about-img {
+        width: 6rem;
+        height: 6rem;
+        border: 2px solid rgb(182, 180, 180);
+    }
+
+    .about-img:hover {
+        opacity: 0.8
+    }
+
+    .about-card {
+        padding-bottom: 220px;
+        box-shadow: 1px 1px 5px 0 rgb(158, 157, 157);
+        border-radius: 10px
     }
 }
