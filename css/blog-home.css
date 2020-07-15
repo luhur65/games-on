@@ -24,7 +24,7 @@ body {
 /* Game Suit */
 .tombolSuit {
     display: flex;
-    margin: 10px 10px;
+    margin: 10px auto;
 } 
 
 .tombolSuit a {

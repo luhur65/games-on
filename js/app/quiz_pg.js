@@ -29,7 +29,6 @@ const getResultBySymbol = (symbol, nums = {}) => {
         case '/':
             result = Math.ceil(nums.num1 / nums.num2);
             break;
-
     };
 
     return result;
@@ -50,12 +49,16 @@ const getAttributesMode = (nums = {}) => {
 
 };
 
-const showAndAnswer = (Nums = {}, Answer = {}, mode) => {
+const showAndAnswer = (attr = {
+    mode: undefined,
+    Nums: {},
+    Answer: {},
+}) => {
 
     $('.tulisanSoal').fadeIn().html(`
-        <span class="mr-2">${Nums.num1}</span>
-        <span class="mr-2">${Answer.symbol}</span>
-        <span> ${Nums.num2} </span>
+        <span class="mr-2">${attr.Nums.num1}</span>
+        <span class="mr-2">${attr.Answer.symbol}</span>
+        <span> ${attr.Nums.num2} </span>
     `);
 
     $('.cek-jawaban').removeClass('btn-success');
@@ -71,7 +74,7 @@ const showAndAnswer = (Nums = {}, Answer = {}, mode) => {
 
         const userAnswer = $('#jawaban-user').val();
         if (userAnswer != "") {
-            if (parseInt(userAnswer) === Answer.result) {
+            if (parseInt(userAnswer) === attr.Answer.result) {
                 Swal.fire({
                     icon: 'success',
                     title: 'Benar',
@@ -83,7 +86,7 @@ const showAndAnswer = (Nums = {}, Answer = {}, mode) => {
                     // progress(skor, mode);
 
                     // ... mainkan lagi berdasarkan mode game nya
-                    playModeGame(mode);
+                    playModeGame(attr.mode);
 
                 });
 
@@ -110,37 +113,21 @@ const showAndAnswer = (Nums = {}, Answer = {}, mode) => {
 
 }
 
-const easyLvL = _ => {
-    const MAX_NUM = 10;
-    const MIN_NUM = 5;
+const setModeLvl = (mode, arg = {
+    max: undefined,
+    min: undefined
+}) => {
+
+    const MAX_NUM = arg.max;
+    const MIN_NUM = arg.min;
     const Nums = nums_random(MAX_NUM, MIN_NUM);
     const Answer = getAttributesMode(Nums);
 
-    showAndAnswer(Nums, Answer, 'easy');
-
-    console.log(Answer);
-
-};
-
-const normalLvL = _ => {
-    const MAX_NUM = 20;
-    const MIN_NUM = 10;
-    const Nums = nums_random(MAX_NUM, MIN_NUM);
-    const Answer = getAttributesMode(Nums);
-
-    showAndAnswer(Nums, Answer, 'normal');
-
-    console.log(Answer);
-
-};
-
-const hardLvL = _ => {
-    const MAX_NUM = 30;
-    const MIN_NUM = 15;
-    const Nums = nums_random(MAX_NUM, MIN_NUM);
-    const Answer = getAttributesMode(Nums);
-
-    showAndAnswer(Nums, Answer, 'hard');
+    showAndAnswer({
+        mode: mode,
+        Nums: Nums,
+        Answer: Answer
+    });
 
     console.log(Answer);
 
@@ -157,13 +144,22 @@ const playModeGame = mode => {
     changeUI();
     switch (mode) {
         case 'easy':
-            easyLvL();
+            setModeLvl(mode, {
+                max: 10,
+                min: 5
+            });
             break;
         case 'normal':
-            normalLvL();
+            setModeLvl(mode, {
+                max: 20,
+                min: 10
+            });
             break;
         case 'hard':
-            hardLvL();
+            setModeLvl(mode, {
+                max: 30,
+                min: 15
+            });
             break;
 
         default:
@@ -178,38 +174,33 @@ const quitSwal = _ => Swal.fire({
     showConfirmButton: false,
     timer: 800
 }).then(_ => {
-    document.location.href = './index.html';
+    document.location.href = './';
 
 });
 
 const QuizGame = _ => {
     // jika sudah ada cookiesnya
     const mode = Cookies.get('mode-quiz');
-    if (mode != undefined) playModeGame(mode);
-
     const GAME = 'kuis-matematika';
-    CookiesPlayer(GAME);
+    (mode != undefined) ? playModeGame(mode) : CookiesPlayer(GAME);
 
     const user = Cookies.get('player');
-    $('.user-info').html(`
-        <span class="badge badge-light lead text-dark">
-            <i class="far fa-user-circle" aria-hidden="true"></i> 
-            ${user}
-        </span>`);
+    if (user != undefined) {
+        $('.user-info').html(`
+            <span class="badge badge-light lead text-dark">
+                <i class="far fa-user-circle" aria-hidden="true"></i> 
+                ${user}
+            </span>
+        `);
+    }
 
     const buttonKategories = DOMInit('button-kategori');
     buttonKategories.forEach(function (buttonKategori) {
-
         buttonKategori.addEventListener('click', function () {
-
             const mode = this.dataset.mode;
-
             Cookies.set('mode-quiz', mode);
-
             playModeGame(mode);
-
         });
-
     });
 
     $('.changeQuiz').on('click', function () {

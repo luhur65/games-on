@@ -8,6 +8,7 @@ const showImg = who => {
     img.src = `./img/game1/${who}.png`;
     img.style.width = '5rem';
     img.style.height = '5rem';
+    img.style.margin = 'auto';
 
     return img;
 
