@@ -3,6 +3,7 @@ import QuizGame from '../app/quiz_pg.js';
 import TebakAngka from '../app/tebak-angka_pg.js';
 import SuitGame from '../app/suit_pg.js';
 import TebakKotakGame from '../app/tebak_kotak_pg.js';
+import BalapanGame from '../app/balapan_pg.js';
 
 const LoaderPage = page => {
 
@@ -26,6 +27,10 @@ const LoaderPage = page => {
 
         case 'tebak_kotak':
             TebakKotakGame();
+            break
+        
+        case 'balapan':
+            BalapanGame();
             break
 
         default:
