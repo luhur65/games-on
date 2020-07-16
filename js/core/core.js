@@ -7,35 +7,41 @@ import BalapanGame from '../app/balapan_pg.js';
 
 const LoaderPage = page => {
 
-    // routing page 
-    switch (page) {
-        case 'home':
-            pageIndex();
-            break;
+    try {
+        // routing page 
+        switch (page) {
+            case 'home':
+                pageIndex();
+                break;
 
-        case 'quiz':
-            QuizGame();
-            break
+            case 'quiz':
+                QuizGame();
+                break
 
-        case 'tebak_angka':
-            TebakAngka();
-            break
+            case 'tebak_angka':
+                TebakAngka();
+                break
 
-        case 'suit':
-            SuitGame();
-            break
+            case 'suit':
+                SuitGame();
+                break
 
-        case 'tebak_kotak':
-            TebakKotakGame();
-            break
+            case 'tebak_kotak':
+                TebakKotakGame();
+                break
+
+            case 'balapan':
+                BalapanGame();
+                break
+
+            default:
+                pageIndex();
+                break;
+        }
         
-        case 'balapan':
-            BalapanGame();
-            break
-
-        default:
-            pageIndex();
-            break;
+    } catch (error) {
+        
+        // ...tangkap seluruh error
     }
     
 }
