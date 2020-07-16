@@ -1,17 +1,9 @@
 import getNavbar from './navbar.js';
 
-const TIMEOUT = 3000;
+// set timeout untuk memunculkan content halaman
+// 1 Detik = 1000;
+const TIMEOUT = 0;
+
 setTimeout(function () {
-
-    try {
-
-        getNavbar();
-
-    } catch (error) {
-
-        // ... your code here
-        console.warn(error);
-
-    }
-
+    getNavbar();
 }, TIMEOUT);
