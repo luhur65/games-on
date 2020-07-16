@@ -104,7 +104,6 @@ body {
     }
 
     .about-card {
-        padding-bottom: 220px;
         box-shadow: 1px 1px 5px 0 rgb(158, 157, 157);
         border-radius: 10px
     }
