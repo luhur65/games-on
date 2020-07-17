@@ -1,3 +1,5 @@
+import CookiesPlayer from "../core/cookies.js";
+
 const Random = _ => Math.floor(Math.random() * 3);
 
 const Comp = suit => suit[Random()];
@@ -75,6 +77,16 @@ function playGame() {
 }
 
 function SuitGame() {
+
+    try {
+
+        const game = 'suit-game';
+        CookiesPlayer(game);
+
+        const playerName = Cookies.get('player');
+        $('.playerInfo').html(playerName);
+
+    } catch (error) {}
 
     // ... initialization
     playGame();

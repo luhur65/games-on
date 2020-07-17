@@ -1,12 +1,8 @@
 const CookiesPlayer = (game = false) => {
 
     if (game) {
-        const gamePlayed = Cookies.get('game');
 
-        if (gamePlayed == undefined) {
-
-            Cookies.set('game', game);
-        }
+        Cookies.set('game', game);
 
     } else {
 

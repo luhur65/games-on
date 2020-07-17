@@ -1,3 +1,5 @@
+import CookiesPlayer from "../core/cookies.js";
+
 const randBoxes = arrayLenght => Math.ceil(Math.random() * arrayLenght);
 
 const renderBox = _ => {
@@ -132,6 +134,10 @@ const playGame = function () {
 }
 
 const TebakKotakGame = () => {
+
+    const game = 'tebak-kotak';
+    CookiesPlayer(game);
+
     // ... initialization
     playGame();
 

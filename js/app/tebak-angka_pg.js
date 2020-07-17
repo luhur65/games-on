@@ -1,3 +1,5 @@
+import CookiesPlayer from "../core/cookies.js";
+
 let life = 3;
 
 const getRandomNum = _ => Math.ceil(Math.random() * 10);
@@ -117,7 +119,12 @@ const playGame = function () {
     });
 }
 const TebakAngka = _ => {
+
+    const game = 'tebak-angka';
+    CookiesPlayer(game);
+
     playGame();
+
     $('.quit').on('click', function (e) {
         e.preventDefault();
         Swal.fire({
