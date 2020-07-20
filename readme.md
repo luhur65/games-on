@@ -47,6 +47,10 @@ Popper Sebagai Dependeci nya Bootstrap
 [Bootstrap v4.3.1](https://getbootstrap.com/)
 Bootstrap Sebagai Framework CSS -nya.
 
+#### Fitur 
+1. Menggunakan PWA.
+2. Tersedia Offline
+
 #### Daftar Game
 **Berikut Ini Ada 5 Daftar game yg ada di Web Ini**
 * Game Kuis Matematika Sederhana,
